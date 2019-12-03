@@ -32,12 +32,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../architecture-last/src/Routing.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/HomeThreeColumns" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/HomeThreeColumns" />
       <recent name="$PROJECT_DIR$/src/components/HomeHeader" />
     </key>
   </component>
