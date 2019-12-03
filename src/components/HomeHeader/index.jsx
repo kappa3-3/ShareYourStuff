@@ -1,24 +1,26 @@
 import React, {Component} from "react";
 import './style.scss';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll'
+
 class HomeHeader extends Component {
     render() {
         return (
-            <div className='header-container'>
+            <div id='header-container'>
                 <div className='header-img' />
                 <div className='header-content'>
                     <div className='header-nav'>
                         <div className='header-nav-account'>
-                            <Link to="/signIn" className='header-nav-account-link'>Sign In</Link>
-                            <Link to="/signIn" className='header-nav-account-link'>Create Account</Link>
+                            <NavLink to="/SignIn" className='header-nav-account-link'>Sign In</NavLink>
+                            <NavLink to="/CreateAccount" className='header-nav-account-link'>Create Account</NavLink>
                         </div>
                         <ul className='header-nav-sub-pages'>
-                            <Link to={'HomeHeader'} className='header-nav-sub-pages-link'>Start</Link>
-                            <Link to={'HomeThreeColumns'} className='header-nav-sub-pages-link'>Idea</Link>
-                            <Link to={'HomeAbout'} className='header-nav-sub-pages-link'>About us</Link>
-                            <Link to={'HomeSupport'} className='header-nav-sub-pages-link'>Support</Link>
-                            <Link to={'HomeContact'} className='header-nav-sub-pages-link'>Contact</Link>
+                            <Link to={'header-container'} className='header-nav-sub-pages-link'>Start</Link>
+                            <Link to={'three-columns-container'} className='header-nav-sub-pages-link'>Idea</Link>
+                            <Link to={'about-container'} className='header-nav-sub-pages-link'>About us</Link>
+                            <Link to={'support-container'} className='header-nav-sub-pages-link'>Support</Link>
+                            <Link to={'contact-container'} className='header-nav-sub-pages-link'>Contact</Link>
                         </ul>
                     </div>
                     <div className='header-guide'>

@@ -3,6 +3,6 @@
 @import "./settings/_fonts";
 
 body {
-  font: 100% "Open Sans", sans-serif;
+  font: $font-base;
   color: $dark-grey;
 }

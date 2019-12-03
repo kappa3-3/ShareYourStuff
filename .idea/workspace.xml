@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d5435e2a-87c0-4cd1-9fc6-8df4836e8fd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/settings/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_fonts.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../architecture-last" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../architecture-last/src/Routing.js" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
@@ -74,10 +76,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="535" y="323" width="906" height="459" key="EditFileWatcherDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575366612902" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575371817141">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575391629691">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1575371817141" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1575391629691" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1575366609908">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
