@@ -5,6 +5,7 @@
   "dependencies": {
     "easy-peasy": "^3.2.3",
     "node-sass": "^4.13.0",
+    "node.normalize.scss": "^3.0.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-easy-state": "^6.1.3",
