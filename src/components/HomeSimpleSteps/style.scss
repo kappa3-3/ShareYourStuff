@@ -1,0 +1,54 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#simple-steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  h1 {
+    @include text-above-decoration;
+  }
+}
+
+.simple-steps {
+  margin-top: 40px;
+  background-color: $basic-grey;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.single-step {
+  width: 200px;
+  padding: 25px;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  h4 {
+    font-weight: 300;
+  }
+  hr {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid $dark-grey;
+    margin: 0;
+    width: 50px;
+  }
+}
+.give-away {
+  @include give-away;
+  margin-bottom: 35px;
+}

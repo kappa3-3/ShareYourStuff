@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import './style.scss';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-scroll'
+import { Link } from 'react-scroll';
+import { navigationData } from "../../commons/navigationData"
 
 class HomeHeader extends Component {
     render() {
@@ -16,11 +17,11 @@ class HomeHeader extends Component {
                             <NavLink to="/CreateAccount" className='header-nav-account-link'>Create Account</NavLink>
                         </div>
                         <ul className='header-nav-sub-pages'>
-                            <Link to={'header-container'} className='header-nav-sub-pages-link'>Start</Link>
-                            <Link to={'three-columns-container'} className='header-nav-sub-pages-link'>Idea</Link>
-                            <Link to={'about-container'} className='header-nav-sub-pages-link'>About us</Link>
-                            <Link to={'support-container'} className='header-nav-sub-pages-link'>Support</Link>
-                            <Link to={'contact-container'} className='header-nav-sub-pages-link'>Contact</Link>
+                            {navigationData.map(item => (
+                                <li>
+                                    <Link to={item.to} className='header-nav-sub-pages-link'>{item.title}</Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className='header-guide'>

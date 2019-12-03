@@ -45,6 +45,7 @@ ul {
   padding: 8px;
   margin: 0 0 0 15px;
   font-size: 14px;
+  border: 1px solid transparent;
 
   &:hover {
     @include header-nav-border;
@@ -63,6 +64,7 @@ ul {
   padding: 10px;
   margin-left: 25px;
   font-size: 17px;
+  border: 1px solid transparent;
 
   &:hover {
     @include header-nav-sub-pages;
@@ -78,27 +80,11 @@ ul {
   margin-right: 50px;
 
   h1 {
-    font-size: 30px;
-    margin: 0 0 20px 0;
-    padding: 5px;
-    text-align: center;
-    font-weight: normal;
+    @include text-above-decoration;
   }
 }
 
 .header-guide-options {
   display: flex;
-
-  p {
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 300;
-    font-size: 35px;
-    margin: 65px 15px 0 15px;
-    padding: 10px;
-    height: 100px;
-    width: 300px;
-    @include header-nav-sub-pages
-  }
-
+  @include give-away;
 }
