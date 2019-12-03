@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-content: space-between;
 }
+
 .header-img {
   display: flex;
   padding: 0;
@@ -18,6 +19,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -25,41 +27,48 @@
   flex-direction: column;
 
 }
+
 ul {
   list-style: none;
 }
+
 .header-nav-account {
   display: flex;
   justify-content: flex-end;
   margin: 50px 40px 0 0;
-  li {
-    a {
-      height: 30px;
-      padding: 5px;
-      margin-left: 15px;
-      font-size: 13px;
-      &:hover {
-        @include header-nav-border;
-      }
-    }
-  }
-
 }
+
+.header-nav-account-link {
+  text-decoration: none;
+  color: $light-grey;
+  height: 30px;
+  padding: 5px 5px 0 5px;
+  margin: 0 0 0 15px;
+  font-size: 13px;
+
+  &:hover {
+    @include header-nav-border;
+  }
+}
+
 .header-nav-sub-pages {
   display: flex;
   margin: 30px 40px 0 0;
-  li {
-    a {
-      height: 40px;
-      padding: 10px;
-      margin-left: 25px;
-      font-size: 17px;
-      &:hover {
-        @include header-nav-sub-pages;
-      }
-    }
+}
+
+.header-nav-sub-pages-link {
+  text-decoration: none;
+  color: $dark-grey;
+  height: 40px;
+  padding: 10px;
+  margin-left: 25px;
+  font-size: 17px;
+
+  &:hover {
+    @include header-nav-sub-pages;
   }
 }
+
 .header-guide {
   display: flex;
   justify-content: flex-start;
@@ -67,6 +76,7 @@ ul {
   flex-direction: column;
   height: 60vh;
   margin-right: 50px;
+
   h1 {
     font-size: 30px;
     margin: 0 0 20px 0;
@@ -75,8 +85,10 @@ ul {
     font-weight: normal;
   }
 }
+
 .header-guide-options {
   display: flex;
+
   p {
     text-align: center;
     font-weight: 300;

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './style.scss';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
+import { Link } from 'react-router-dom';
 class HomeHeader extends Component {
     render() {
         return (
@@ -8,16 +9,16 @@ class HomeHeader extends Component {
                 <div className='header-img' />
                 <div className='header-content'>
                     <div className='header-nav'>
-                        <ul className='header-nav-account'>
-                            <li><a> Sign In </a></li>
-                            <li><a>Create Account</a></li>
-                        </ul>
+                        <div className='header-nav-account'>
+                            <Link to="/signIn" className='header-nav-account-link'>Sign In</Link>
+                            <Link to="/signIn" className='header-nav-account-link'>Create Account</Link>
+                        </div>
                         <ul className='header-nav-sub-pages'>
-                            <li><a>Start</a></li>
-                            <li><a>Idea</a></li>
-                            <li><a>About us</a></li>
-                            <li><a>Support</a></li>
-                            <li><a>Contact</a></li>
+                            <Link to={'HomeHeader'} className='header-nav-sub-pages-link'>Start</Link>
+                            <Link to={'HomeThreeColumns'} className='header-nav-sub-pages-link'>Idea</Link>
+                            <Link to={'HomeAbout'} className='header-nav-sub-pages-link'>About us</Link>
+                            <Link to={'HomeSupport'} className='header-nav-sub-pages-link'>Support</Link>
+                            <Link to={'HomeContact'} className='header-nav-sub-pages-link'>Contact</Link>
                         </ul>
                     </div>
                     <div className='header-guide'>
