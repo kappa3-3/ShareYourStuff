@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5435e2a-87c0-4cd1-9fc6-8df4836e8fd6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Routing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeHeader/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HomeThreeColumns/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HomeThreeColumns/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +35,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../architecture-last/src/Routing.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/HomeThreeColumns" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/HomeThreeColumns" />
       <recent name="$PROJECT_DIR$/src/components/HomeHeader" />
     </key>
   </component>
