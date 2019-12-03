@@ -1,34 +1,9 @@
-$font-base: (
-        'https://fonts.googleapis.com/css?family=Open+Sans&display=swap':  (
-                name: 'Open Sans',
-                weight: normal,
-                style: sans-serif,
-        ),
-        'https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap':  (
-                name: 'Open Sans',
-                weight: bold,
-                style: sans-serif,
-        ),
-        'https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap':  (
-                name: 'Open Sans',
-                weight: light,
-                style: sans-serif,
-        ),
-);
-$font-alt: (
-        'https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet':  (
-                name: 'Merrriweather',
-                weight: normal,
-                style: serif,
-        ),
-        'https://fonts.googleapis.com/css?family=Merriweather:700&display=swap':  (
-                name: 'Merrriweather',
-                weight: bold,
-                style: serif,
-        ),
-        'link href="https://fonts.googleapis.com/css?family=Merriweather:300&display=swap':  (
-                name: 'Merrriweather',
-                weight: light,
-                style: serif,
-        ),
-);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&display=swap&subset=latin-ext');
+
+$font-base {
+        font-family: 'Open Sans', sans-serif;
+}
+$font-alt {
+
+}
+
