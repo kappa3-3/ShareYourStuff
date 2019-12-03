@@ -1,0 +1,102 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.header-img {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 50%;
+  background-image: url("../../assets/images/Home-Hero-Image.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+
+}
+
+ul {
+  list-style: none;
+}
+
+.header-nav-account {
+  display: flex;
+  justify-content: flex-end;
+  margin: 50px 40px 0 0;
+}
+
+.header-nav-account-link {
+  text-decoration: none;
+  color: $light-grey;
+  height: 30px;
+  padding: 5px 5px 0 5px;
+  margin: 0 0 0 15px;
+  font-size: 13px;
+
+  &:hover {
+    @include header-nav-border;
+  }
+}
+
+.header-nav-sub-pages {
+  display: flex;
+  margin: 30px 40px 0 0;
+}
+
+.header-nav-sub-pages-link {
+  text-decoration: none;
+  color: $dark-grey;
+  height: 40px;
+  padding: 10px;
+  margin-left: 25px;
+  font-size: 17px;
+
+  &:hover {
+    @include header-nav-sub-pages;
+  }
+}
+
+.header-guide {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  margin-right: 50px;
+
+  h1 {
+    font-size: 30px;
+    margin: 0 0 20px 0;
+    padding: 5px;
+    text-align: center;
+    font-weight: normal;
+  }
+}
+
+.header-guide-options {
+  display: flex;
+
+  p {
+    text-align: center;
+    font-weight: 300;
+    font-size: 40px;
+    margin: 65px 5px 0 5px;
+    height: 115px;
+    width: 300px;
+    @include header-nav-sub-pages
+  }
+
+}
