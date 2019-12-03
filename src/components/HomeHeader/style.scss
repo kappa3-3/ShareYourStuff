@@ -2,7 +2,7 @@
 @import "../../scss/settings/_fonts";
 @import "../../scss/settings/_mixins";
 
-.header-container {
+#header-container {
   display: flex;
   justify-content: space-between;
   align-content: space-between;
@@ -41,10 +41,10 @@ ul {
 .header-nav-account-link {
   text-decoration: none;
   color: $light-grey;
-  height: 30px;
-  padding: 5px 5px 0 5px;
+  height: 20px;
+  padding: 8px;
   margin: 0 0 0 15px;
-  font-size: 13px;
+  font-size: 14px;
 
   &:hover {
     @include header-nav-border;
@@ -59,7 +59,7 @@ ul {
 .header-nav-sub-pages-link {
   text-decoration: none;
   color: $dark-grey;
-  height: 40px;
+  height: 20px;
   padding: 10px;
   margin-left: 25px;
   font-size: 17px;
@@ -90,11 +90,13 @@ ul {
   display: flex;
 
   p {
+    text-transform: uppercase;
     text-align: center;
     font-weight: 300;
-    font-size: 40px;
-    margin: 65px 5px 0 5px;
-    height: 115px;
+    font-size: 35px;
+    margin: 65px 15px 0 15px;
+    padding: 10px;
+    height: 100px;
     width: 300px;
     @include header-nav-sub-pages
   }

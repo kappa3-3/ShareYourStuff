@@ -4,7 +4,7 @@ import './style.scss';
 class HomeThreeColumns extends Component {
     render() {
         return (
-            <div className='three-columns-container'>
+            <div id='three-columns-container'>
                 <div className='three-columns'>
                     <h1>10</h1>
                     <h3>Given away bags</h3>
