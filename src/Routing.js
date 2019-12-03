@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 
 import Home from './components/Home'
-import LogIn from './components/LogIn'
-import Register from './components/Register'
+// import LogIn from './components/LogIn'
+// import Register from './components/Register'
 
 export default function Routing() {
 
@@ -17,8 +17,8 @@ export default function Routing() {
                 <Home />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/login" component={LogIn} />
-                    <Route path="/register" component={Register} />
+                    {/*<Route exact path="/login" component={LogIn} />*/}
+                    {/*<Route path="/register" component={Register} />*/}
                 </Switch>
             </div>
         </Router>
