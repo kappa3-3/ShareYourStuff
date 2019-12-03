@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5435e2a-87c0-4cd1-9fc6-8df4836e8fd6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/HomeThreeColumns/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeThreeColumns/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
