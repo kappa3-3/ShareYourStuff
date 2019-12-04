@@ -1,0 +1,44 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  h1 {
+    @include text-above-decoration;
+  }
+}
+.about-img {
+  display: flex;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-image: url("../../assets/images/People.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.about-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  p {
+    display: flex;
+    width: 50%;
+    font-size: 22px;
+    line-height: 42px;
+    text-align: center;
+  }
+  position: relative;
+}
+.about-signage {
+  position: absolute;
+  bottom: -150px;
+  right: 150px;
+}
