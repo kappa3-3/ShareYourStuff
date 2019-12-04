@@ -17,18 +17,18 @@ class HomeForm extends Component {
             <div id='form-container'>
                 <form action="#">
                     <div className='form-info'>
-                        <div className='form-info-details'>
+                        <div className='form-info-details form-name'>
                             <label>First Name</label>
                             <input
                                 type="text"
                                 id="name"
-                                name="firstname"
+                                name="name"
                                 placeholder="type your name"
                                 value={this.state.name}
                                 onChange={e=>this.setState({ name:e.target.value})}
                             />
                         </div>
-                       <div className='form-info-details'>
+                       <div className='form-info-details form-email'>
                            <label>Email</label>
                            <input
                                type="email"
@@ -40,7 +40,7 @@ class HomeForm extends Component {
                            />
                        </div>
                     </div>
-                    <div className='form-text-area'>
+                    <div className='form-info-textarea'>
                         <label>Your message</label>
                         <textarea
                             id="form-text-area"
@@ -54,7 +54,8 @@ class HomeForm extends Component {
                         type="submit"
                         value="Submit"
                         onClick={e=>this.handleFormSubmit(e)}
-                    />
+                    >Send</button>
+
                 </form>
             </div>
         );
