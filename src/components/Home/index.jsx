@@ -10,7 +10,7 @@ import HomeFooter from "../HomeFooter";
 
 const Home = () => {
     return (
-        <>
+        <div className='home-wrapper'>
             <HomeHeader />
             <HomeThreeColumns />
             <HomeSimpleSteps />
@@ -19,7 +19,7 @@ const Home = () => {
             <div className='footer-wrapper'>
                 <HomeFooter />
             </div>
-        </>
+        </div>
     )
 };
 

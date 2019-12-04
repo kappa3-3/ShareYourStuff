@@ -2,9 +2,14 @@
 @import "../../scss/settings/_fonts";
 @import "../../scss/settings/_mixins";
 
+
+.home-wrapper {
+  position: relative;
+}
+
 .footer-wrapper {
   height: 25px;
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 25px;
 }
