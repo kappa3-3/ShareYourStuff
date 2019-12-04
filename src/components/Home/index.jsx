@@ -6,6 +6,7 @@ import HomeThreeColumns from "../HomeThreeColumns"
 import HomeSimpleSteps from "../HomeSimpleSteps"
 import HomeAbout from "../HomeAbout"
 import HomeContact from "../HomeContact";
+import HomeFooter from "../HomeFooter";
 
 const Home = () => {
     return (
@@ -15,6 +16,9 @@ const Home = () => {
             <HomeSimpleSteps />
             <HomeAbout />
             <HomeContact />
+            <div className='footer-wrapper'>
+                <HomeFooter />
+            </div>
         </>
     )
 };

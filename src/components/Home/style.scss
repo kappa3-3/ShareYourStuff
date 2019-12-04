@@ -1,3 +1,10 @@
 @import "../../scss/settings/_colors";
 @import "../../scss/settings/_fonts";
 @import "../../scss/settings/_mixins";
+
+.footer-wrapper {
+  height: 25px;
+  width: 100%;
+  position: fixed;
+  bottom: 25px;
+}

@@ -1,0 +1,25 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#footer-container {
+  position: absolute;
+  width: 100%;
+
+  span {
+    position: absolute;
+    left: 45%;
+  }
+
+  img {
+    position: absolute;
+  }
+
+  img:first-of-type {
+    right: 9%;
+  }
+
+  img:last-child {
+    right: 6%;
+  }
+}
