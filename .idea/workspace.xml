@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b26dbbe-271c-457e-9f45-d55e87866665" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/localfund.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/nongovern.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/nonprofit.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeOrganizationRecord/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeOrganizationRecord/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeSupport/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeSupport/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavBar/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavBar/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commons/URL.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/settings/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeSupport/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeSupport/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeSupport/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeSupport/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

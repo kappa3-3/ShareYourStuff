@@ -2,48 +2,52 @@ import React, {Component} from "react";
 import './style.scss';
 import decoration from '../../assets/icons/Decoration.svg';
 import OrganizationRecord from '../HomeOrganizationRecord'
+import { URL_NONPROFIT, URL_NON_GOV, URL_LOCAL_FUND } from '../../commons/URL'
 
 class HomeSupport extends Component {
 
     state = {
-        type: '',
+        type: 'nonprofit',
         organizations: [],
-        count: '',
-        page: 1
+        pageCount: 0,
+        page: 0
     };
 
-    handleOrganizationType = (e) => this.setState({type: e.target.dataset.opt});
+    handleOrganizationType = (e) => this.setState({type: e.target.dataset.opt, page:0});
 
-    handleFirstPage = () =>this.setState({page:0});
-    handleSecondPage = () =>this.setState({page:4});
-    handleThirdPage = () =>this.setState({page:8});
+    handlePage = (i) => this.setState({page: i});
 
     componentDidMount() {
-        const URL_NONPROFIT = 'http://localhost:3001/nonprofit';
-        fetch(URL_NONPROFIT).then(data => data.json()).then(organizations => this.setState({organizations}));
+        fetch(URL_NONPROFIT).then(data => data.json()).then(organizations => this.setState({organizations},
+            () =>  this.setState({pageCount:Math.ceil(this.state.organizations.length / 3)})));
+
     }
 
     componentDidUpdate(prevProps, prevState) {
+
+
         if (this.state.type === 'nonprofit' && prevState.type !== this.state.type) {
-            const URL_NONPROFIT = 'http://localhost:3001/nonprofit';
-            fetch(URL_NONPROFIT).then(data => data.json()).then(organizations => this.setState({organizations}));
+
+            fetch(URL_NONPROFIT).then(data => data.json()).then(organizations => this.setState({organizations},
+                () =>  this.setState({pageCount:Math.ceil(this.state.organizations.length / 3)})));
         } else if (this.state.type === 'non-gov' && prevState.type !== this.state.type) {
-                const URL_NON_GOV = 'http://localhost:3002/nongovernmental';
+
                 fetch(URL_NON_GOV)
-                    .then(data => data.json())
-                    .then(organizations => this.setState({organizations}));
+                    .then(data => data.json()).then(organizations => this.setState({organizations},
+                        () =>  this.setState({pageCount:Math.ceil(this.state.organizations.length / 3)})));
         }else if (this.state.type === 'local-fund' && prevState.type !== this.state.type) {
-            const URL_LOCAL_FUND = 'http://localhost:3003/local-fund-raisers';
+
             fetch(URL_LOCAL_FUND)
-                .then(data => data.json())
-                .then(organizations => this.setState({organizations}));
+                .then(data => data.json()).then(organizations => this.setState({organizations},
+                () =>  this.setState({pageCount:Math.ceil(this.state.organizations.length / 3)})));
         }
     };
 
     render() {
         const { type, organizations, page } = this.state;
-
-        const records = organizations.slice(page, page + 3).map(record => {
+        const indexStart = 3*(page+1)-3;
+        const indexEnd = 3*(page+1);
+        const records = organizations.slice( indexStart, indexEnd ).map(record => {
 
             return(
                 <>
@@ -56,6 +60,18 @@ class HomeSupport extends Component {
                 </>
             )
         });
+
+        const pages = () => {
+            const { pageCount,page } = this.state;
+            if ( pageCount !== 1 ) {
+                return [...Array(pageCount).fill(1)].map((item, i) => <a
+                    onClick={()=>this.handlePage(i)}
+                    key={i}
+                    className={page === i ? 'active-page' : ''}
+                >{i+1}</a>);
+            }
+
+        };
         return (
             <div id='support-container'>
                 <span className='support-title'>Who are we supporting?</span>
@@ -90,9 +106,7 @@ class HomeSupport extends Component {
                     { records }
                 </div>
                 <div className='support-pages'>
-                    <a onClick={this.handleFirstPage}>1</a>
-                    <a onClick={this.handleSecondPage}>2</a>
-                    <a onClick={this.handleThirdPage}>3</a>
+                    { pages() }
                 </div>
             </div>
         );

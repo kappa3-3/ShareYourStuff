@@ -28,16 +28,20 @@
   span {
     @include organization-types;
     border: 1px solid transparent;
+
     &:hover {
-      box-shadow:  0 3px 3px -3px #3C3C3C;
+      box-shadow: 0 3px 3px -3px #3C3C3C;
     }
   }
 }
+
 .active {
   @include header-nav-sub-pages
 }
 
 .support-pages {
+  margin-top: 35px;
+
   a {
     border: 1px solid transparent;
     text-align: center;
@@ -45,12 +49,19 @@
     margin: 2px;
 
     &:hover {
-      @include header-nav-sub-pages
-    }
-
-    &:active {
       font-weight: bold;
+      cursor: pointer;
     }
   }
+}
 
+.active-page {
+  @include header-nav-sub-pages
+}
+
+.organization-list-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 320px;
 }
