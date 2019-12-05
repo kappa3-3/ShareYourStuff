@@ -1,0 +1,23 @@
+{
+  "local-fund-raisers": [
+
+    {
+      "id": 1,
+      "name":"Local Fund-raiser 1" ,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "status": "lorem ipsum"
+    },
+    {
+      "id": 2,
+      "name":"Local Fund-raiser Organization 2" ,
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "status": "dolor sit amet"
+    },
+    {
+      "id": 3,
+      "name":"Local Fund-raiser Organization 3" ,
+      "description": "Sed posuere urna nec tincidunt praesent semper feugiat nibh.",
+      "status": "lacus sed viverra tellus"
+    }
+  ]
+}

@@ -6,9 +6,10 @@
 }
 
 @mixin header-nav-sub-pages {
-  border: 1px solid $dark-grey;
+  border: 1px solid $dark-grey !important;
   cursor: pointer;
 }
+
 @mixin give-away {
   p {
     text-transform: uppercase;
@@ -22,10 +23,42 @@
     @include header-nav-sub-pages
   }
 }
+
 @mixin text-above-decoration {
   font-size: 30px;
   margin: 0 0 20px 0;
   padding: 5px;
   text-align: center;
   font-weight: normal;
+}
+
+@mixin organization-types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    margin: 35px 15px 0 15px;
+    padding: 5px;
+    height: 80px;
+    width: 210px;
+
+}
+
+@mixin organization {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+
+  h1 {
+    font-weight: normal;
+    font-size: 20px;
+    margin: 0;
+  }
+  span {
+    font-size: 15px;
+    font-weight: 100;
+    margin: 0;
+  }
 }

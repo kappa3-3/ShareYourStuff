@@ -1,0 +1,18 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+.organization-list-item {
+  width: 75vw;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 3px 3px -3px $dark-grey;
+  h5 {
+    font-size: 13px;
+    font-weight: 100;
+    margin:0 0 0 auto;
+  }
+}
+.organization-list-item-title {
+  @include organization;
+}
