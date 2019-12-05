@@ -1,0 +1,56 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#support-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 0 50px 0;
+
+  p {
+    width: 400px;
+    margin: 45px;
+    font-style: italic;
+    text-align: center;
+  }
+}
+
+.support-title {
+  @include text-above-decoration;
+}
+
+.support-types-wrapper {
+  display: flex;
+  cursor: pointer;
+
+  span {
+    @include organization-types;
+    border: 1px solid transparent;
+    &:hover {
+      box-shadow:  0 3px 3px -3px #3C3C3C;
+    }
+  }
+}
+.active {
+  @include header-nav-sub-pages
+}
+
+.support-pages {
+  a {
+    border: 1px solid transparent;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 2px;
+
+    &:hover {
+      @include header-nav-sub-pages
+    }
+
+    &:active {
+      font-weight: bold;
+    }
+  }
+
+}
