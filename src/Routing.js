@@ -5,20 +5,20 @@ import {
     Route
 } from "react-router-dom";
 
-import Home from './components/Home'
-// import LogIn from './components/LogIn'
-// import Register from './components/Register'
+import Home from './pages/Home'
+import Account from './pages/SignIn'
+import CreateAccount from "./pages/CreateAccount";
+import SignIn from "./pages/SignIn";
 
 export default function Routing() {
 
     return (
         <Router>
             <div>
-                <Home />
+                <Route exact path="/" component={ Home } />
                 <Switch>
-                    {/*<Route exact path="/" component={Home} />*/}
-                    {/*<Route exact path="/login" component={LogIn} />*/}
-                    {/*<Route path="/register" component={Register} />*/}
+                    <Route path="/login" component={ SignIn } />
+                    <Route path="/register" component={ CreateAccount } />
                 </Switch>
             </div>
         </Router>

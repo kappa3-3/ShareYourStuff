@@ -28,20 +28,7 @@
   display: flex;
   flex-direction: column;
   width: 45%;
-  label {
-    margin-top: 15px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 100%
-  }
-  input {
-    border: none;
-    border-bottom: 1px solid $dark-grey;
-    font-size: 18px;
-    font-weight: 100;
-    outline: none;
-    box-shadow: none;
-  }
+  @include form-items;
 }
 .form-name {
   margin-right: auto;
