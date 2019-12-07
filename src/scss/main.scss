@@ -1,3 +1,8 @@
 @import '~node.normalize.scss';
 @import "./settings/_colors";
 @import "./settings/_fonts";
+
+body {
+  font: $font-base;
+  color: $dark-grey;
+}

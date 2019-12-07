@@ -1,0 +1,41 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  h1 {
+    @include text-above-decoration;
+  }
+}
+.contact-img {
+  display: flex;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-image: url("../../assets/images/Background-Contact-Form.jpg");
+  background-position: initial;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+}
+.contact-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 0.65;
+  p {
+    display: flex;
+    width: 50%;
+    font-size: 22px;
+    line-height: 42px;
+    text-align: center;
+  }
+  position: relative;
+}

@@ -1,0 +1,52 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.header-img {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 50%;
+  background-image: url("../../assets/images/Home-Hero-Image.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+
+}
+
+ul {
+  list-style: none;
+}
+
+
+.header-guide {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  margin-right: 50px;
+
+  h1 {
+    @include text-above-decoration;
+  }
+}
+
+.header-guide-options {
+  display: flex;
+  @include give-away;
+}

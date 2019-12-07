@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5435e2a-87c0-4cd1-9fc6-8df4836e8fd6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Routing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomeHeader/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+    <list default="true" id="9b26dbbe-271c-457e-9f45-d55e87866665" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/commons/URL.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeSupport/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeSupport/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeSupport/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeSupport/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UR63KYBo03jPn0lcQ7Y0crtigo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,13 +34,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../architecture-last/src/Routing.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../architecture-last/src/Components/Globe/index.jsx" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/HomeHeader" />
+      <recent name="$PROJECT_DIR$/server" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -68,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575306859450</updated>
       <workItem from="1575306860560" duration="349000" />
-      <workItem from="1575361309271" duration="6059000" />
+      <workItem from="1575361309271" duration="4613000" />
     </task>
     <servers />
   </component>
@@ -80,13 +78,17 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="535" y="323" width="906" height="459" key="EditFileWatcherDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1575366612902" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575367935473">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1575552021785">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1575367935473" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1575552021785" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1575366609908">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1575366609908" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1575554180396">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1575554180396" />
   </component>
 </project>
