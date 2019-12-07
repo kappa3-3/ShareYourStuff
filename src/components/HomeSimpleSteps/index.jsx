@@ -5,6 +5,7 @@ import shirt from '../../assets/icons/Icon-1.svg';
 import bag from '../../assets/icons/Icon-2.svg';
 import search from '../../assets/icons/Icon-3.svg';
 import transport from '../../assets/icons/Icon-4.svg';
+import {NavLink} from "react-router-dom";
 
 
 
@@ -43,7 +44,7 @@ class HomeSimpleSteps extends Component {
                         </div>
                 </div>
                 <div className='give-away'>
-                    <p><a>Give<br />away</a></p>
+                    <p><NavLink to="/login">Give<br />away</NavLink></p>
                 </div>
             </div>
         );

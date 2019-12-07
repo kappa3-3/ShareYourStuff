@@ -12,15 +12,24 @@
 
 @mixin give-away {
   p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-transform: uppercase;
     text-align: center;
+    text-decoration: none;
     font-weight: 300;
-    font-size: 35px;
+
     margin: 35px 15px 0 15px;
     padding: 10px;
     height: 100px;
-    width: 300px;
+    width: 250px;
     @include active-sub-page
+  }
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    color: $dark-grey;
   }
 }
 

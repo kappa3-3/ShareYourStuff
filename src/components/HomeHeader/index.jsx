@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import './style.scss';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
 import { NavBar } from '../NavBar'
+import {NavLink} from "react-router-dom";
 
 class HomeHeader extends Component {
     render() {
@@ -16,8 +17,8 @@ class HomeHeader extends Component {
                         </h1>
                         <Decoration />
                         <div className='header-guide-options'>
-                            <p><a>Give<br />away</a></p>
-                            <p><a>Organize a charity drive</a></p>
+                            <p><NavLink to="/login">Give<br />away</NavLink></p>
+                            <p><NavLink to="/login">Organize a charity drive</NavLink></p>
                         </div>
                     </div>
                 </div>
