@@ -1,13 +1,13 @@
 import React from "react";
 import './style.scss';
 
-import HomeHeader from "../HomeHeader"
-import HomeThreeColumns from "../HomeThreeColumns"
-import HomeSimpleSteps from "../HomeSimpleSteps"
-import HomeAbout from "../HomeAbout"
-import HomeSupport from "../HomeSupport"
-import HomeContact from "../HomeContact";
-import HomeFooter from "../HomeFooter";
+import HomeHeader from "../../components/HomeHeader"
+import HomeThreeColumns from "../../components/HomeThreeColumns"
+import HomeSimpleSteps from "../../components/HomeSimpleSteps"
+import HomeAbout from "../../components/HomeAbout"
+import HomeSupport from "../../components/HomeSupport"
+import HomeContact from "../../components/HomeContact";
+import HomeFooter from "../../components/HomeFooter";
 
 const Home = () => {
     return (

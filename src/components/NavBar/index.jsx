@@ -8,10 +8,13 @@ export const NavBar = () => {
     return (
     <div className='header-nav'>
         <div className='header-nav-account'>
-            <NavLink to="/SignIn" className='header-nav-account-link'>Sign In</NavLink>
-            <NavLink to="/CreateAccount" className='header-nav-account-link'>Create Account</NavLink>
+            <NavLink to="/login" className='header-nav-account-link'>Sign In</NavLink>
+            <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>
         </div>
         <ul className='header-nav-sub-pages'>
+            <li>
+                <NavLink to="/" className='header-nav-sub-pages-link'>Start</NavLink>
+            </li>
             {navigationData.map(item => (
                 <li>
                     <Link to={item.to} className='header-nav-sub-pages-link'>{item.title}</Link>

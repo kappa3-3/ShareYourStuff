@@ -5,7 +5,7 @@
   cursor: pointer;
 }
 
-@mixin header-nav-sub-pages {
+@mixin active-sub-page {
   border: 1px solid $dark-grey !important;
   cursor: pointer;
 }
@@ -20,7 +20,7 @@
     padding: 10px;
     height: 100px;
     width: 300px;
-    @include header-nav-sub-pages
+    @include active-sub-page
   }
 }
 
@@ -33,16 +33,16 @@
 }
 
 @mixin organization-types {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: normal;
-    font-size: 20px;
-    margin: 35px 15px 0 15px;
-    padding: 5px;
-    height: 80px;
-    width: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 35px 15px 0 15px;
+  padding: 5px;
+  height: 80px;
+  width: 210px;
 
 }
 
@@ -61,4 +61,30 @@
     font-weight: 100;
     margin: 0;
   }
+}
+
+@mixin form-items {
+  label {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%
+  }
+  input {
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    font-size: 18px;
+    font-weight: 100;
+    outline: none;
+    box-shadow: none;
+  }
+}
+@mixin nav-button {
+  text-decoration: none;
+  color: $light-grey;
+  height: 20px;
+  padding: 8px;
+  margin: 0 0 0 15px;
+  font-size: 14px;
+  border: 1px solid transparent;
 }

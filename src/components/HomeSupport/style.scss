@@ -36,7 +36,7 @@
 }
 
 .active {
-  @include header-nav-sub-pages
+  @include active-sub-page
 }
 
 .support-pages {
@@ -56,7 +56,7 @@
 }
 
 .active-page {
-  @include header-nav-sub-pages
+  @include active-sub-page
 }
 
 .organization-list-wrapper {
