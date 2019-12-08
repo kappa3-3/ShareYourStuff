@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b26dbbe-271c-457e-9f45-d55e87866665" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localfund.json" beforeDir="false" afterPath="$PROJECT_DIR$/localfund.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nongovern.json" beforeDir="false" afterPath="$PROJECT_DIR$/nongovern.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeSimpleSteps/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeSimpleSteps/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/settings/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_mixins.scss" afterDir="false" />
-    </list>
+    <list default="true" id="9b26dbbe-271c-457e-9f45-d55e87866665" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,13 +34,13 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
     </key>
   </component>
   <component name="ServiceViewManager">
