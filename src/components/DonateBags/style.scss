@@ -1,0 +1,28 @@
+@import "../../scss/settings/colors";
+@import "../../scss/settings/fonts";
+@import "../../scss/settings/mixins";
+
+.donate-bags-warning {
+  @include donate-warning;
+}
+
+.donate-bags-container {
+  @include donate-component-container
+}
+
+.donate-bags-choice-container {
+  @include donate-component-choice-container;
+
+  h3 {
+    font-weight: 100;
+  }
+
+  select {
+    width: 200px;
+    background-color: transparent;
+  }
+}
+
+.donate-bags-choice {
+  @include select-dropdown;
+}

@@ -1,0 +1,38 @@
+@import "../../scss/settings/colors";
+@import "../../scss/settings/fonts";
+@import "../../scss/settings/mixins";
+
+.donate-items-container{
+  @include donate-component-container;
+}
+
+.donate-items-warning {
+  @include donate-warning;
+}
+
+.donate-items-choice-container {
+  @include donate-component-choice-container;
+
+}
+.donate-items-choice {
+  display: flex;
+  flex-direction: column;
+  td {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: lighter;
+
+    input {
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+      -webkit-appearance: square-button;
+      &:checked {
+        background-color: $bright-yellow;
+        border: 1px solid $light-grey;
+        outline: none;
+      }
+      }
+    }
+  }

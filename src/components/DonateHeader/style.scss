@@ -1,0 +1,83 @@
+@import "../../scss/settings/_colors";
+@import "../../scss/settings/_fonts";
+@import "../../scss/settings/_mixins";
+
+#donate-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.donate-header-img {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  flex: 1;
+  background-image: url("../../assets/images/Form-Hero-Image.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.donate-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  flex: .5;
+}
+
+ul {
+  list-style: none;
+}
+
+.donate-header-guide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 60vh;
+  margin: 0 60px 60px 0;
+
+  h1 {
+    @include text-above-decoration;
+  }
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.header-guide-options {
+  display: flex;
+  @include give-away;
+}
+
+
+.donate-guide-steps {
+  display: flex;
+  flex-direction: row;
+  margin-top: 45px;
+  box-sizing: border-box;
+}
+.donate-step-wrapper {
+  width: 120px;
+  height: 120px;
+  border: 1px solid $dark-grey;
+  transform: rotate(45deg);
+  position: relative;
+  padding: 15px;
+  margin: 10px;
+
+  span {
+    width: 90px;
+    height: 50px;
+    display: block;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 55px;
+    right: 30px;
+    font-size: 16px;
+  }
+}
