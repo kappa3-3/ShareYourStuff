@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import './style.scss';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
 import { NavBar } from '../NavBar'
+import {Link} from "react-scroll";
 
 class DonateHeader extends Component {
     render() {
@@ -11,7 +12,12 @@ class DonateHeader extends Component {
                 <div className='donate-header-content'>
                     <NavBar />
                     <div className='donate-header-guide'>
-                        <h1>Donate items you don't need anymore</h1>
+                        <h1>
+                            <Link to='donate-steps-container' >
+                                Donate items you don't need anymore
+                            </Link>
+
+                        </h1>
                         <Decoration />
                         <h2>Only 4 simple steps:</h2>
                         <div className='donate-guide-steps'>

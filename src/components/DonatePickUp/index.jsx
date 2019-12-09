@@ -1,13 +1,13 @@
-import React, { Component} from "react";
+import React, {Component} from "react";
 import './style.scss';
 
-class DonatePickUp extends Component {
-    render() {
-        return (
-            <div>
-                <h1>DUPA</h1>
+export default function DonatePickUp() {
+    return (
+        <>
+            <div className='donate-pick-up-warning'>
+                <h1>Remember!</h1>
+                <span>Put in the pick up address and time.</span>
             </div>
-        );
-    }
+       </>
+    );
 }
-export default DonatePickUp;

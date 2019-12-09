@@ -1,0 +1,18 @@
+{
+  "delivery-details": [
+
+    {
+      "id": 1,
+      "name":"Anna",
+      "surname":"Nowak",
+      "email": "anna.nowak@gmail.com",
+      "street": "Klonowa 45",
+      "city": "Rzeszów",
+      "postcode": "34-256",
+      "telephone": "456234123",
+      "date": "23-05-2020",
+      "time": "19:00",
+      "remarks": ""
+    }
+  ]
+}

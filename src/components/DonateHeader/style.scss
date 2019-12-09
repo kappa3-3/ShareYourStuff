@@ -43,6 +43,10 @@ ul {
 
   h1 {
     @include text-above-decoration;
+    &:hover {
+      @include active-sub-page;
+      padding: 5px;
+    }
   }
   h2 {
     font-weight: 300;

@@ -15,11 +15,11 @@ export default function Routing() {
     return (
         <Router>
             <div>
-                <Route exact path="/" component={ Donate } />
+                <Route exact path="/" component={ Home } />
                 <Switch>
                     <Route path="/login" component={ SignIn } />
                     <Route path="/register" component={ CreateAccount } />
-                    {/*<Route path="/donate" component={ Donate } />*/}
+                    <Route path="/donate" component={ Donate } />
                 </Switch>
             </div>
         </Router>

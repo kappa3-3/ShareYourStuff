@@ -3,6 +3,7 @@ import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
 import {NavLink} from "react-router-dom";
 
+
 class SignInMain extends Component {
 
 
@@ -11,6 +12,7 @@ class SignInMain extends Component {
         password: '',
         isEmailValid: true,
         isPasswordValid: true,
+        toRoute: true
     };
 
     onInputChange = e => {
@@ -19,7 +21,7 @@ class SignInMain extends Component {
 
     onClickSubmit = e => {
         e.preventDefault();
-        this.isFormValid() && this.transition.redirect('/donate');
+        this.isFormValid() && this.setState({toRoute:true});
     };
 
     isFormValid = () => {
@@ -65,7 +67,8 @@ class SignInMain extends Component {
                 </div>
                 <div className='sign-in-actions'>
                     <NavLink to="/register" className='create-account-button'>Create Account</NavLink>
-                    <NavLink to={"/donate"} onClick={this.onClickSubmit} className='sign-in-button'>Sign in</NavLink>
+                    {/*<NavLink to={this.state.toRoute && "/donate"} onClick={this.onClickSubmit} className='sign-in-button'>Sign in</NavLink>*/}
+                    <NavLink to={this.state.toRoute && "/donate"} className='sign-in-button'>Sign in</NavLink>
                 </div>
             </div>
         );

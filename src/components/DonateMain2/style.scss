@@ -38,25 +38,3 @@
  @include donate-button-page;
   left: 400px;
 }
-.donate-sum-up-container {
-  @include donate-component-container;
-}
-
-.donate-sum-up-choice-container {
-  @include donate-component-choice-container;
-}
-.donate-sum-up-details {
-  display: flex;
-
-  div {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 300px;
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-}
