@@ -44,14 +44,20 @@
     input {
       width: 20px;
       height: 20px;
-      margin: 5px;
+
       -webkit-appearance: square-button;
 
       &:checked {
         background-color: $bright-yellow;
-        border: 1px solid $light-grey;
+        border: 1px solid $up-transparency;
         outline: none;
+        box-shadow: 0 0 3px 1px $up-transparency;
       }
+    }
+
+    label {
+      margin: 7px 0 7px 15px;
+      font-size: 18px;
     }
   }
 }
@@ -64,12 +70,18 @@
   h3 {
     font-weight: 100;
   }
-
-  select {
-    width: 200px;
-    background-color: transparent;
-  }
 }
+
+.donate-bags-primary {
+  width: 50px;
+}
+
+select {
+  background-color: transparent;
+  padding: 5px;
+  width: 200px;
+}
+
 
 ///////////// DONATE LOCATION - STEP 3 /////////////
 
@@ -123,20 +135,75 @@
 
 ///////////// DONATE SUM-UP - STEP 5 /////////////
 
+.donate-sum-up-item {
+  img {
+    height: 35px;
+    width: 35px;
+  }
+  th {
+    padding: 5px;
+    width: 50px;
+  }
+  td:first-of-type {
+    width: 90px;
+    padding-right: 10px;
+  }
+  td {
+    font-weight: normal;
+    text-align: left;
+    padding: 5px 0 5px 0;
+
+  }
+}
+
+
+.donate-sum-up-location, {
+  img {
+    height: 35px;
+    width: 35px;
+  }
+  th {
+    padding: 5px;
+    width: 50px;
+  }
+  td {
+      font-weight: normal;
+      width: 90px;
+      text-align: left;
+      padding: 5px 10px 5px 0;
+  }
+}
+
 .donate-sum-up-details {
   display: flex;
+  align-items: flex-start;
 
-  div {
+  tbody {
+    h3 {
+      border-bottom: 1px solid $up-transparency;
+    }
+
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
     flex-direction: column;
     width: 300px;
+    margin: 20px;
 
-    p {
-      margin: 0;
-      padding: 0;
+    th {
+      font-weight: normal;
+      width: 140px;
+      text-align: left;
+      padding: 5px 0 5px 0;
     }
+
+    td {
+      font-weight: bold;
+    }
+
+
+    // {
+    //  margin: 0;
+    //  padding: 0;
+    //}
   }
 }
 

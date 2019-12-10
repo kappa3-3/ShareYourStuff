@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
 import './style.scss';
+import {NavLink} from "react-router-dom";
 
 class DonateEnd extends Component {
     render() {
@@ -12,7 +13,9 @@ class DonateEnd extends Component {
                         <span>We have sent an e-mail to you</span>
                         <span>with all information about the pick-up.</span>
                         <Decoration />
+                        <NavLink to='/' className='donate-component-home-button'>Back to Home</NavLink>
                     </div>
+
                 </div>
             </div>
         );

@@ -50,3 +50,11 @@ ul {
   display: flex;
   @include give-away;
 }
+
+.donate-component-home-button {
+  bottom: -95px;
+  outline: none;
+  text-decoration: none;
+  color: $dark-grey;
+  @include donate-button-page;
+}
