@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
+    <list default="true" id="9b26dbbe-271c-457e-9f45-d55e87866665" name="Default Changelist" comment="" />
+=======
     <list default="true" id="9b26dbbe-271c-457e-9f45-d55e87866665" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/DonateHeader/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DonateHeader/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DonateItems/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DonateItems/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Donate/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Donate/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/localfund.json" beforeDir="false" afterPath="$PROJECT_DIR$/localfund.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nongovern.json" beforeDir="false" afterPath="$PROJECT_DIR$/nongovern.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeHeader/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeSimpleSteps/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeSimpleSteps/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeContact/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contact/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeContact/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contact/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeFooter/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeFooter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignInMain/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignInMain/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreateAccount/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreateAccount/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SignIn/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/settings/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_mixins.scss" afterDir="false" />
     </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,18 +52,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/server" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/server" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -74,7 +90,7 @@
       <updated>1575306859450</updated>
       <workItem from="1575306860560" duration="349000" />
       <workItem from="1575361309271" duration="4613000" />
-      <workItem from="1575726098154" duration="10827000" />
+      <workItem from="1575726098154" duration="15695000" />
     </task>
     <servers />
   </component>
@@ -82,6 +98,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="704" y="344" width="568" height="416" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575748576627">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="704" y="344" width="568" height="416" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1575748576627" />
     <state x="535" y="323" width="906" height="459" key="EditFileWatcherDialog" timestamp="1575366612902">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

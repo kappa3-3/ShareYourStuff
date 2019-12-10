@@ -6,9 +6,9 @@ import {
 } from "react-router-dom";
 
 import Home from './pages/Home'
-import Account from './pages/SignIn'
 import CreateAccount from "./pages/CreateAccount";
 import SignIn from "./pages/SignIn";
+import {Donate} from "./pages/Donate";
 
 export default function Routing() {
 
@@ -19,6 +19,7 @@ export default function Routing() {
                 <Switch>
                     <Route path="/login" component={ SignIn } />
                     <Route path="/register" component={ CreateAccount } />
+                    <Route path="/donate" component={ Donate } />
                 </Switch>
             </div>
         </Router>

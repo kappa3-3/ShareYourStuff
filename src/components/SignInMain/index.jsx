@@ -3,13 +3,16 @@ import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
 import {NavLink} from "react-router-dom";
 
+
 class SignInMain extends Component {
+
+
     state = {
         email: '',
         password: '',
         isEmailValid: true,
         isPasswordValid: true,
-        isFormClicked:false,
+        toRoute: true
     };
 
     onInputChange = e => {
@@ -18,14 +21,11 @@ class SignInMain extends Component {
 
     onClickSubmit = e => {
         e.preventDefault();
-        const isFormValid = this.isFormValid();
-        if (isFormValid === true) {
-            this.setState({isFormClicked:true});
-        }
+        this.isFormValid() && this.setState({toRoute:true});
     };
 
     isFormValid = () => {
-        const { email, password } = this.state;
+        const {email, password} = this.state;
 
         const isEmailValid = email.includes("@");
         const isPasswordValid = password.length > 6;
@@ -67,7 +67,8 @@ class SignInMain extends Component {
                 </div>
                 <div className='sign-in-actions'>
                     <NavLink to="/register" className='create-account-button'>Create Account</NavLink>
-                    <NavLink to="/register" onClick={this.onClickSubmit} className='sign-in-button'>Sign in</NavLink>
+                    {/*<NavLink to={this.state.toRoute && "/donate"} onClick={this.onClickSubmit} className='sign-in-button'>Sign in</NavLink>*/}
+                    <NavLink to={this.state.toRoute && "/donate"} className='sign-in-button'>Sign in</NavLink>
                 </div>
             </div>
         );

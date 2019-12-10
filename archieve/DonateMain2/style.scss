@@ -1,0 +1,40 @@
+@import "../../src/scss/settings/colors";
+@import "../../src/scss/settings/fonts";
+@import "../../src/scss/settings/mixins";
+
+#donate-steps-container {
+  position: relative;
+}
+
+.donate-components {
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  background-color: $basic-grey;
+}
+
+.button-display-none {
+  display: none;
+}
+
+.donate-button-container {
+  position: absolute;
+  z-index: 20;
+  bottom: 110px;
+  left: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-backward-visible {
+  @include donate-button-page;
+  left: 50px;
+}
+
+.button-forward-visible {
+ @include donate-button-page;
+  left: 400px;
+}
