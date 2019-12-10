@@ -2,9 +2,9 @@ import React, { Component} from "react";
 import './style.scss';
 
 import DonateHeader from "../DonateHeader";
-import DonateItems from "../DonateItems";
-import DonateBags from "../DonateBags";
-import DonateLocation from "../DonateLocation";
+import DonateItems from "../../../archieve/DonateItems";
+import DonateBags from "../../../archieve/DonateBags";
+import DonateLocation from "../../../archieve/DonateLocation";
 import DonatePickUp from "../DonatePickUp";
 import DonateSumUp from "../DonateSumUp";
 

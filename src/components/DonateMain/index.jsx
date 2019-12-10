@@ -4,16 +4,16 @@ import * as Yup from "yup";
 import {Formik, Field} from "formik";
 
 import DonateHeader from "../DonateHeader";
-import DonateItems from "../DonateItems";
-import DonateBags from "../DonateBags";
-import DonateLocation from "../DonateLocation";
-import DonatePickUp from "../DonatePickUp";
+import DonateRemember from "../DonateRemember";
 import Contact from "../Contact";
 import Footer from "../Footer";
 
 import options from "../../commons/options"
 import locations from "../../commons/locations"
 import validationSchema from "../../commons/validationSchema"
+import DonateEnd from "../DonateEnd";
+
+
 
 class DonateMain extends Component {
     state = {
@@ -74,9 +74,9 @@ class DonateMain extends Component {
 
                             <form onSubmit={handleSubmit}>
                                 {active === 1 &&
-                                <div className='donate-items-container'>
-                                    <DonateItems/>
-                                    <div className='donate-items-choice-container'>
+                                <div className='donate-component-container'>
+                                    <DonateRemember active={this.state.active}/>
+                                    <div className='donate-component-choice-container'>
                                         <span>Step 1/4</span>
                                         <h1> Choose products you want to donate:</h1>
                                         <tbody>
@@ -121,13 +121,13 @@ class DonateMain extends Component {
                                     </div>
                                 </div>}
                                 {active === 2 &&
-                                <div className='donate-bags-container'>
-                                    <DonateBags/>
+                                <div className='donate-component-container'>
+                                    <DonateRemember active={this.state.active}/>
                                     <div className='donate-bags-choice-container'>
                                         <span>Step 2/4</span>
                                         <h1>How many bags do you want to donate?</h1>
                                         <h3>Amount of the 60l bags:</h3>
-                                        <div className='donate-bags-choice'>
+                                        <div className='donate-component-choice'>
                                             <select
                                                 className='select'
                                                 value={values.bags}
@@ -143,12 +143,12 @@ class DonateMain extends Component {
                                 </div>
                                 }
                                 {active === 3 &&
-                                <div className='donate-location-container'>
-                                    <DonateLocation/>
+                                <div className='donate-component-container'>
+                                    <DonateRemember active={this.state.active}/>
                                     <div className='donate-location-choice-container'>
                                         <span>Step 3/4</span>
                                         <h1>Location</h1>
-                                        <div className='donate-location-choice'>
+                                        <div className='donate-component-choice'>
                                             <select
                                                 className='select'
                                                 value={values.location}
@@ -170,12 +170,11 @@ class DonateMain extends Component {
                                 </div>
                                 }
                                 {active === 4 &&
-                                <div className='donate-pick-up-container'>
-                                    <DonatePickUp/>
+                                <div className='donate-component-container'>
+                                    <DonateRemember active={this.state.active}/>
                                     <div className='donate-pick-up-choice-container'>
                                         <span>Step 4/4</span>
                                         <h1>Location and time of the pick-up</h1>
-
                                         <div className='donate-pick-up-form'>
                                             <div className='donate-pick-up-form-location'>
                                                 <div className='form-location'>
@@ -284,8 +283,8 @@ class DonateMain extends Component {
                                 </div>
                                 }
                                 {active === 5 &&
-                                <div className='donate-sum-up-container'>
-                                    <div className='donate-sum-up-choice-container'>
+                                <div className='donate-component-container'>
+                                    <div className='donate-component-choice-container'>
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
                                         <ul>
@@ -312,16 +311,21 @@ class DonateMain extends Component {
                                                 <p>remarks for the courier:{values.remarks}</p>
                                             </div>
                                         </div>
-                                        <div className='donate-button-container'>
-                                            <button
-                                                type='submit'
-                                                disabled={isSubmitting}
-                                                className='button-forward-visible'
-                                                onClick={this.handleClickForwards}
-                                            >Submit</button>
-                                        </div>
+
                                     </div>
                                 </div>}
+                                {active === 6 && <DonateEnd />
+                                }
+                                {active === 5
+                                && <div className='donate-button-container'>
+                                    <button
+                                        type='submit'
+                                        disabled={isSubmitting}
+                                        className='button-forward-visible'
+                                        onClick={this.handleClickForwards}
+                                    >Submit</button>
+                                </div>
+                                }
                             </form>
                         )}
                     </Formik>

@@ -2,8 +2,22 @@
 @import "../../scss/settings/fonts";
 @import "../../scss/settings/mixins";
 
+///////////// GENERAL /////////////
+
 #donate-steps-container {
   position: relative;
+}
+
+.donate-component-container {
+  @include donate-component-container;
+}
+
+.donate-component-choice-container {
+  @include donate-component-choice-container;
+}
+
+.donate-component-choice {
+  @include select-dropdown;
 }
 
 .donate-components {
@@ -14,6 +28,119 @@
   width: 100vw;
   background-color: $basic-grey;
 }
+
+///////////// DONATE ITEMS - STEP 1 /////////////
+
+.donate-items-choice {
+  display: flex;
+  flex-direction: column;
+
+  td {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: lighter;
+
+    input {
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+      -webkit-appearance: square-button;
+
+      &:checked {
+        background-color: $bright-yellow;
+        border: 1px solid $light-grey;
+        outline: none;
+      }
+    }
+  }
+}
+
+///////////// DONATE BAGS - STEP 2 /////////////
+
+.donate-bags-choice-container {
+  @include donate-component-choice-container;
+
+  h3 {
+    font-weight: 100;
+  }
+
+  select {
+    width: 200px;
+    background-color: transparent;
+  }
+}
+
+///////////// DONATE LOCATION - STEP 3 /////////////
+
+.donate-location-choice-container {
+  @include donate-component-choice-container;
+
+  h3 {
+    font-weight: normal;
+  }
+
+  select {
+    width: 200px;
+    background-color: transparent;
+  }
+
+  textarea {
+    width: 400px;
+    height: 25px;
+  }
+}
+
+///////////// DONATE PICK-UP - STEP 4 /////////////
+
+.donate-pick-up-choice-container {
+  @include donate-component-choice-container;
+}
+
+.donate-pick-up-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.donate-pick-up-form-location {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 350px;
+
+}
+
+.form-location, .form-time {
+  @include form-input-data;
+}
+
+.donate-location {
+  display: flex;
+}
+
+///////////// DONATE SUM-UP - STEP 5 /////////////
+
+.donate-sum-up-details {
+  display: flex;
+
+  div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 300px;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+///////////// DONATE - BUTTONS /////////////
 
 .button-display-none {
   display: none;
@@ -35,28 +162,24 @@
 }
 
 .button-forward-visible {
- @include donate-button-page;
+  @include donate-button-page;
   left: 400px;
 }
-.donate-sum-up-container {
-  @include donate-component-container;
+
+.footer-wrapper {
+  height: 25px;
+  width: 100%;
+  position: absolute;
+  bottom: 25px;
 }
 
-.donate-sum-up-choice-container {
-  @include donate-component-choice-container;
+#donate-container {
+  position: relative;
 }
-.donate-sum-up-details {
-  display: flex;
 
-  div {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    width: 300px;
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
+.footer-wrapper {
+  height: 25px;
+  width: 100%;
+  position: absolute;
+  bottom: 25px;
 }

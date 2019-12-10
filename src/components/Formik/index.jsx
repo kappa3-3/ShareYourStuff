@@ -4,10 +4,10 @@ import * as Yup from "yup";
 // import FormError from "../FormError";
 
 import './style.scss';
-import DonateItems from "../DonateItems";
-import DonateBags from "../DonateBags";
+import DonateItems from "../../../archieve/DonateItems";
+import DonateBags from "../../../archieve/DonateBags";
 import Select from "react-dropdown-select";
-import DonateLocation from "../DonateLocation";
+import DonateLocation from "../../../archieve/DonateLocation";
 
 const options = [
     {value: '1', label: '1'},

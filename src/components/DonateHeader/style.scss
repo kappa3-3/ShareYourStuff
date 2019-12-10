@@ -42,11 +42,14 @@ ul {
   margin: 0 60px 60px 0;
 
   h1 {
-    @include text-above-decoration;
-    &:hover {
-      @include active-sub-page;
-      padding: 5px;
+    a {
+      padding: 15px;
+      &:hover {
+        @include active-sub-page;
+      }
     }
+    @include text-above-decoration;
+
   }
   h2 {
     font-weight: 300;

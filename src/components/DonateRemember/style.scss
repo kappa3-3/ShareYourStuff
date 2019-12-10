@@ -2,3 +2,6 @@
 @import "../../scss/settings/fonts";
 @import "../../scss/settings/mixins";
 
+.donate-remember-warning {
+  @include donate-warning;
+}
