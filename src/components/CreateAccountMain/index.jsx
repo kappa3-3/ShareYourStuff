@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
 import {NavLink} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 class CreateAccountMain extends Component {
     state = {
@@ -20,9 +21,8 @@ class CreateAccountMain extends Component {
 
     onClickSubmit = e => {
         e.preventDefault();
-        const isFormValid = this.isFormValid();
-        if (isFormValid === true) {
-            this.setState({isFormClicked:true});
+        if ( this.isFormValid()) {
+            this.props.history.push("/donate")
         }
     };
 
@@ -30,7 +30,7 @@ class CreateAccountMain extends Component {
         const { email, password, password_copy } = this.state;
 
         const isEmailValid = email.includes("@");
-        const isPasswordValid = password.length > 6;
+        const isPasswordValid = password.length >= 6;
         const isPasswordCopyValid = password === password_copy;
 
         this.setState({isEmailValid, isPasswordValid, isPasswordCopyValid});
@@ -82,11 +82,11 @@ class CreateAccountMain extends Component {
                 </div>
                 <div className='sign-in-actions'>
                     <NavLink to="/login" className='create-account-button'>Sign in</NavLink>
-                    <NavLink to="/register" onClick={this.onClickSubmit} className='sign-in-button'>Create account</NavLink>
+                    <NavLink to="/donate" onClick={this.onClickSubmit} className='sign-in-button'>Create account</NavLink>
                 </div>
             </div>
         );
     }
 }
 
-export default CreateAccountMain;
+export default withRouter(CreateAccountMain);
