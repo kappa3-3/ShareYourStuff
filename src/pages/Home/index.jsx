@@ -7,6 +7,7 @@ import HomeSimpleSteps from "../../components/HomeSimpleSteps"
 import HomeAbout from "../../components/HomeAbout"
 import HomeSupport from "../../components/HomeSupport"
 import HomeContact from "../../components/Contact";
+import HomeUp from "../../components/HomeUp"
 import Footer from "../../components/Footer";
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
             <div className='footer-wrapper'>
                 <Footer />
             </div>
+            <HomeUp />
         </div>
     )
 };
