@@ -7,9 +7,6 @@ import search from '../../assets/icons/Icon-3.svg';
 import transport from '../../assets/icons/Icon-4.svg';
 import {NavLink} from "react-router-dom";
 
-
-
-
 class HomeSimpleSteps extends Component {
     render() {
         return (
