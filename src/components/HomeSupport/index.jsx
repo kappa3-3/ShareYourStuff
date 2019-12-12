@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import './style.scss';
 import decoration from '../../assets/icons/Decoration.svg';
 import OrganizationRecord from '../HomeOrganizationRecord'
-import { URL_NONPROFIT, URL_NON_GOV, URL_LOCAL_FUND } from '../../commons/URL'
+import { URL_NONPROFIT, URL_NON_GOV, URL_LOCAL_FUND } from '../../commons/URL';
 
 class HomeSupport extends Component {
 
@@ -17,9 +17,11 @@ class HomeSupport extends Component {
 
     handlePage = (i) => this.setState({page: i});
 
-    componentDidMount() {
+    componentDidMount(e) {
+
         fetch(URL_NONPROFIT).then(data => data.json()).then(organizations => this.setState({organizations},
             () =>  this.setState({pageCount:Math.ceil(this.state.organizations.length / 3)})));
+        console.log(this.state.organizations)
 
     }
 

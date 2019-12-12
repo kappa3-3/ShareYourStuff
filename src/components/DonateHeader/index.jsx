@@ -1,22 +1,23 @@
 import React, {Component} from "react";
+import {Link} from "react-scroll";
 import './style.scss';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
-import { NavBar } from '../NavBar'
-import {Link} from "react-scroll";
+import NavBar from "../../components/NavBar";
+
 
 class DonateHeader extends Component {
+
     render() {
         return (
             <div id='donate-header-container'>
                 <div className='donate-header-img' />
                 <div className='donate-header-content'>
-                    <NavBar />
+                    <NavBar page='donate-page'/>
                     <div className='donate-header-guide'>
                         <h1>
                             <Link to='donate-steps-container' >
                                 Donate items you don't need anymore
                             </Link>
-
                         </h1>
                         <Decoration />
                         <h2>Only 4 simple steps:</h2>
