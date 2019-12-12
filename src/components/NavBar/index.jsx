@@ -1,41 +1,72 @@
 import React, {Component} from "react";
 import './style.scss';
 import {NavLink, withRouter} from "react-router-dom";
-import {navigationData} from "../../commons/navigationData";
+import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
-import { connect } from "react-redux";
-import { setUserStatus } from "../../actions/index";
+import {connect} from "react-redux";
+import {setUserStatus} from "../../actions/index";
+import decoration from "../../assets/icons/Decoration.svg";
 
 class NavBar extends Component {
 
+    state = {
+        logOutPrompt: false
+    };
+
     handleLogOut = e => {
         e.preventDefault();
-        // this.authentication = false;
-        this.props.setUserStatus(false, false);
+        this.setState({logOutPrompt: true});
+        this.props.setUserStatus();
+        setTimeout(() => this.props.history.push('/'), 2000);
+    };
+
+    handleHomeLink = e => {
+        e.preventDefault();
         this.props.history.push('/');
     };
 
     render() {
         return (
-            <div className='header-nav'>
-                <div className='header-nav-account'>
-                    {this.props.authentication &&  <span>Welcome!</span>}
-                    {this.props.authentication
-                        ? <NavLink to="/" className='header-nav-account-link' onClick={this.handleLogOut}>Sign Out</NavLink>
-                        : <NavLink to="/login" className='header-nav-account-link'>Sign In</NavLink> }
-                    <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>
-                </div>
-                <ul className='header-nav-sub-pages'>
-                    <li>
-                        <NavLink to="/" className='header-nav-sub-pages-link'>Start</NavLink>
-                    </li>
-                    {navigationData.map(item => (
+            <>
+                {this.state.logOutPrompt &&
+                <div className='header-logout-container'>
+                    <div className='header-logout-prompt'>
+                        <h1>You have been logged out successfully!</h1>
+                        <img src={decoration} alt='/////////'/>
+                        <h4>you are being redirected to HOME page</h4>
+                    </div>
+                </div>}
+                <div className='header-nav'>
+                    <div className='header-nav-account'>
+                        {this.props.authentication && <span>You are logged in</span>}
+                        {this.props.authentication
+                            ? <NavLink to="/" className='header-nav-account-link' onClick={this.handleLogOut}>Sign
+                                Out</NavLink>
+                            : <NavLink to="/login" className='header-nav-account-link'>Sign In</NavLink>}
+                        <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>
+                    </div>
+                    <ul className='header-nav-sub-pages'>
                         <li>
-                            <Link to={item.to} className='header-nav-sub-pages-link'>{item.title}</Link>
+                            <NavLink to="/" className='header-nav-sub-pages-link'>Start</NavLink>
                         </li>
-                    ))}
-                </ul>
-            </div>
+                        {this.props.page === 'home-page' && navigationDataHome.map(item => (
+                            <li>
+                                <Link
+                                    to={item.to}
+                                    className='header-nav-sub-pages-link'>{item.title}</Link>
+                            </li>
+                        ))}
+                        {this.props.page === 'donate-page' && navigationDataHome.map(item => (
+                            <li>
+                                <Link
+                                    onClick={this.handleHomeLink}
+                                    ScrollTo={item.to}
+                                    className='header-nav-sub-pages-link'>{item.title}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </>
         )
     }
 
@@ -47,4 +78,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default withRouter(connect(mapStateToProps, { setUserStatus })(NavBar));
+export default withRouter(connect(mapStateToProps, {setUserStatus})(NavBar));

@@ -68,6 +68,18 @@ class DonateMain extends Component {
 
                         onSubmit={(values, {setSubmitting, resetForm}) => {
                             setSubmitting(true);
+                            const url = "http://localhost:3005";
+                            const donation_details = {
+                                value: this.target.value
+                            };
+                            this.ajax({
+                                method: "POST",
+                                url: url + "/donations",
+                                dataType: "json",
+                                data: donation_details
+                            }).done(function(response) {
+                                console.log(response);
+                            });
                             resetForm();
                             setSubmitting(false);
                         }}

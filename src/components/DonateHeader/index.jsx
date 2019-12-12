@@ -6,12 +6,13 @@ import NavBar from "../../components/NavBar";
 
 
 class DonateHeader extends Component {
+
     render() {
         return (
             <div id='donate-header-container'>
                 <div className='donate-header-img' />
                 <div className='donate-header-content'>
-                    <NavBar />
+                    <NavBar page='donate-page'/>
                     <div className='donate-header-guide'>
                         <h1>
                             <Link to='donate-steps-container' >

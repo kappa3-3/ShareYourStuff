@@ -22,7 +22,6 @@ class SignInMain extends Component {
         this.props.authentication === true && this.props.history.push('/donate');
     }
 
-
     onInputChange = e => {
         this.setState({[e.target.name]: e.target.value})
     };
@@ -44,12 +43,8 @@ class SignInMain extends Component {
         return isEmailValid && isPasswordValid
     };
 
-
-
     render() {
-
         return (
-
             <form className='sign-in-container' onSubmit={this.onClickSubmit}>
                 <h1>Sign In</h1>
                 <img src={decoration} alt='/////////'/>
