@@ -60,8 +60,9 @@ class NavBar extends Component {
                             <li>
                                 <Link
                                     onClick={this.handleHomeLink}
-                                    ScrollTo={item.to}
-                                    className='header-nav-sub-pages-link'>{item.title}</Link>
+                                    Link={item.to}
+                                    className='header-nav-sub-pages-link'>{item.title}
+                                </Link>
                             </li>
                         ))}
                     </ul>
