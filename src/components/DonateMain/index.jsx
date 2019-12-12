@@ -70,21 +70,20 @@ class DonateMain extends Component {
 
                         onSubmit={(values, {setSubmitting, resetForm}) => {
                             setSubmitting(true);
-                            const url = "http://localhost:3005";
-                            const donation_details = {
-                                value: this.target.value
-                            };
-                            this.ajax({
-                                method: "POST",
-                                url: url + "/donations",
-                                dataType: "json",
-                                data: donation_details
-                            }).done(function(response) {
-                                console.log(response);
-                            });
-                            resetForm();
+                            console.log(values);
+
+                            fetch('http://localhost:3005/donations', {
+                                method: 'POST',
+                                headers: {"Content-Type" : "application/json"},
+                                body: JSON.stringify(values)
+                            })
+                                .then((data) => console.log(data))
+                                .catch((err) => console.log(err));
+
+                            // resetForm();
                             setSubmitting(false);
                         }}
+
                     >
                         {({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
 
@@ -95,6 +94,7 @@ class DonateMain extends Component {
                                     <div className='donate-component-choice-container'>
                                         <span>Step 1/4</span>
                                         <h1> Choose products you want to donate:</h1>
+
                                         <tbody>
                                         <tr className='donate-items-choice'>
                                             <td>
@@ -152,6 +152,7 @@ class DonateMain extends Component {
                                             </td>
                                         </tr>
                                         </tbody>
+
                                     </div>
                                 </div>}
                                 {active === 2 &&
@@ -320,31 +321,29 @@ class DonateMain extends Component {
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
                                         <tbody className='donate-sum-up-item'>
-                                            <tr>
-                                                <th>
-                                                    <img src={bag} />
-                                                </th>
-                                                <td>{values.bags} bags of:</td>
+                                        <tr>
+                                            <th>
+                                                <img src={bag}/>
+                                            </th>
+                                            <td>{values.bags} bags of:</td>
 
                                             {values.clothing && <td> clothing suitable for use |</td>}
                                             {values.used_clothing && <td> clothing to recycle |</td>}
                                             {values.toys && <td> toys |</td>}
                                             {values.books && <td> books |</td>}
                                             {values.other && <td> not listed items |</td>}
-                                            </tr>
+                                        </tr>
                                         </tbody>
 
                                         <tbody className='donate-sum-up-location'>
                                         <tr>
                                             <th>
-                                                <img src={transport} />
+                                                <img src={transport}/>
                                             </th>
                                             <td>location:</td>
                                             <td>{values.location}</td>
                                         </tr>
                                         </tbody>
-
-
 
                                         <div className='donate-sum-up-details'>
 
@@ -368,19 +367,19 @@ class DonateMain extends Component {
                                             </tr>
                                             </tbody>
                                             <tbody>
-                                                <h3>Pick-up time:</h3>
-                                                <tr>
-                                                    <th>date:</th>
-                                                    <td>{values.date}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>time:</th>
-                                                    <td>{values.hour}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>remarks for the courier:</th>
-                                                    <td>{values.remarks}</td>
-                                                </tr>
+                                            <h3>Pick-up time:</h3>
+                                            <tr>
+                                                <th>date:</th>
+                                                <td>{values.date}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>time:</th>
+                                                <td>{values.hour}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>remarks for the courier:</th>
+                                                <td>{values.remarks}</td>
+                                            </tr>
                                             </tbody>
                                         </div>
 
@@ -394,7 +393,7 @@ class DonateMain extends Component {
                                         type='submit'
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
-                                        onClick={this.handleClickForwards}
+                                        // onClick={this.handleClickForwards}
                                     >Submit
                                     </button>
                                 </div>

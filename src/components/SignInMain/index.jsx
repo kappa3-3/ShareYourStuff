@@ -79,18 +79,7 @@ class SignInMain extends Component {
                 </div>
                 <div className='sign-in-actions'>
                     <NavLink to="/register" className='create-account-button'>Create Account</NavLink>
-                    <
-                    <
-                    <
-                    <
-                    <
-                    << HEAD
                     <button type="submit" className='sign-in-button'>Sign in</button>
-                        =======
-                    <NavLink to={this.state.toRoute && "/donate"} onClick={this.onClickSubmit}
-                             className='sign-in-button'>Sign in</NavLink>
-                        {/*<NavLink to={this.state.toRoute && "/donate"} className='sign-in-button'>Sign in</NavLink>*/}
-                        >>>>>>> master
                 </div>
             </form>
         );
