@@ -4,6 +4,7 @@ import './style.scss';
 import CreateAccountMain from "../../components/CreateAccountMain"
 import NavBar from "../../components/NavBar";
 
+
 const CreateAccount = () => {
     return (
         <div>

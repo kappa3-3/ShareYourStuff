@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
-import { NavLink } from "react-router-dom";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { setUserStatus } from "../../actions/index";
+import {NavLink} from "react-router-dom";
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {setUserStatus} from "../../actions/index";
+
 
 class SignInMain extends Component {
 
@@ -13,7 +14,7 @@ class SignInMain extends Component {
         password: '',
         isEmailValid: true,
         isPasswordValid: true,
-        isLoggedIn:false,
+        isLoggedIn: false,
         toRoute: true
     };
 
@@ -28,8 +29,10 @@ class SignInMain extends Component {
 
     onClickSubmit = e => {
         e.preventDefault();
-        if ( this.isFormValid()) {
-           this.props.setUserStatus(this.state.email, this.state.password)
+        if (this.isFormValid()) {
+            this.props.setUserStatus(this.state.email, this.state.password)
+            this.props.history.push("/donate")
+
         }
     };
 
@@ -76,7 +79,18 @@ class SignInMain extends Component {
                 </div>
                 <div className='sign-in-actions'>
                     <NavLink to="/register" className='create-account-button'>Create Account</NavLink>
+                    <
+                    <
+                    <
+                    <
+                    <
+                    << HEAD
                     <button type="submit" className='sign-in-button'>Sign in</button>
+                        =======
+                    <NavLink to={this.state.toRoute && "/donate"} onClick={this.onClickSubmit}
+                             className='sign-in-button'>Sign in</NavLink>
+                        {/*<NavLink to={this.state.toRoute && "/donate"} className='sign-in-button'>Sign in</NavLink>*/}
+                        >>>>>>> master
                 </div>
             </form>
         );
@@ -89,4 +103,5 @@ function mapStateToProps(state) {
     }
 }
 
-export default withRouter(connect(mapStateToProps, { setUserStatus })(SignInMain));
+export default withRouter(connect(mapStateToProps, {setUserStatus})(SignInMain));
+

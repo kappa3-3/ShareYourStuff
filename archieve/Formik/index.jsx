@@ -153,9 +153,6 @@ class FormikForm extends Component {
                         </div>
                         }
 
-
-
-
                         <div className='donate-pick-up-form' id='step4'>
                             <div className='donate-pick-up-form-location'>
                                 <div className='form-location'>

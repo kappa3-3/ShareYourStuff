@@ -3,6 +3,9 @@ import './style.scss';
 import * as Yup from "yup";
 import {Formik, Field} from "formik";
 
+import transport from '../../assets/icons/Icon-4.svg';
+import bag from '../../assets/icons/Icon-2.svg';
+
 import DonateHeader from "../DonateHeader";
 import DonateRemember from "../DonateRemember";
 import Contact from "../Contact";
@@ -12,7 +15,6 @@ import options from "../../commons/options"
 import locations from "../../commons/locations"
 import validationSchema from "../../commons/validationSchema"
 import DonateEnd from "../DonateEnd";
-
 
 
 class DonateMain extends Component {
@@ -95,40 +97,58 @@ class DonateMain extends Component {
                                         <h1> Choose products you want to donate:</h1>
                                         <tbody>
                                         <tr className='donate-items-choice'>
-                                            <td><input
-                                                type='checkbox'
-                                                name='clothing'
-                                                value={values.clothing}
-                                                onChange={handleChange}
-                                            /> clothing still to wear
+                                            <td>
+                                                <input
+                                                    id='clothing'
+                                                    type='checkbox'
+                                                    name='clothing'
+                                                    value={values.clothing}
+                                                    onChange={handleChange}
+                                                />
+                                                <label htmlFor='clothing'>clothing suitable for use</label>
+
                                             </td>
-                                            <td><input
-                                                type='checkbox'
-                                                name='used_clothing'
-                                                value={values.used_clothing}
-                                                onChange={handleChange}
-                                            /> clothing to throw away
+                                            <td>
+                                                <input
+                                                    id='used'
+                                                    type='checkbox'
+                                                    name='used_clothing'
+                                                    value={values.used_clothing}
+                                                    onChange={handleChange}
+                                                />
+                                                <label htmlFor='used'>clothing to recycle</label>
+
                                             </td>
-                                            <td><input
-                                                type='checkbox'
-                                                name='toys'
-                                                value={values.toys}
-                                                onChange={handleChange}
-                                            /> toys
+                                            <td>
+                                                <input
+                                                    id='toys'
+                                                    type='checkbox'
+                                                    name='toys'
+                                                    value={values.toys}
+                                                    onChange={handleChange}
+                                                />
+                                                <label htmlFor='toys'>toys</label>
+
                                             </td>
-                                            <td><input
-                                                type='checkbox'
-                                                name='books'
-                                                value={values.books}
-                                                onChange={handleChange}
-                                            /> books
+                                            <td>
+                                                <input
+                                                    id='books'
+                                                    type='checkbox'
+                                                    name='books'
+                                                    value={values.books}
+                                                    onChange={handleChange}
+                                                />
+                                                <label htmlFor='books'>books</label>
                                             </td>
-                                            <td><input
-                                                type='checkbox'
-                                                name='other'
-                                                value={values.other}
-                                                onChange={handleChange}
-                                            /> other
+                                            <td>
+                                                <input
+                                                    id='other'
+                                                    type='checkbox'
+                                                    name='other'
+                                                    value={values.other}
+                                                    onChange={handleChange}
+                                                />
+                                                <label htmlFor='other'>other</label>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -141,12 +161,12 @@ class DonateMain extends Component {
                                         <span>Step 2/4</span>
                                         <h1>How many bags do you want to donate?</h1>
                                         <h3>Amount of the 60l bags:</h3>
-                                        <div className='donate-component-choice'>
+                                        <div className='donate-component-choice select'>
                                             <select
-                                                className='select'
                                                 value={values.bags}
                                                 name='bags'
                                                 onChange={handleChange}>
+                                                <option>--choose--</option>
                                                 {options.map(item => <option
                                                     value={item.value}>
                                                     {item.label}
@@ -169,10 +189,8 @@ class DonateMain extends Component {
                                                 name='location'
                                                 onChange={handleChange}
                                             >
-                                                {locations.map(item => <option
-
-                                                    value={item.value}
-                                                >
+                                                <option>--choose--</option>
+                                                {locations.map(item => <option value={item.value}>
                                                     {item.label}
                                                 </option>)}
                                             </select>
@@ -301,34 +319,74 @@ class DonateMain extends Component {
                                     <div className='donate-component-choice-container'>
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
-                                        <ul>
-                                            <li>{values.bags} bags of:</li>
-                                            {values.clothing && <li>clothing to wear</li>}
-                                            {values.used_clothing && <li> clothing to throw away</li>}
-                                            {values.toys && <li>toys</li>}
-                                            {values.books && <li>books</li>}
-                                            {values.other && <li>not listed items</li>}
-                                        </ul>
-                                        <p>location:{values.location}</p>
+                                        <tbody className='donate-sum-up-item'>
+                                            <tr>
+                                                <th>
+                                                    <img src={bag} />
+                                                </th>
+                                                <td>{values.bags} bags of:</td>
+
+                                            {values.clothing && <td> clothing suitable for use |</td>}
+                                            {values.used_clothing && <td> clothing to recycle |</td>}
+                                            {values.toys && <td> toys |</td>}
+                                            {values.books && <td> books |</td>}
+                                            {values.other && <td> not listed items |</td>}
+                                            </tr>
+                                        </tbody>
+
+                                        <tbody className='donate-sum-up-location'>
+                                        <tr>
+                                            <th>
+                                                <img src={transport} />
+                                            </th>
+                                            <td>location:</td>
+                                            <td>{values.location}</td>
+                                        </tr>
+                                        </tbody>
+
+
+
                                         <div className='donate-sum-up-details'>
-                                            <div>
-                                                <h3>Pick-up address:</h3>
-                                                <p>street:{values.street}</p>
-                                                <p>city:{values.city}</p>
-                                                <p>post-code:{values.postcode}</p>
-                                                <p>phone number:{values.phone}</p>
-                                            </div>
-                                            <div>
+
+                                            <tbody>
+                                            <h3>Pick-up address:</h3>
+                                            <tr>
+                                                <th>street:</th>
+                                                <td>{values.street}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>city:</th>
+                                                <td>{values.city}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>post-code:</th>
+                                                <td>{values.postcode}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>phone number:</th>
+                                                <td>{values.phone}</td>
+                                            </tr>
+                                            </tbody>
+                                            <tbody>
                                                 <h3>Pick-up time:</h3>
-                                                <p>date:{values.date}</p>
-                                                <p>time:{values.hour}</p>
-                                                <p>remarks for the courier:{values.remarks}</p>
-                                            </div>
+                                                <tr>
+                                                    <th>date:</th>
+                                                    <td>{values.date}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>time:</th>
+                                                    <td>{values.hour}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>remarks for the courier:</th>
+                                                    <td>{values.remarks}</td>
+                                                </tr>
+                                            </tbody>
                                         </div>
 
                                     </div>
                                 </div>}
-                                {active === 6 && <DonateEnd />
+                                {active === 6 && <DonateEnd/>
                                 }
                                 {active === 5
                                 && <div className='donate-button-container'>
@@ -337,7 +395,8 @@ class DonateMain extends Component {
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
                                         onClick={this.handleClickForwards}
-                                    >Submit</button>
+                                    >Submit
+                                    </button>
                                 </div>
                                 }
                             </form>
