@@ -1,19 +1,27 @@
 import React, {Component} from "react";
 import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
-import {NavLink} from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { setUserStatus } from "../../actions/index";
 
 class SignInMain extends Component {
-
 
     state = {
         email: '',
         password: '',
         isEmailValid: true,
         isPasswordValid: true,
+        isLoggedIn:false,
         toRoute: true
     };
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.props);
+        this.props.authentication === true && this.props.history.push('/donate');
+    }
+
 
     onInputChange = e => {
         this.setState({[e.target.name]: e.target.value})
@@ -21,30 +29,36 @@ class SignInMain extends Component {
 
     onClickSubmit = e => {
         e.preventDefault();
-        this.isFormValid() && this.setState({toRoute:true});
+        if ( this.isFormValid()) {
+           this.props.setUserStatus(this.state.email, this.state.password)
+        }
     };
 
     isFormValid = () => {
         const {email, password} = this.state;
 
         const isEmailValid = email.includes("@");
-        const isPasswordValid = password.length > 6;
+        const isPasswordValid = password.length >= 6;
 
         this.setState({isEmailValid, isPasswordValid});
         return isEmailValid && isPasswordValid
     };
 
+
+
     render() {
+
         return (
-            <div className='sign-in-container'>
+
+            <form className='sign-in-container' onSubmit={this.onClickSubmit}>
                 <h1>Sign In</h1>
-                <img src={decoration}/>
+                <img src={decoration} alt='/////////'/>
                 <div className='sign-in-credentials'>
                     <div className='sign-in-credentials-email'>
-                        <label>Email:</label>
+                        <label htmlFor='sign_in_email'>Email:</label>
                         <input
                             type="email"
-                            id="credentials_email"
+                            id="sign_in_email"
                             name="email"
                             placeholder="type your email address"
                             value={this.state.email}
@@ -53,10 +67,10 @@ class SignInMain extends Component {
                         {!this.state.isEmailValid && <span>Incorrect e-mail address</span>}
                     </div>
                     <div className='sign-in-credentials-password'>
-                        <label>Password:</label>
+                        <label htmlFor='sign_in_password'>Password:</label>
                         <input
                             type="password"
-                            id="credentials_password"
+                            id="sign_in_password"
                             name="password"
                             placeholder="type your password"
                             value={this.state.password}
@@ -67,12 +81,17 @@ class SignInMain extends Component {
                 </div>
                 <div className='sign-in-actions'>
                     <NavLink to="/register" className='create-account-button'>Create Account</NavLink>
-                    {/*<NavLink to={this.state.toRoute && "/donate"} onClick={this.onClickSubmit} className='sign-in-button'>Sign in</NavLink>*/}
-                    <NavLink to={this.state.toRoute && "/donate"} className='sign-in-button'>Sign in</NavLink>
+                    <button type="submit" className='sign-in-button'>Sign in</button>
                 </div>
-            </div>
+            </form>
         );
     }
 }
 
-export default SignInMain;
+function mapStateToProps(state) {
+    return {
+        authentication: state.authentication
+    }
+}
+
+export default withRouter(connect(mapStateToProps, { setUserStatus })(SignInMain));

@@ -63,7 +63,9 @@ class DonateMain extends Component {
                             hour: '',
                             remarks: ''
                         }}
+
                         validationSchema={validationSchema}
+
                         onSubmit={(values, {setSubmitting, resetForm}) => {
                             setSubmitting(true);
                             resetForm();

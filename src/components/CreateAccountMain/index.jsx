@@ -44,7 +44,7 @@ class CreateAccountMain extends Component {
                 <img src={decoration}/>
                 <div className='sign-in-credentials'>
                     <div className='sign-in-credentials-email'>
-                        <label>Email:</label>
+                        <label htmlFor='credentials-email'>Email:</label>
                         <input
                             type="email"
                             id="credentials_email"
@@ -56,7 +56,7 @@ class CreateAccountMain extends Component {
                         {!this.state.isEmailValid && <span>Incorrect e-mail address</span>}
                     </div>
                     <div className='sign-in-credentials-password'>
-                        <label>Password:</label>
+                        <label htmlFor='credentials_password'>Password:</label>
                         <input
                             type="password"
                             id="credentials_password"
