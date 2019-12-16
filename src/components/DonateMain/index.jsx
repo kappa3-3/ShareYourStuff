@@ -22,6 +22,7 @@ class DonateMain extends Component {
         active: 1,
         forward: 'Next',
         backwards: 'Back',
+        isFormSubmitted: false
     };
 
     handleClickForwards = () => {
@@ -70,11 +71,10 @@ class DonateMain extends Component {
 
                         onSubmit={(values, {setSubmitting, resetForm}) => {
                             setSubmitting(true);
-                            console.log(values);
 
                             fetch('http://localhost:3005/donations', {
                                 method: 'POST',
-                                headers: {"Content-Type" : "application/json"},
+                                headers: {"Content-Type": "application/json"},
                                 body: JSON.stringify(values)
                             })
                                 .then((data) => console.log(data))
@@ -82,8 +82,10 @@ class DonateMain extends Component {
 
                             // resetForm();
                             setSubmitting(false);
-                        }}
+                            this.setState({isFormSubmitted: true});
+                            this.setState({active: this.state.active + 1})
 
+                        }}
                     >
                         {({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
 
@@ -94,65 +96,65 @@ class DonateMain extends Component {
                                     <div className='donate-component-choice-container'>
                                         <span>Step 1/4</span>
                                         <h1> Choose products you want to donate:</h1>
+                                        <table>
+                                            <tbody>
+                                            <tr className='donate-items-choice'>
+                                                <td>
+                                                    <input
+                                                        id='clothing'
+                                                        type='checkbox'
+                                                        name='clothing'
+                                                        value={values.clothing}
+                                                        onChange={handleChange}
+                                                    />
+                                                    <label htmlFor='clothing'>clothing suitable for use</label>
 
-                                        <tbody>
-                                        <tr className='donate-items-choice'>
-                                            <td>
-                                                <input
-                                                    id='clothing'
-                                                    type='checkbox'
-                                                    name='clothing'
-                                                    value={values.clothing}
-                                                    onChange={handleChange}
-                                                />
-                                                <label htmlFor='clothing'>clothing suitable for use</label>
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        id='used'
+                                                        type='checkbox'
+                                                        name='used_clothing'
+                                                        value={values.used_clothing}
+                                                        onChange={handleChange}
+                                                    />
+                                                    <label htmlFor='used'>clothing to recycle</label>
 
-                                            </td>
-                                            <td>
-                                                <input
-                                                    id='used'
-                                                    type='checkbox'
-                                                    name='used_clothing'
-                                                    value={values.used_clothing}
-                                                    onChange={handleChange}
-                                                />
-                                                <label htmlFor='used'>clothing to recycle</label>
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        id='toys'
+                                                        type='checkbox'
+                                                        name='toys'
+                                                        value={values.toys}
+                                                        onChange={handleChange}
+                                                    />
+                                                    <label htmlFor='toys'>toys</label>
 
-                                            </td>
-                                            <td>
-                                                <input
-                                                    id='toys'
-                                                    type='checkbox'
-                                                    name='toys'
-                                                    value={values.toys}
-                                                    onChange={handleChange}
-                                                />
-                                                <label htmlFor='toys'>toys</label>
-
-                                            </td>
-                                            <td>
-                                                <input
-                                                    id='books'
-                                                    type='checkbox'
-                                                    name='books'
-                                                    value={values.books}
-                                                    onChange={handleChange}
-                                                />
-                                                <label htmlFor='books'>books</label>
-                                            </td>
-                                            <td>
-                                                <input
-                                                    id='other'
-                                                    type='checkbox'
-                                                    name='other'
-                                                    value={values.other}
-                                                    onChange={handleChange}
-                                                />
-                                                <label htmlFor='other'>other</label>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        id='books'
+                                                        type='checkbox'
+                                                        name='books'
+                                                        value={values.books}
+                                                        onChange={handleChange}
+                                                    />
+                                                    <label htmlFor='books'>books</label>
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        id='other'
+                                                        type='checkbox'
+                                                        name='other'
+                                                        value={values.other}
+                                                        onChange={handleChange}
+                                                    />
+                                                    <label htmlFor='other'>other</label>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>}
                                 {active === 2 &&
@@ -167,8 +169,9 @@ class DonateMain extends Component {
                                                 value={values.bags}
                                                 name='bags'
                                                 onChange={handleChange}>
-                                                <option>--choose--</option>
+                                                <option value={null}>--choose--</option>
                                                 {options.map(item => <option
+                                                    key={item.value}
                                                     value={item.value}>
                                                     {item.label}
                                                 </option>)}
@@ -225,17 +228,19 @@ class DonateMain extends Component {
                                                     {/*<FormError touched={touched.street} message={errors.street}/>*/}
                                                 </div>
                                                 <div className='form-location'>
-                                                    <label htmlFor='city'>City</label>
-                                                    <input
-                                                        type='text'
-                                                        name='city'
-                                                        id='city'
-                                                        placeholder='city name'
-                                                        onChange={handleChange}
-                                                        onBlur={handleBlur}
-                                                        value={values.city}
-                                                        className={touched.city && errors.city ? "has-error" : null}
-                                                    />
+                                                    <span>City</span>
+                                                    <span>{values.location}</span>
+                                                    {/*<label htmlFor='city'>City</label>*/}
+                                                    {/*<input*/}
+                                                    {/*    type='text'*/}
+                                                    {/*    name='city'*/}
+                                                    {/*    id='city'*/}
+                                                    {/*    placeholder='city name'*/}
+                                                    {/*    onChange={handleChange}*/}
+                                                    {/*    onBlur={handleBlur}*/}
+                                                    {/*    value={values.city}*/}
+                                                    {/*    className={touched.city && errors.city ? "has-error" : null}*/}
+                                                    {/*/>*/}
                                                     {/*<FormError touched={touched.city} message={errors.city}/>*/}
                                                 </div>
                                                 <div className='form-location'>
@@ -298,7 +303,7 @@ class DonateMain extends Component {
                                                     {/*<FormError touched={touched.city} message={errors.city}/>*/}
                                                 </div>
                                                 <div className='form-time'>
-                                                    <label htmlFor='postcode'>Remarks</label>
+                                                    <label htmlFor='remarks'>Remarks</label>
                                                     <textarea
                                                         name='remarks'
                                                         id='remarks'
@@ -317,16 +322,15 @@ class DonateMain extends Component {
                                 }
                                 {active === 5 &&
                                 <div className='donate-component-container'>
-                                    <div className='donate-component-choice-container'>
+                                    <table className='donate-component-choice-container'>
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
                                         <tbody className='donate-sum-up-item'>
                                         <tr>
                                             <th>
-                                                <img src={bag}/>
+                                                <img src={bag} alt=''/>
                                             </th>
                                             <td>{values.bags} bags of:</td>
-
                                             {values.clothing && <td> clothing suitable for use |</td>}
                                             {values.used_clothing && <td> clothing to recycle |</td>}
                                             {values.toys && <td> toys |</td>}
@@ -338,14 +342,14 @@ class DonateMain extends Component {
                                         <tbody className='donate-sum-up-location'>
                                         <tr>
                                             <th>
-                                                <img src={transport}/>
+                                                <img src={transport} alt=''/>
                                             </th>
                                             <td>location:</td>
                                             <td>{values.location}</td>
                                         </tr>
                                         </tbody>
 
-                                        <div className='donate-sum-up-details'>
+                                        <table className='donate-sum-up-details'>
 
                                             <tbody>
                                             <h3>Pick-up address:</h3>
@@ -381,11 +385,11 @@ class DonateMain extends Component {
                                                 <td>{values.remarks}</td>
                                             </tr>
                                             </tbody>
-                                        </div>
+                                        </table>
 
-                                    </div>
+                                    </table>
                                 </div>}
-                                {active === 6 && <DonateEnd/>
+                                {this.state.isFormSubmitted === true && <DonateEnd/>
                                 }
                                 {active === 5
                                 && <div className='donate-button-container'>
@@ -398,6 +402,7 @@ class DonateMain extends Component {
                                     </button>
                                 </div>
                                 }
+
                             </form>
                         )}
                     </Formik>

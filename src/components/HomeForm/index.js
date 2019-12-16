@@ -7,15 +7,44 @@ class HomeForm extends Component {
         name: '',
         email: '',
         message: '',
+        isEmailValid: true,
+        isFormClicked: false,
     };
-    handleFormSubmit( event ) {
-        event.preventDefault();
-        console.log(this.state);
-    }
+
+    isFormValid = () => {
+        const {email} = this.state;
+        const isEmailValid = email.includes("@");
+        this.setState({isEmailValid});
+        return isEmailValid
+    };
+
+    onClickSubmit = e => {
+        e.preventDefault();
+
+        if (this.isFormValid()) {
+            const {email, name, message} = this.state;
+            fetch('http://localhost:3006/contact', {
+                method: 'POST',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({name: name, email: email, message: message})
+            })
+                .then((data) => console.log(data))
+                .catch((err) => console.log(err));
+            this.setState({isFormClicked: true});
+            setTimeout(() => this.setState({isFormClicked: false, name: '', email: '', message: ''}), 2200)
+        }
+    };
+
     render() {
         return (
             <div id='form-container'>
-                <form action="#">
+
+                {this.state.isFormClicked ?
+                    <div className='form-info-end'>
+                        <h1>Thank you for your message</h1>
+                        <span>We will contact you as soon as possible</span>
+                    </div>
+                    : <form action="#">
                     <div className='form-info'>
                         <div className='form-info-details form-name'>
                             <label>First Name</label>
@@ -53,10 +82,10 @@ class HomeForm extends Component {
                     <button
                         type="submit"
                         value="Submit"
-                        onClick={e=>this.handleFormSubmit(e)}
+                        onClick={this.onClickSubmit}
                     >Send</button>
 
-                </form>
+                </form> }
             </div>
         );
     }

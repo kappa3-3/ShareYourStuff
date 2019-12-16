@@ -98,13 +98,14 @@
 @mixin nav-button {
   text-decoration: none;
   box-sizing: content-box;
+  text-align: center;
   height: 20px;
   color: $light-grey;
   background-color: transparent;
   padding: 8px;
-  margin: 0 0 0 15px;
+  margin: 0 15px 0 15px;
   font-size: 14px;
-  border: 1px solid transparent;
+  border: 1px solid $basic-grey;
 }
 @mixin donate-button-page {
   width: 120px;
@@ -155,7 +156,7 @@
   flex-grow: 1;
   padding: 60px;
   background-image: url("../../assets/images/Background-Form.jpg");
-  background-position: right;
+  background-position: bottom right;
   background-repeat: no-repeat;
   background-size: cover;
   h1 {
@@ -182,7 +183,7 @@
 
 @mixin form-input-data {
   display: flex;
-  label {
+  label, span {
     width: 80px;
     height: 35px;
     font-size: 14px;
@@ -210,5 +211,46 @@
       padding-left: 10px;
       font-style: italic;
     }
+  }
+}
+
+@mixin up {
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+  cursor: pointer;
+  background-color: $up-transparency;
+  width: 100px;
+  height: 50px;
+  border: 1px solid transparent;
+  &:hover {
+    box-shadow: 0 0 7px 2px $up-transparency;
+  }
+  &:active {
+    border: 1px solid $basic-grey;
+    box-shadow: 0 0 7px 2px $basic-grey;
+    span {
+      color: $bright-yellow
+    }
+    svg {
+      color: $bright-yellow;
+    }
+
+  }
+  span {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    color: $basic-grey;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  svg {
+    transform: scale(0.2);
+    color: $basic-grey;
+    position: absolute;
+    top: -55px;
+    right: -25px;
   }
 }

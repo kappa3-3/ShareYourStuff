@@ -5,13 +5,14 @@ import Form from '../HomeForm'
 
 
 class HomeContact extends Component {
+
     render() {
         return (
             <div id='contact-container'>
                 <div className='contact-img' />
                 <div className='contact-form'>
                     <h1>Contact Us</h1>
-                    <img src={decoration} />
+                    <img src={decoration} alt=''/>
                     <Form />
                 </div>
             </div>

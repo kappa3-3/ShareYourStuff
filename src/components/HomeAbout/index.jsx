@@ -9,7 +9,7 @@ class HomeAbout extends Component {
             <div id='about-container'>
                 <div className='about-info'>
                     <h1>About Us</h1>
-                    <img src={decoration} />
+                    <img src={decoration} alt=''/>
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ipsam iste, minus omnis porro quidem repellendus sequi similique suscipit. A aliquam architecto culpa enim facilis id libero, non odio possimus quas qui tempore ut veritatis. </p>
                     <img src={ signature } alt='We have signed it' className='about-signage' />
                 </div>

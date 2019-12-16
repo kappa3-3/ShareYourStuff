@@ -3,6 +3,7 @@ import './style.scss';
 import {NavLink, withRouter} from "react-router-dom";
 import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
+// import {ScrollTo} from "react-scroll-to";
 import {connect} from "react-redux";
 import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg";
@@ -43,24 +44,27 @@ class NavBar extends Component {
                             ? <NavLink to="/" className='header-nav-account-link' onClick={this.handleLogOut}>Sign
                                 Out</NavLink>
                             : <NavLink to="/login" className='header-nav-account-link'>Sign In</NavLink>}
-                        <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>
+                        {!this.props.authentication
+                            && <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>}
                     </div>
                     <ul className='header-nav-sub-pages'>
-                        <li>
+                        {(this.props.page === 'home-page' || this.props.page === 'donate-page')
+                        && <li>
                             <NavLink to="/" className='header-nav-sub-pages-link'>Start</NavLink>
                         </li>
+                        }
                         {this.props.page === 'home-page' && navigationDataHome.map(item => (
-                            <li>
+                            <li key={item.title}>
                                 <Link
                                     to={item.to}
                                     className='header-nav-sub-pages-link'>{item.title}</Link>
                             </li>
                         ))}
                         {this.props.page === 'donate-page' && navigationDataHome.map(item => (
-                            <li>
+                            <li key={item.title}>
                                 <Link
                                     onClick={this.handleHomeLink}
-                                    Link={item.to}
+                                    to={item.to}
                                     className='header-nav-sub-pages-link'>{item.title}
                                 </Link>
                             </li>

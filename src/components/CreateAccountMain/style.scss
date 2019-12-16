@@ -47,6 +47,7 @@
 }
 .sign-in-button {
   @include nav-button;
+
   &:hover {
     @include active-sub-page;
   }

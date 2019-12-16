@@ -21,12 +21,9 @@ class HomeSupport extends Component {
 
         fetch(URL_NONPROFIT).then(data => data.json()).then(organizations => this.setState({organizations},
             () =>  this.setState({pageCount:Math.ceil(this.state.organizations.length / 3)})));
-        console.log(this.state.organizations)
-
-    }
+            }
 
     componentDidUpdate(prevProps, prevState) {
-
 
         if (this.state.type === 'nonprofit' && prevState.type !== this.state.type) {
 
@@ -50,7 +47,6 @@ class HomeSupport extends Component {
         const indexStart = 3*(page+1)-3;
         const indexEnd = 3*(page+1);
         const records = organizations.slice( indexStart, indexEnd ).map(record => {
-
             return(
                 <>
                     <OrganizationRecord
@@ -67,8 +63,8 @@ class HomeSupport extends Component {
             const { pageCount,page } = this.state;
             if ( pageCount !== 1 ) {
                 return [...Array(pageCount).fill(1)].map((item, i) => <a
-                    onClick={()=>this.handlePage(i)}
                     key={i}
+                    onClick={()=>this.handlePage(i)}
                     className={page === i ? 'active-page' : ''}
                 >{i+1}</a>);
             }

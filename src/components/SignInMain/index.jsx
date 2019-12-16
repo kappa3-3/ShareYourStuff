@@ -13,28 +13,27 @@ class SignInMain extends Component {
         email: '',
         password: '',
         isEmailValid: true,
+        isUserTrue:true,
         isPasswordValid: true,
         isLoggedIn: false,
         toRoute: true
     };
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.props);
-        this.props.authentication === true && this.props.history.push('/donate');
+        this.props.authentication && this.props.history.push('/donate')
     }
 
     onInputChange = e => {
         this.setState({[e.target.name]: e.target.value})
     };
 
-    onClickSubmit = e => {
+    onFormSubmit = e => {
         e.preventDefault();
         if (this.isFormValid()) {
-            this.props.setUserStatus(this.state.email, this.state.password)
-            this.props.history.push("/donate")
+            this.props.setUserStatus(this.state.email, this.state.password);
+            this.setState({isUserTrue:false})
 
-        }
-    };
+    }};
 
     isFormValid = () => {
         const {email, password} = this.state;
@@ -48,7 +47,7 @@ class SignInMain extends Component {
 
     render() {
         return (
-            <form className='sign-in-container' onSubmit={this.onClickSubmit}>
+            <form className='sign-in-container' onSubmit={this.onFormSubmit}>
                 <h1>Sign In</h1>
                 <img src={decoration} alt='/////////'/>
                 <div className='sign-in-credentials'>
@@ -75,6 +74,7 @@ class SignInMain extends Component {
                             onChange={this.onInputChange}
                         />
                         {!this.state.isPasswordValid && <span>Password requires at least 6 characters</span>}
+                        {!this.state.isUserTrue && <span>Password or e-mail address is incorrect.</span>}
                     </div>
                 </div>
                 <div className='sign-in-actions'>
