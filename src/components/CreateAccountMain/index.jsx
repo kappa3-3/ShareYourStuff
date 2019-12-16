@@ -20,7 +20,6 @@ class CreateAccountMain extends Component {
     onInputChange = e => {
         this.setState({[e.target.name]: e.target.value})
     };
-
     onClickSubmit = e => {
         e.preventDefault();
 

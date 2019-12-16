@@ -5,6 +5,7 @@ import Form from '../HomeForm'
 
 
 class HomeContact extends Component {
+
     render() {
         return (
             <div id='contact-container'>
