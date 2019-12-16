@@ -32,7 +32,6 @@ class SignInMain extends Component {
         if (this.isFormValid()) {
             this.props.setUserStatus(this.state.email, this.state.password);
             this.props.history.push("/donate")
-
         }
     };
 

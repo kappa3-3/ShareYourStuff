@@ -1,8 +1,10 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
 import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
 import {NavLink} from "react-router-dom";
 import {withRouter} from "react-router-dom";
+import {setUserStatus} from "../../actions";
 
 class CreateAccountMain extends Component {
     state = {
@@ -12,7 +14,7 @@ class CreateAccountMain extends Component {
         isEmailValid: true,
         isPasswordValid: true,
         isPasswordCopyValid: true,
-        isFormClicked:false,
+        isFormClicked: false,
     };
 
     onInputChange = e => {
@@ -22,23 +24,24 @@ class CreateAccountMain extends Component {
     onClickSubmit = e => {
         e.preventDefault();
 
-
-        if ( this.isFormValid()) {
+        if (this.isFormValid()) {
             const {email, password} = this.state;
             fetch('http://localhost:3004/users', {
                 method: 'POST',
-                headers: {"Content-Type" : "application/json"},
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({email: email, password: password})
             })
                 .then((data) => console.log(data))
                 .catch((err) => console.log(err));
-            this.props.history.push("/donate")
+            this.props.setUserStatus(this.state.email, this.state.password);
+            setTimeout(() => this.props.history.push("/donate"), 2200);
         }
+
 
     };
 
     isFormValid = () => {
-        const { email, password, password_copy } = this.state;
+        const {email, password, password_copy} = this.state;
 
         const isEmailValid = email.includes("@");
         const isPasswordValid = password.length >= 6;
@@ -50,54 +53,72 @@ class CreateAccountMain extends Component {
 
     render() {
         return (
-            <div className='sign-in-container'>
-                <h1>Create Account</h1>
-                <img src={decoration}/>
-                <div className='sign-in-credentials'>
-                    <div className='sign-in-credentials-email'>
-                        <label htmlFor='credentials-email'>Email:</label>
-                        <input
-                            type="email"
-                            id="credentials_email"
-                            name="email"
-                            placeholder="type your email address"
-                            value={this.state.email}
-                            onChange={this.onInputChange}
-                        />
-                        {!this.state.isEmailValid && <span>Incorrect e-mail address</span>}
+            <>
+                {this.props.authentication &&
+                <div className='header-logout-container'>
+                    <div className='header-logout-prompt'>
+                        <h1>The account have been created successfully</h1>
+                        <img src={decoration} alt='/////////'/>
+                        <h4>You are have been automatically signed in</h4>
                     </div>
-                    <div className='sign-in-credentials-password'>
-                        <label htmlFor='credentials_password'>Password:</label>
-                        <input
-                            type="password"
-                            id="credentials_password"
-                            name="password"
-                            placeholder="type your password"
-                            value={this.state.password}
-                            onChange={this.onInputChange}
-                        />
-                        {!this.state.isPasswordValid && <span>Password requires at least 6 characters</span>}
+                </div>}
+                <div className='sign-in-container'>
+                    <h1>Create Account</h1>
+                    <img src={decoration}/>
+                    <div className='sign-in-credentials'>
+                        <div className='sign-in-credentials-email'>
+                            <label htmlFor='credentials-email'>Email:</label>
+                            <input
+                                type="email"
+                                id="credentials_email"
+                                name="email"
+                                placeholder="type your email address"
+                                value={this.state.email}
+                                onChange={this.onInputChange}
+                            />
+                            {!this.state.isEmailValid && <span>Incorrect e-mail address</span>}
+                        </div>
+                        <div className='sign-in-credentials-password'>
+                            <label htmlFor='credentials_password'>Password:</label>
+                            <input
+                                type="password"
+                                id="credentials_password"
+                                name="password"
+                                placeholder="type your password"
+                                value={this.state.password}
+                                onChange={this.onInputChange}
+                            />
+                            {!this.state.isPasswordValid && <span>Password requires at least 6 characters</span>}
+                        </div>
+                        <div className='sign-in-credentials-password'>
+                            <label>Repeat password:</label>
+                            <input
+                                type="password"
+                                id="credentials_password_copy"
+                                name="password_copy"
+                                placeholder="retype your password"
+                                value={this.state.passwordCopy}
+                                onChange={this.onInputChange}
+                            />
+                            {!this.state.isPasswordCopyValid && <span>Passwords are not the same</span>}
+                        </div>
                     </div>
-                    <div className='sign-in-credentials-password'>
-                        <label>Repeat password:</label>
-                        <input
-                            type="password"
-                            id="credentials_password_copy"
-                            name="password_copy"
-                            placeholder="retype your password"
-                            value={this.state.passwordCopy}
-                            onChange={this.onInputChange}
-                        />
-                        {!this.state.isPasswordCopyValid && <span>Passwords are not the same</span>}
+                    <div className='sign-in-actions'>
+                        <NavLink to="/login" className='sign-in-button'>Sign in</NavLink>
+                        <button onClick={this.onClickSubmit} className='create-account-button'>Create
+                            account</button>
                     </div>
                 </div>
-                <div className='sign-in-actions'>
-                    <NavLink to="/login" className='create-account-button'>Sign in</NavLink>
-                    <NavLink to="/donate" onClick={this.onClickSubmit} className='sign-in-button'>Create account</NavLink>
-                </div>
-            </div>
+            </>
         );
     }
 }
 
-export default withRouter(CreateAccountMain);
+
+function mapStateToProps(state) {
+    return {
+        authentication: state.authentication
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {setUserStatus})(CreateAccountMain));

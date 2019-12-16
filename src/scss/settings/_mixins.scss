@@ -98,13 +98,14 @@
 @mixin nav-button {
   text-decoration: none;
   box-sizing: content-box;
+  text-align: center;
   height: 20px;
   color: $light-grey;
   background-color: transparent;
   padding: 8px;
-  margin: 0 0 0 15px;
+  margin: 0 15px 0 15px;
   font-size: 14px;
-  border: 1px solid transparent;
+  border: 1px solid $basic-grey;
 }
 @mixin donate-button-page {
   width: 120px;
