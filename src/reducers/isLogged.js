@@ -3,7 +3,7 @@ const isLoggedIn = (state = false, action) => {
         case 'SIGN_IN':
             return action.payload;
         default:
-            return false;
+            return null;
     }
 };
 

@@ -3,41 +3,5 @@
 @import "../../scss/settings/_mixins";
 
 .home-up-container {
-  position: fixed;
-  bottom: 70px;
-  right: 50px;
-  background-color: $up-transparency;
-  width: 100px;
-  height: 50px;
-  border: 1px solid transparent;
-  &:hover {
-    box-shadow: 0 0 7px 2px $up-transparency;
-  }
-  &:active {
-    border: 1px solid $basic-grey;
-    box-shadow: 0 0 7px 2px $basic-grey;
-    span {
-      color: $bright-yellow
-    }
-    svg {
-      color: $bright-yellow;
-    }
-
-  }
-  span {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
-    color: $basic-grey;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-  }
-  svg {
-    transform: scale(0.2);
-    color: $basic-grey;
-    position: absolute;
-    top: -55px;
-    right: -25px;
-  }
+ @include up;
 }

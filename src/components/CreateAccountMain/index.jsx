@@ -63,7 +63,7 @@ class CreateAccountMain extends Component {
                 </div>}
                 <div className='sign-in-container'>
                     <h1>Create Account</h1>
-                    <img src={decoration}/>
+                    <img src={decoration} alt=''/>
                     <div className='sign-in-credentials'>
                         <div className='sign-in-credentials-email'>
                             <label htmlFor='credentials-email'>Email:</label>

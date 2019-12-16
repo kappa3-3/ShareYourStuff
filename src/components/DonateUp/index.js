@@ -22,7 +22,7 @@ class DonateUp extends Component {
         return (
             <>
                 {this.state.visible &&
-                <Link to='donate-container' className='home-up-container'>
+                <Link to='donate-container' className='donate-up-container'>
                     <span>Up</span>
                     <Up/>
                 </Link>
