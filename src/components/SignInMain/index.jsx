@@ -30,7 +30,7 @@ class SignInMain extends Component {
     onClickSubmit = e => {
         e.preventDefault();
         if (this.isFormValid()) {
-            this.props.setUserStatus(this.state.email, this.state.password)
+            this.props.setUserStatus(this.state.email, this.state.password);
             this.props.history.push("/donate")
 
         }

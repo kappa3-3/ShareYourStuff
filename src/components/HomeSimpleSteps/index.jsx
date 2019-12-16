@@ -5,7 +5,9 @@ import shirt from '../../assets/icons/Icon-1.svg';
 import bag from '../../assets/icons/Icon-2.svg';
 import search from '../../assets/icons/Icon-3.svg';
 import transport from '../../assets/icons/Icon-4.svg';
-import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+import {NavLink, withRouter} from "react-router-dom";
+import {setUserStatus} from "../../actions";
 
 class HomeSimpleSteps extends Component {
     render() {
@@ -41,10 +43,20 @@ class HomeSimpleSteps extends Component {
                         </div>
                 </div>
                 <div className='give-away'>
-                    <p><NavLink to="/login">Give<br />away</NavLink></p>
+                    { this.props.authentication
+                        ? <p><NavLink to="/donate">Give<br />away</NavLink></p>
+                        : <p><NavLink to="/login">Give<br />away</NavLink></p>
+                    }
                 </div>
             </div>
         );
     }
 }
-export default HomeSimpleSteps;
+
+function mapStateToProps(state) {
+    return {
+        authentication: state.authentication
+    }
+}
+
+export default connect(mapStateToProps, {setUserStatus})(HomeSimpleSteps);

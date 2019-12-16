@@ -46,9 +46,10 @@ class NavBar extends Component {
                         <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>
                     </div>
                     <ul className='header-nav-sub-pages'>
-                        <li>
+                        {this.props.page === 'home-page' || this.props.page === 'donate-page'
+                        && <li>
                             <NavLink to="/" className='header-nav-sub-pages-link'>Start</NavLink>
-                        </li>
+                        </li>}
                         {this.props.page === 'home-page' && navigationDataHome.map(item => (
                             <li>
                                 <Link

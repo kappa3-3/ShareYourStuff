@@ -21,9 +21,20 @@ class CreateAccountMain extends Component {
 
     onClickSubmit = e => {
         e.preventDefault();
+
+
         if ( this.isFormValid()) {
+            const {email, password} = this.state;
+            fetch('http://localhost:3004/users', {
+                method: 'POST',
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify({email: email, password: password})
+            })
+                .then((data) => console.log(data))
+                .catch((err) => console.log(err));
             this.props.history.push("/donate")
         }
+
     };
 
     isFormValid = () => {

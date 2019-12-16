@@ -22,32 +22,6 @@
       "street": "ŁUBINOWA, 43",
       "toys": false,
       "used_clothing": true
-    },
-    {
-      "id": 2
-    },
-    {
-      "clothing": false,
-      "used_clothing": true,
-      "toys": true,
-      "books": true,
-      "other": false,
-      "bags": "3",
-      "location": "Kraków",
-      "kids": false,
-      "mothers": false,
-      "homeless": false,
-      "disabled": false,
-      "elderly": false,
-      "organization": "",
-      "street": "Prinsengracht 662-2",
-      "city": "Amsterdam",
-      "postcode": "1017 KW",
-      "phone": 621314371,
-      "date": "2019-12-10",
-      "hour": "16:30",
-      "remarks": "erv",
-      "id": 3
     }
   ]
 }

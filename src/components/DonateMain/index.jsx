@@ -22,6 +22,7 @@ class DonateMain extends Component {
         active: 1,
         forward: 'Next',
         backwards: 'Back',
+        isFormSubmitted: false
     };
 
     handleClickForwards = () => {
@@ -70,7 +71,6 @@ class DonateMain extends Component {
 
                         onSubmit={(values, {setSubmitting, resetForm}) => {
                             setSubmitting(true);
-                            console.log(values);
 
                             fetch('http://localhost:3005/donations', {
                                 method: 'POST',
@@ -82,8 +82,10 @@ class DonateMain extends Component {
 
                             // resetForm();
                             setSubmitting(false);
-                        }}
+                            this.setState({isFormSubmitted:true});
+                            this.setState({active: this.state.active + 1})
 
+                        }}
                     >
                         {({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
 
@@ -385,7 +387,7 @@ class DonateMain extends Component {
 
                                     </div>
                                 </div>}
-                                {active === 6 && <DonateEnd/>
+                                {this.state.isFormSubmitted === true && <DonateEnd/>
                                 }
                                 {active === 5
                                 && <div className='donate-button-container'>
@@ -398,6 +400,7 @@ class DonateMain extends Component {
                                     </button>
                                 </div>
                                 }
+
                             </form>
                         )}
                     </Formik>
