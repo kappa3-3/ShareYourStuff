@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './style.scss';
 import * as Yup from "yup";
-import {Formik, Field} from "formik";
+import {Formik} from "formik";
 
 import transport from '../../assets/icons/Icon-4.svg';
 import bag from '../../assets/icons/Icon-2.svg';
@@ -10,11 +10,12 @@ import DonateHeader from "../DonateHeader";
 import DonateRemember from "../DonateRemember";
 import Contact from "../Contact";
 import Footer from "../Footer";
+import DonateEnd from "../DonateEnd";
 
 import options from "../../commons/options"
 import locations from "../../commons/locations"
 import validationSchema from "../../commons/validationSchema"
-import DonateEnd from "../DonateEnd";
+
 
 
 class DonateMain extends Component {
@@ -26,11 +27,13 @@ class DonateMain extends Component {
     };
 
     handleClickForwards = () => {
-        this.setState({active: this.state.active + 1})
+        this.setState({active: this.state.active + 1});
+        console.log(this.state.active)
     };
 
     handleClickBackwards = () => {
-        this.setState({active: this.state.active - 1})
+        this.setState({active: this.state.active - 1});
+        console.log(this.state.active)
     };
 
     render() {
@@ -69,8 +72,10 @@ class DonateMain extends Component {
 
                         validationSchema={validationSchema}
 
-                        onSubmit={(values, {setSubmitting, resetForm}) => {
+                        onSubmit={(values, {setSubmitting}) => {
+
                             setSubmitting(true);
+                            console.log(this.state.active);
 
                             fetch('http://localhost:3005/donations', {
                                 method: 'POST',
@@ -82,7 +87,7 @@ class DonateMain extends Component {
 
                             // resetForm();
                             setSubmitting(false);
-                            this.setState({isFormSubmitted: true});
+                            // this.setState({isFormSubmitted: true});
                             this.setState({active: this.state.active + 1})
 
                         }}
@@ -194,7 +199,7 @@ class DonateMain extends Component {
                                                 onChange={handleChange}
                                             >
                                                 <option>--choose--</option>
-                                                {locations.map(item => <option value={item.value}>
+                                                {locations.map(item => <option key={item.value} value={item.value}>
                                                     {item.label}
                                                 </option>)}
                                             </select>
@@ -377,19 +382,20 @@ class DonateMain extends Component {
 
                                     </table>
                                 </div>}
-                                {this.state.isFormSubmitted === true && <DonateEnd/>
+                                {/*{this.state.isFormSubmitted === true && <DonateEnd/>*/}
+                                {/*}*/}
+                                {active === 6
+                                && <DonateEnd />
                                 }
                                 {active === 5
                                 && <div className='donate-button-container'>
                                     <button
-                                        type='submit'
+                                        type="submit"
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
-                                        // onClick={this.handleClickForwards}
                                     >Submit</button>
                                 </div>
                                 }
-
                             </form>
                         )}
                     </Formik>
@@ -404,7 +410,7 @@ class DonateMain extends Component {
                             type="button"
                             className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
                             onClick={this.handleClickForwards}>
-                            {active === 5 ? 'Confirm' : forward}
+                            {forward}
                         </button>
                     </div>
                 </div>
