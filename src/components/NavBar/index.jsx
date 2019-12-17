@@ -3,7 +3,7 @@ import './style.scss';
 import {NavLink, withRouter, Redirect} from "react-router-dom";
 import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
-import { ScrollTo } from "react-scroll-to";
+import {ScrollTo} from "react-scroll-to"
 import {connect} from "react-redux";
 import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg";
@@ -55,10 +55,14 @@ class NavBar extends Component {
                                 Out</NavLink>
                             : <NavLink to="/login" className='header-nav-account-link'>Sign In</NavLink>}
                         {!this.props.authentication
-                            && <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>}
+                        && <NavLink to="/register" className='header-nav-account-link'>Create Account</NavLink>}
+                        {this.props.page === 'donate-page'
+                        && <NavLink to="/" className='header-nav-account-link'>Home</NavLink>}
+                        {(this.props.page === 'home-page' && this.props.authentication)
+                        && <NavLink to="/donate" className='header-nav-account-link'>Donate</NavLink>}
                     </div>
                     <ul className='header-nav-sub-pages'>
-                        {(this.props.page === 'home-page' || this.props.page === 'donate-page')
+                        {(this.props.page === 'home-page')
                         && <li>
                             <NavLink to="/" className='header-nav-sub-pages-link'>Start</NavLink>
                         </li>
@@ -70,27 +74,19 @@ class NavBar extends Component {
                                     className='header-nav-sub-pages-link'>{item.title}</Link>
                             </li>
                         ))}
-                        {this.props.page === 'donate-page' && navigationDataHome.map(item => (
-                            <ScrollTo>
-                                {({ scrollTo }) => (
-                                    <Link
-                                        to='/'
-                                        onClick={() => scrollTo({ ref: this.HomeAboutRef})}
-                                        className='header-nav-sub-pages-link'
-                                    >{item.title}</Link>
-                                )}
-                            </ScrollTo>
-
-                            // <li key={item.title}>
-                            //     <Link
-                            //         onClick={this.handleHomeLink}
-                            //         to={item.to}
-                            //         className='header-nav-sub-pages-link'>{item.title}
-                            //     </Link>
-                            // </li>
-                        ))}
+                        {this.props.page === 'donate-page' &&
+                        <>
+                            <li>
+                                <Link to='contact-container' className='header-nav-sub-pages-link'>Contact</Link>
+                            </li>
+                            <li>
+                                <Link to='donate-steps-container' className='header-nav-sub-pages-link'>Donate</Link>
+                            </li>
+                        </>
+                        }
                     </ul>
                 </div>
+
             </>
         )
     }
