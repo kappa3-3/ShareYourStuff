@@ -4,9 +4,10 @@ import decoration from '../../assets/icons/Decoration.svg';
 import signature from '../../assets/icons/Signature.svg';
 
 class HomeAbout extends Component {
+    HomeAboutRef = React.createRef();
     render() {
         return (
-            <div id='about-container'>
+            <div id='about-container' ref={this.HomeAboutRef}>
                 <div className='about-info'>
                     <h1>About Us</h1>
                     <img src={decoration} alt=''/>

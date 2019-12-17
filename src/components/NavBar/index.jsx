@@ -1,34 +1,44 @@
 import React, {Component} from "react";
 import './style.scss';
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink, withRouter, Redirect} from "react-router-dom";
 import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
-// import {ScrollTo} from "react-scroll-to";
+import { ScrollTo } from "react-scroll-to";
 import {connect} from "react-redux";
 import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg";
+import HomeContact from "../Contact";
+import Home from "../../pages/Home";
+import HomeAbout from "../HomeAbout";
 
 class NavBar extends Component {
 
     state = {
-        logOutPrompt: false
+        logOutPrompt: false,
+        redirectToHome: false
     };
 
     handleLogOut = e => {
         e.preventDefault();
         this.setState({logOutPrompt: true});
         this.props.setUserStatus();
-        setTimeout(() => this.props.history.push('/'), 2000);
+        setTimeout(() => this.setState({logOutPrompt: false}), 2000);
+        this.props.history.push('/');
+
     };
 
     handleHomeLink = e => {
-        e.preventDefault();
-        this.props.history.push('/');
+
+        // this.setState({redirectToHome: true})
+        // <Redirect to='/' component={HomeAbout}/>
+        // this.props.history.push('/');
     };
 
     render() {
+
         return (
             <>
+                {/*{this.state.redirectToHome && <Redirect to='/' />}*/}
                 {this.state.logOutPrompt &&
                 <div className='header-logout-container'>
                     <div className='header-logout-prompt'>
@@ -61,13 +71,23 @@ class NavBar extends Component {
                             </li>
                         ))}
                         {this.props.page === 'donate-page' && navigationDataHome.map(item => (
-                            <li key={item.title}>
-                                <Link
-                                    onClick={this.handleHomeLink}
-                                    to={item.to}
-                                    className='header-nav-sub-pages-link'>{item.title}
-                                </Link>
-                            </li>
+                            <ScrollTo>
+                                {({ scrollTo }) => (
+                                    <Link
+                                        to='/'
+                                        onClick={() => scrollTo({ ref: this.HomeAboutRef})}
+                                        className='header-nav-sub-pages-link'
+                                    >{item.title}</Link>
+                                )}
+                            </ScrollTo>
+
+                            // <li key={item.title}>
+                            //     <Link
+                            //         onClick={this.handleHomeLink}
+                            //         to={item.to}
+                            //         className='header-nav-sub-pages-link'>{item.title}
+                            //     </Link>
+                            // </li>
                         ))}
                     </ul>
                 </div>
