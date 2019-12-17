@@ -3,7 +3,6 @@ import './style.scss';
 import {NavLink, withRouter, Redirect} from "react-router-dom";
 import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
-import {ScrollTo} from "react-scroll-to"
 import {connect} from "react-redux";
 import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg";
