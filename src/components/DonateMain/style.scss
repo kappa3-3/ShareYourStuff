@@ -10,6 +10,7 @@
 
 .donate-component-container {
   @include donate-component-container;
+  @include donate-background-bear;
 }
 
 .donate-component-choice-container {
@@ -17,10 +18,7 @@
   flex-direction: column;
   flex-grow: 1;
   padding: 60px;
-  background-image: url("../../assets/images/Background-Form.jpg");
-  background-position: bottom right;
-  background-repeat: no-repeat;
-  background-size: cover;
+
   h1 {
     font-size: 30px;
     padding: 25px 0 15px 0;
