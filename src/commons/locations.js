@@ -1,9 +1,11 @@
 const locations = [
-    {value: 'Poznań', label: 'Poznań'},
-    {value: 'Warszawa', label: 'Warszawa'},
-    {value: 'Kraków', label: 'Kraków'},
-    {value: 'Wrocław', label: 'Wrocław'},
-    {value: 'Katowice', label: 'Katowice'}
+    {value: 'Amsterdam', label: 'Amsterdam'},
+    {value: 'Brussels', label: 'Brussels'},
+    {value: 'Madrid', label: 'Madrid'},
+    {value: 'Copenhagen', label: 'Copenhagen'},
+    {value: 'London', label: 'London'},
+    {value: 'Warsaw', label: 'Warsaw'},
+    {value: 'Paris', label: 'Paris'}
 ];
 
 export default locations;

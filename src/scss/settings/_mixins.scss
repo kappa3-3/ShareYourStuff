@@ -128,7 +128,7 @@
   display: flex;
   flex-direction: column;
   background-color: $bright-yellow;
-  padding: 35px 0 35px 60px;
+  padding: 15px 0 15px 60px;
   box-sizing: border-box;
   margin: 0;
   h1 {
@@ -148,6 +148,13 @@
   flex-direction: column;
   height: 100vh;
 
+
+}
+@mixin donate-background-bear {
+  background-image: url("../../assets/images/Background-Form.jpg");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @mixin donate-component-choice-container {
@@ -155,10 +162,7 @@
   flex-direction: column;
   flex-grow: 1;
   padding: 60px;
-  background-image: url("../../assets/images/Background-Form.jpg");
-  background-position: bottom right;
-  background-repeat: no-repeat;
-  background-size: cover;
+
   h1 {
     font-size: 30px;
     padding: 25px 0 15px 0;

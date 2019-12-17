@@ -230,18 +230,6 @@ class DonateMain extends Component {
                                                 <div className='form-location'>
                                                     <span>City</span>
                                                     <span>{values.location}</span>
-                                                    {/*<label htmlFor='city'>City</label>*/}
-                                                    {/*<input*/}
-                                                    {/*    type='text'*/}
-                                                    {/*    name='city'*/}
-                                                    {/*    id='city'*/}
-                                                    {/*    placeholder='city name'*/}
-                                                    {/*    onChange={handleChange}*/}
-                                                    {/*    onBlur={handleBlur}*/}
-                                                    {/*    value={values.city}*/}
-                                                    {/*    className={touched.city && errors.city ? "has-error" : null}*/}
-                                                    {/*/>*/}
-                                                    {/*<FormError touched={touched.city} message={errors.city}/>*/}
                                                 </div>
                                                 <div className='form-location'>
                                                     <label htmlFor='postcode'>Postcode</label>
@@ -359,7 +347,7 @@ class DonateMain extends Component {
                                             </tr>
                                             <tr>
                                                 <th>city:</th>
-                                                <td>{values.city}</td>
+                                                <td>{values.location}</td>
                                             </tr>
                                             <tr>
                                                 <th>post-code:</th>
@@ -398,8 +386,7 @@ class DonateMain extends Component {
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
                                         // onClick={this.handleClickForwards}
-                                    >Submit
-                                    </button>
+                                    >Submit</button>
                                 </div>
                                 }
 

@@ -8,7 +8,7 @@ import {
 import Home from './pages/Home'
 import CreateAccount from "./pages/CreateAccount";
 import SignIn from "./pages/SignIn";
-import {Donate} from "./pages/Donate";
+import Donate from "./pages/Donate";
 
 export default function Routing() {
 
