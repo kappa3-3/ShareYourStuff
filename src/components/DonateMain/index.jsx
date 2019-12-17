@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './style.scss';
-import * as Yup from "yup";
+// import * as Yup from "yup";
 import {Formik} from "formik";
 
 import transport from '../../assets/icons/Icon-4.svg';
@@ -15,7 +15,6 @@ import DonateEnd from "../DonateEnd";
 import options from "../../commons/options"
 import locations from "../../commons/locations"
 import validationSchema from "../../commons/validationSchema"
-
 
 
 class DonateMain extends Component {
@@ -75,7 +74,6 @@ class DonateMain extends Component {
                         onSubmit={(values, {setSubmitting}) => {
 
                             setSubmitting(true);
-                            console.log(this.state.active);
 
                             fetch('http://localhost:3005/donations', {
                                 method: 'POST',
@@ -315,113 +313,120 @@ class DonateMain extends Component {
                                 }
                                 {active === 5 &&
                                 <div className='donate-component-container'>
-                                    <table className='donate-component-choice-container'>
+                                    <div className='donate-component-choice-container'>
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
-                                        <tbody className='donate-sum-up-item'>
-                                        <tr>
-                                            <th>
-                                                <img src={bag} alt=''/>
-                                            </th>
-                                            <td>{values.bags} bags of:</td>
-                                            {values.clothing && <td> clothing suitable for use |</td>}
-                                            {values.used_clothing && <td> clothing to recycle |</td>}
-                                            {values.toys && <td> toys |</td>}
-                                            {values.books && <td> books |</td>}
-                                            {values.other && <td> not listed items |</td>}
-                                        </tr>
-                                        </tbody>
-
-                                        <tbody className='donate-sum-up-location'>
-                                        <tr>
-                                            <th>
-                                                <img src={transport} alt=''/>
-                                            </th>
-                                            <td>location:</td>
-                                            <td>{values.location}</td>
-                                        </tr>
-                                        </tbody>
-
-                                        <table className='donate-sum-up-details'>
-
-                                            <tbody>
-                                            <h3>Pick-up address:</h3>
+                                        <table>
+                                            <tbody className='donate-sum-up-item'>
                                             <tr>
-                                                <th>street:</th>
-                                                <td>{values.street}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>city:</th>
-                                                <td>{values.location}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>post-code:</th>
-                                                <td>{values.postcode}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>phone number:</th>
-                                                <td>{values.phone}</td>
-                                            </tr>
-                                            </tbody>
-                                            <tbody>
-                                            <h3>Pick-up time:</h3>
-                                            <tr>
-                                                <th>date:</th>
-                                                <td>{values.date}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>time:</th>
-                                                <td>{values.hour}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>remarks for the courier:</th>
-                                                <td>{values.remarks}</td>
+                                                <th>
+                                                    <img src={bag} alt=''/>
+                                                </th>
+                                                <td>{values.bags} bags of:</td>
+                                                {values.clothing && <td> clothing suitable for use |</td>}
+                                                {values.used_clothing && <td> clothing to recycle |</td>}
+                                                {values.toys && <td> toys |</td>}
+                                                {values.books && <td> books |</td>}
+                                                {values.other && <td> not listed items |</td>}
                                             </tr>
                                             </tbody>
                                         </table>
-
-                                    </table>
+                                        <table>
+                                            <tbody className='donate-sum-up-location'>
+                                            <tr>
+                                                <th>
+                                                    <img src={transport} alt=''/>
+                                                </th>
+                                                <td>location:</td>
+                                                <td>{values.location}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <div className='donate-sum-up-details'>
+                                            <h3>Pick-up address:</h3>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <th>street:</th>
+                                                    <td>{values.street}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>city:</th>
+                                                    <td>{values.location}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>post-code:</th>
+                                                    <td>{values.postcode}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>phone number:</th>
+                                                    <td>{values.phone}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <table>
+                                                <tbody>
+                                                <tr>
+                                                    <th>Pick-up time:</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>date:</th>
+                                                    <td>{values.date}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>time:</th>
+                                                    <td>{values.hour}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>remarks for the courier:</th>
+                                                    <td>{values.remarks}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>}
-                                {/*{this.state.isFormSubmitted === true && <DonateEnd/>*/}
-                                {/*}*/}
-                                {active === 6
-                                && <DonateEnd />
-                                }
-                                {active === 5
-                                && <div className='donate-button-container'>
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className='button-forward-visible'
-                                    >Submit</button>
-                                </div>
-                                }
-                            </form>
-                        )}
-                    </Formik>
-                    < div className='donate-button-container'>
-                        <button
+                                    {/*{this.state.isFormSubmitted === true && <DonateEnd/>*/}
+                                    {/*}*/}
+                                    {active === 6
+                                    && <DonateEnd/>
+                                    }
+                                    {active === 5
+                                    && <div className='donate-button-container'>
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className='button-forward-visible'
+                                        >Submit
+                                        </button>
+                                    </div>
+                                    }
+                                    </form>
+                                    )}
+                            </Formik>
+                            < div className='donate-button-container'>
+                            <button
                             type="button"
                             className={(active === 1 || active === 6) ? 'button-display-none' : 'button-backward-visible'}
                             onClick={this.handleClickBackwards}>
-                            {backwards}
-                        </button>
-                        <button
+                        {backwards}
+                            </button>
+                            <button
                             type="button"
                             className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
                             onClick={this.handleClickForwards}>
                             {forward}
-                        </button>
-                    </div>
-                </div>
-                <Contact/>
-                <div className='footer-wrapper'>
-                    <Footer/>
-                </div>
-            </div>
-        )
+                            </button>
+                            </div>
+                            </div>
+                            <Contact/>
+                            <div className='footer-wrapper'>
+                            <Footer/>
+                            </div>
+                            </div>
+                            )
 
-    }
-}
+                            }
+                            }
 
-export default DonateMain;
+                            export default DonateMain;

@@ -1,14 +1,11 @@
 import React, {Component} from "react";
 import './style.scss';
-import {NavLink, withRouter, Redirect} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
 import {connect} from "react-redux";
 import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg";
-import HomeContact from "../Contact";
-import Home from "../../pages/Home";
-import HomeAbout from "../HomeAbout";
 
 class NavBar extends Component {
 
@@ -26,12 +23,12 @@ class NavBar extends Component {
 
     };
 
-    handleHomeLink = e => {
-
-        // this.setState({redirectToHome: true})
-        // <Redirect to='/' component={HomeAbout}/>
-        // this.props.history.push('/');
-    };
+    // handleHomeLink = e => {
+    //
+    //     // this.setState({redirectToHome: true})
+    //     // <Redirect to='/' component={HomeAbout}/>
+    //     // this.props.history.push('/');
+    // };
 
     render() {
 
