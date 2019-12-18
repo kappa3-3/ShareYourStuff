@@ -22,6 +22,46 @@
       "street": "ŁUBINOWA, 43",
       "toys": false,
       "used_clothing": true
+    },
+    {
+      "items": [
+        "clothing",
+        "used_clothing",
+        "toys",
+        "books",
+        "other"
+      ],
+      "clothing": false,
+      "used_clothing": false,
+      "toys": false,
+      "books": false,
+      "other": false,
+      "bags": "2",
+      "location": "Copenhagen",
+      "kids": false,
+      "mothers": false,
+      "homeless": false,
+      "disabled": false,
+      "elderly": false,
+      "organization": "",
+      "street": "Prinsengracht 662-2",
+      "city": "",
+      "postcode": "1017 KW",
+      "phone": 621314371,
+      "date": "2019-12-10",
+      "hour": "11:11",
+      "remarks": "se",
+      "item": [
+        null,
+        [
+          "used_clothing"
+        ],
+        null,
+        [
+          "books"
+        ]
+      ],
+      "id": 2
     }
   ]
 }
