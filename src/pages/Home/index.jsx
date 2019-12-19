@@ -14,8 +14,10 @@ const Home = () => {
     return (
         <div className='home-wrapper'>
             <HomeHeader />
-            <HomeThreeColumns />
-            <HomeSimpleSteps />
+            <div className='home-explanation-wrapper'>
+                <HomeThreeColumns />
+                <HomeSimpleSteps />
+            </div>
             <HomeAbout />
             <HomeSupport />
             <HomeContact />

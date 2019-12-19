@@ -31,7 +31,7 @@ class SignInMain extends Component {
         e.preventDefault();
         if (this.isFormValid()) {
             this.props.setUserStatus(this.state.email, this.state.password);
-            this.setState({isUserTrue:false})
+            setTimeout(()=> this.setState({isUserTrue:false}),100 )
 
     }};
 

@@ -22,6 +22,63 @@
       "street": "ŁUBINOWA, 43",
       "toys": false,
       "used_clothing": true
+    },
+    {
+      "possessions": [
+        {
+          "label": "clothing",
+          "description": "clothing suitable for use",
+          "value": true
+        },
+        {
+          "label": "used_clothing",
+          "description": "clothing to recycle",
+          "value": false
+        },
+        {
+          "label": "toys",
+          "description": "toys",
+          "value": true
+        },
+        {
+          "label": "books",
+          "description": "books",
+          "value": false
+        },
+        {
+          "label": "other",
+          "description": "other",
+          "value": false
+        }
+      ],
+      "bags": "3",
+      "location": "Madrid",
+      "kids": false,
+      "mothers": false,
+      "homeless": false,
+      "disabled": false,
+      "elderly": false,
+      "organization": "",
+      "street": "ŁUBINOWA, 43",
+      "city": "",
+      "postcode": "94-239",
+      "phone": 691442759,
+      "date": "2019-12-17",
+      "hour": "16:30",
+      "remarks": "fqevw qwevb",
+      "items": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        true
+      ],
+      "clothing": true,
+      "toys": true,
+      "used_clothing": false,
+      "books": false,
+      "id": 2
     }
   ]
 }

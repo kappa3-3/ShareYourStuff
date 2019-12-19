@@ -27,7 +27,7 @@
     text-decoration: none;
     font-weight: 300;
 
-    margin: 35px 15px 0 15px;
+    margin: 35px 15px 35px 15px;
     padding: 10px;
     height: 100px;
     width: 250px;
@@ -256,5 +256,22 @@
     position: absolute;
     top: -55px;
     right: -25px;
+  }
+}
+
+@mixin input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  -webkit-appearance: square-button;
+
+  &:checked {
+
+    cursor: pointer;
+    background-color: $bright-yellow;
+    border: 1px solid $up-transparency;
+    outline: none;
+    box-shadow: 0 0 3px 1px $up-transparency;
+
   }
 }

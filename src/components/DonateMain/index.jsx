@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './style.scss';
 // import * as Yup from "yup";
-import {Formik} from "formik";
+import {Formik, Form, Field, FieldArray, ErrorMessage, yupToFormErrors} from "formik";
 
 import transport from '../../assets/icons/Icon-4.svg';
 import bag from '../../assets/icons/Icon-2.svg';
@@ -22,20 +22,21 @@ class DonateMain extends Component {
         active: 1,
         forward: 'Next',
         backwards: 'Back',
-        isFormSubmitted: false
+        isFormSubmitted: false,
+        errorStatus: false
     };
 
     handleClickForwards = () => {
-        this.setState({active: this.state.active + 1});
-        console.log(this.state.active)
+            this.setState({active: this.state.active + 1});
     };
 
     handleClickBackwards = () => {
-        this.setState({active: this.state.active - 1});
-        console.log(this.state.active)
+            this.setState({active: this.state.active - 1});
     };
 
+
     render() {
+
         const {active, backwards, forward} = this.state;
         return (
             <div id='donate-container'>
@@ -44,11 +45,13 @@ class DonateMain extends Component {
                     <Formik
                         initialValues={{
                             //step 1//
-                            clothing: false,
-                            used_clothing: false,
-                            toys: false,
-                            books: false,
-                            other: false,
+                            possessions: [
+                                {label: 'clothing', description: 'clothing suitable for use', value: false},
+                                {label: 'used_clothing', description: 'clothing to recycle', value: false},
+                                {label: 'toys', description: 'toys', value: false},
+                                {label: 'books', description: 'books', value: false},
+                                {label: 'other', description: 'other', value: false}
+                            ],
                             //step 2//
                             bags: '',
                             //step 3
@@ -83,102 +86,65 @@ class DonateMain extends Component {
                                 .then((data) => console.log(data))
                                 .catch((err) => console.log(err));
 
-                            // resetForm();
                             setSubmitting(false);
-                            // this.setState({isFormSubmitted: true});
+                            this.setState({isFormSubmitted: true});
                             this.setState({active: this.state.active + 1})
-
                         }}
                     >
                         {({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
 
-                            <form onSubmit={handleSubmit}>
+                            <Form onSubmit={handleSubmit}>
                                 {active === 1 &&
                                 <div className='donate-component-container'>
                                     <DonateRemember active={this.state.active}/>
                                     <div className='donate-component-choice-container'>
                                         <span>Step 1/4</span>
                                         <h1> Choose products you want to donate:</h1>
-                                        <table>
-                                            <tbody>
-                                            <tr className='donate-items-choice'>
-                                                <td>
-                                                    <input
-                                                        id='clothing'
-                                                        type='checkbox'
-                                                        name='clothing'
-                                                        value={values.clothing}
-                                                        onChange={handleChange}
-                                                    />
-                                                    <label htmlFor='clothing'>clothing suitable for use</label>
-
-                                                </td>
-                                                <td>
-                                                    <input
-                                                        id='used'
-                                                        type='checkbox'
-                                                        name='used_clothing'
-                                                        value={values.used_clothing}
-                                                        onChange={handleChange}
-                                                    />
-                                                    <label htmlFor='used'>clothing to recycle</label>
-
-                                                </td>
-                                                <td>
-                                                    <input
-                                                        id='toys'
-                                                        type='checkbox'
-                                                        name='toys'
-                                                        value={values.toys}
-                                                        onChange={handleChange}
-                                                    />
-                                                    <label htmlFor='toys'>toys</label>
-
-                                                </td>
-                                                <td>
-                                                    <input
-                                                        id='books'
-                                                        type='checkbox'
-                                                        name='books'
-                                                        value={values.books}
-                                                        onChange={handleChange}
-                                                    />
-                                                    <label htmlFor='books'>books</label>
-                                                </td>
-                                                <td>
-                                                    <input
-                                                        id='other'
-                                                        type='checkbox'
-                                                        name='other'
-                                                        value={values.other}
-                                                        onChange={handleChange}
-                                                    />
-                                                    <label htmlFor='other'>other</label>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                        <div className='donate-items-choice'>
+                                            {errors.items && <span><ErrorMessage name='items'/></span>}
+                                            <FieldArray
+                                                name="items"
+                                                render={arrayHelpers => (
+                                                    values.possessions.map((item, index) => (
+                                                        <div className='donate-items-single'
+                                                             key={`possessions[${index}].label`}>
+                                                            <Field
+                                                                name={item.label}
+                                                                id={item.label}
+                                                                type='checkbox'
+                                                                value={item.value}
+                                                                checked={item.value}
+                                                                onClick={() => arrayHelpers.insert(index, item.value = !item.value)}
+                                                            />
+                                                            <label For={item.label}>{item.description}</label>
+                                                        </div>
+                                                    )))}
+                                            />
+                                        </div>
                                     </div>
-                                </div>}
+                                </div>
+                                }
                                 {active === 2 &&
                                 <div className='donate-component-container'>
                                     <DonateRemember active={this.state.active}/>
                                     <div className='donate-bags-choice-container'>
                                         <span>Step 2/4</span>
                                         <h1>How many bags do you want to donate?</h1>
-                                        <h3>Amount of the 60l bags:</h3>
+                                        <span className='form-error-message'><ErrorMessage name='bags'/></span>
                                         <div className='donate-component-choice select'>
-                                            <select
-                                                value={values.bags}
-                                                name='bags'
-                                                onChange={handleChange}>
+                                            <label htmlFor="bags">Amount of the 60l bags:</label>
+                                            <Field as='select'
+                                                   id='bags'
+                                                   value={values.bags}
+                                                   name='bags'
+                                                   onChange={handleChange}>
                                                 <option value={null}>--choose--</option>
                                                 {options.map(item => <option
                                                     key={item.value}
                                                     value={item.value}>
                                                     {item.label}
                                                 </option>)}
-                                            </select>
+                                            </Field>
                                         </div>
                                     </div>
                                 </div>
@@ -189,18 +155,19 @@ class DonateMain extends Component {
                                     <div className='donate-location-choice-container'>
                                         <span>Step 3/4</span>
                                         <h1>Location</h1>
+                                        <span className='form-error-message'><ErrorMessage name='location'/></span>
                                         <div className='donate-component-choice'>
-                                            <select
-                                                className='select'
-                                                value={values.location}
-                                                name='location'
-                                                onChange={handleChange}
+                                            <Field as='select'
+                                                   className='select'
+                                                   value={values.location}
+                                                   name='location'
+                                                   onChange={handleChange}
                                             >
                                                 <option>--choose--</option>
                                                 {locations.map(item => <option key={item.value} value={item.value}>
                                                     {item.label}
                                                 </option>)}
-                                            </select>
+                                            </Field>
                                         </div>
                                         <h3>Who do you want to help?</h3>
                                         <h3> Type in specific organization</h3>
@@ -216,9 +183,11 @@ class DonateMain extends Component {
                                         <h1>Location and time of the pick-up</h1>
                                         <div className='donate-pick-up-form'>
                                             <div className='donate-pick-up-form-location'>
+                                            <span className='form-error-message'><ErrorMessage
+                                                name='street'/></span>
                                                 <div className='form-location'>
                                                     <label htmlFor='street'>Street</label>
-                                                    <input
+                                                    <Field
                                                         type='text'
                                                         name='street'
                                                         id='street'
@@ -226,17 +195,18 @@ class DonateMain extends Component {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.street}
-                                                        className={touched.street && errors.street ? "has-error" : null}
                                                     />
-                                                    {/*<FormError touched={touched.street} message={errors.street}/>*/}
                                                 </div>
+
                                                 <div className='form-location'>
                                                     <span>City</span>
                                                     <span>{values.location}</span>
                                                 </div>
+                                                <span className='form-error-message'><ErrorMessage
+                                                    name='postcode'/></span>
                                                 <div className='form-location'>
                                                     <label htmlFor='postcode'>Postcode</label>
-                                                    <input
+                                                    <Field
                                                         type='text'
                                                         name='postcode'
                                                         id='postcode'
@@ -244,13 +214,12 @@ class DonateMain extends Component {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.postcode}
-                                                        className={touched.postcode && errors.postcode ? "has-error" : null}
                                                     />
-                                                    {/*<FormError touched={touched.postcode} message={errors.postcode}/>*/}
                                                 </div>
+                                                <span className='form-error-message'><ErrorMessage name='phone'/></span>
                                                 <div className='form-location'>
                                                     <label htmlFor='telephone'>Phone number</label>
-                                                    <input
+                                                    <Field
                                                         type='number'
                                                         name='phone'
                                                         id='phone'
@@ -258,16 +227,15 @@ class DonateMain extends Component {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.phone}
-                                                        className={touched.phone && errors.phone ? "has-error" : null}
                                                     />
-                                                    {/*<FormError touched={touched.telephone} message={errors.telephone}/>*/}
                                                 </div>
 
                                             </div>
                                             <div className='donate-pick-up-form-time'>
+                                                <span className='form-error-message'><ErrorMessage name='date'/></span>
                                                 <div className='form-time'>
                                                     <label htmlFor='date'>Date</label>
-                                                    <input
+                                                    <Field
                                                         type='date'
                                                         name='date'
                                                         id='date'
@@ -275,13 +243,12 @@ class DonateMain extends Component {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.date}
-                                                        className={touched.date && errors.date ? "has-error" : null}
                                                     />
-                                                    {/*<FormError touched={touched.street} message={errors.street}/>*/}
                                                 </div>
+                                                <span className='form-error-message'><ErrorMessage name='hour'/></span>
                                                 <div className='form-time'>
                                                     <label htmlFor='hour'>The hour</label>
-                                                    <input
+                                                    <Field
                                                         type='text'
                                                         name='hour'
                                                         id='hour'
@@ -289,9 +256,7 @@ class DonateMain extends Component {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.hour}
-                                                        className={touched.hour && errors.hour ? "has-error" : null}
                                                     />
-                                                    {/*<FormError touched={touched.city} message={errors.city}/>*/}
                                                 </div>
                                                 <div className='form-time'>
                                                     <label htmlFor='remarks'>Remarks</label>
@@ -302,9 +267,7 @@ class DonateMain extends Component {
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
                                                         value={values.remarks}
-                                                        className={touched.remarks && errors.remarks ? "has-error" : null}
                                                     />
-                                                    {/*<FormError touched={touched.postcode} message={errors.postcode}/>*/}
                                                 </div>
                                             </div>
                                         </div>
@@ -316,23 +279,23 @@ class DonateMain extends Component {
                                     <div className='donate-component-choice-container'>
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
-                                        <table>
-                                            <tbody className='donate-sum-up-item'>
+                                        <table className='donate-sum-up-item'>
+                                            <tbody>
                                             <tr>
                                                 <th>
                                                     <img src={bag} alt=''/>
                                                 </th>
                                                 <td>{values.bags} bags of:</td>
-                                                {values.clothing && <td> clothing suitable for use |</td>}
-                                                {values.used_clothing && <td> clothing to recycle |</td>}
-                                                {values.toys && <td> toys |</td>}
-                                                {values.books && <td> books |</td>}
-                                                {values.other && <td> not listed items |</td>}
+                                                {values.possessions[0].value && <td> clothing suitable for use |</td>}
+                                                {values.possessions[1].value && <td> clothing to recycle |</td>}
+                                                {values.possessions[2].value && <td> toys |</td>}
+                                                {values.possessions[3].value && <td> books |</td>}
+                                                {values.possessions[4].value && <td> not listed items |</td>}
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <table>
-                                            <tbody className='donate-sum-up-location'>
+                                        <table className='donate-sum-up-location'>
+                                            <tbody>
                                             <tr>
                                                 <th>
                                                     <img src={transport} alt=''/>
@@ -343,9 +306,12 @@ class DonateMain extends Component {
                                             </tbody>
                                         </table>
                                         <div className='donate-sum-up-details'>
-                                            <h3>Pick-up address:</h3>
-                                            <table>
+
+                                            <table className='donate-sum-up-details-address'>
                                                 <tbody>
+                                                <tr>
+                                                    <th>Pick-up address:</th>
+                                                </tr>
                                                 <tr>
                                                     <th>street:</th>
                                                     <td>{values.street}</td>
@@ -364,7 +330,7 @@ class DonateMain extends Component {
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <table>
+                                            <table className='donate-sum-up-details-time'>
                                                 <tbody>
                                                 <tr>
                                                     <th>Pick-up time:</th>
@@ -385,48 +351,46 @@ class DonateMain extends Component {
                                             </table>
                                         </div>
                                     </div>
-                                </div>}
-                                    {/*{this.state.isFormSubmitted === true && <DonateEnd/>*/}
-                                    {/*}*/}
-                                    {active === 6
-                                    && <DonateEnd/>
-                                    }
-                                    {active === 5
-                                    && <div className='donate-button-container'>
-                                        <button
-                                            type="submit"
-                                            disabled={isSubmitting}
-                                            className='button-forward-visible'
-                                        >Submit
-                                        </button>
-                                    </div>
-                                    }
-                                    </form>
-                                    )}
-                            </Formik>
-                            < div className='donate-button-container'>
-                            <button
+                                </div>
+                                }
+                                {active === 5
+                                && <div className='donate-button-container'>
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className='button-forward-visible'
+                                    >Submit
+                                    </button>
+                                </div>
+                                }
+                            </Form>
+                        )}
+                    </Formik>
+                    {(active === 6
+                    ) && <DonateEnd/>}
+                    <div className='donate-button-container'>
+                        <button
                             type="button"
                             className={(active === 1 || active === 6) ? 'button-display-none' : 'button-backward-visible'}
                             onClick={this.handleClickBackwards}>
-                        {backwards}
-                            </button>
-                            <button
+                            {backwards}
+                        </button>
+                        <button
                             type="button"
                             className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
+                            // disabled={this.errors.location}
                             onClick={this.handleClickForwards}>
                             {forward}
-                            </button>
-                            </div>
-                            </div>
-                            <Contact/>
-                            <div className='footer-wrapper'>
-                            <Footer/>
-                            </div>
-                            </div>
-                            )
+                        </button>
+                    </div>
+                </div>
+                <Contact/>
+                <div className='footer-wrapper'>
+                    <Footer/>
+                </div>
+            </div>
+        )
+    }
+}
 
-                            }
-                            }
-
-                            export default DonateMain;
+export default DonateMain;
