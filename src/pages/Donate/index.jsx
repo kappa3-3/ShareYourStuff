@@ -1,5 +1,4 @@
 import React, { Component }from "react";
-import './style.scss';
 import DonateMain from "../../components/DonateMain";
 import DonateUp from "../../components/DonateUp";
 import {connect} from "react-redux";
