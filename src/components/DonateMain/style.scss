@@ -63,9 +63,9 @@
   }
 }
 
-//#clothing, #used_clothing, #toys, #books, #other {
-//  @include input;
-//}
+#clothing, #used_clothing, #toys, #books, #other {
+  @include input;
+}
 
 ///////////// DONATE BAGS - STEP 2 /////////////
 
@@ -181,7 +181,7 @@ select {
 tr:first-of-type {
   th:first-of-type {
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
   tr {
@@ -189,7 +189,7 @@ tr:first-of-type {
       height:25px;
       text-align: left;
       margin-bottom: 15px;
-      width: 200px;
+      width: 205px;
     }
   }
 }

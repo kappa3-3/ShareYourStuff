@@ -24,66 +24,26 @@
       "used_clothing": true
     },
     {
-      "items": [
-        "clothing",
-        "used_clothing",
-        "toys",
-        "books",
-        "other"
-      ],
-      "clothing": false,
-      "used_clothing": false,
-      "toys": false,
-      "books": false,
-      "other": false,
-      "bags": "2",
-      "location": "Copenhagen",
-      "kids": false,
-      "mothers": false,
-      "homeless": false,
-      "disabled": false,
-      "elderly": false,
-      "organization": "",
-      "street": "Prinsengracht 662-2",
-      "city": "",
-      "postcode": "1017 KW",
-      "phone": 621314371,
-      "date": "2019-12-10",
-      "hour": "11:11",
-      "remarks": "se",
-      "item": [
-        null,
-        [
-          "used_clothing"
-        ],
-        null,
-        [
-          "books"
-        ]
-      ],
-      "id": 2
-    },
-    {
       "possessions": [
         {
           "label": "clothing",
           "description": "clothing suitable for use",
-          "value": false
+          "value": true
         },
         {
-          "label": false,
+          "label": "used_clothing",
           "description": "clothing to recycle",
-          "value": true
+          "value": false
         },
         {
           "label": "toys",
           "description": "toys",
-          "value": false
+          "value": true
         },
         {
-          "label": false,
+          "label": "books",
           "description": "books",
-          "value": true
+          "value": false
         },
         {
           "label": "other",
@@ -91,8 +51,8 @@
           "value": false
         }
       ],
-      "bags": "2",
-      "location": "Copenhagen",
+      "bags": "3",
+      "location": "Madrid",
       "kids": false,
       "mothers": false,
       "homeless": false,
@@ -103,14 +63,22 @@
       "city": "",
       "postcode": "94-239",
       "phone": 691442759,
-      "date": "2019-12-26",
-      "hour": "07:36",
-      "remarks": "",
+      "date": "2019-12-17",
+      "hour": "16:30",
+      "remarks": "fqevw qwevb",
       "items": [
+        true,
+        false,
+        true,
+        false,
         true,
         true
       ],
-      "id": 3
+      "clothing": true,
+      "toys": true,
+      "used_clothing": false,
+      "books": false,
+      "id": 2
     }
   ]
 }

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './style.scss';
 // import * as Yup from "yup";
-import {Formik, Form, Field, FieldArray, ErrorMessage} from "formik";
+import {Formik, Form, Field, FieldArray, ErrorMessage, yupToFormErrors} from "formik";
 
 import transport from '../../assets/icons/Icon-4.svg';
 import bag from '../../assets/icons/Icon-2.svg';
@@ -23,26 +23,20 @@ class DonateMain extends Component {
         forward: 'Next',
         backwards: 'Back',
         isFormSubmitted: false,
-        errorStatus:''
+        errorStatus: false
     };
 
     handleClickForwards = () => {
             this.setState({active: this.state.active + 1});
-
     };
 
     handleClickBackwards = () => {
-        this.setState({active: this.state.active - 1});
-        console.log(this.state.active)
+            this.setState({active: this.state.active - 1});
     };
 
-    handleSetValue = (index) => () => {
-
-        // this.props.values.possessions[index].value === !this.props.values.possessions[index].value
-    };
 
     render() {
-        console.log(this.props);
+
         const {active, backwards, forward} = this.state;
         return (
             <div id='donate-container'>
@@ -52,11 +46,11 @@ class DonateMain extends Component {
                         initialValues={{
                             //step 1//
                             possessions: [
-                                { label: 'clothing', description:'clothing suitable for use', value: false },
-                                { label: 'used_clothing', description:'clothing to recycle', value: false },
-                                { label: 'toys', description:'toys', value: false },
-                                { label: 'books',description:'books', value: false },
-                                { label: 'other', description:'other', value: false }
+                                {label: 'clothing', description: 'clothing suitable for use', value: false},
+                                {label: 'used_clothing', description: 'clothing to recycle', value: false},
+                                {label: 'toys', description: 'toys', value: false},
+                                {label: 'books', description: 'books', value: false},
+                                {label: 'other', description: 'other', value: false}
                             ],
                             //step 2//
                             bags: '',
@@ -81,7 +75,6 @@ class DonateMain extends Component {
                         validationSchema={validationSchema}
 
                         onSubmit={(values, {setSubmitting}) => {
-                            console.log('test');
 
                             setSubmitting(true);
 
@@ -93,7 +86,6 @@ class DonateMain extends Component {
                                 .then((data) => console.log(data))
                                 .catch((err) => console.log(err));
 
-                            // resetForm();
                             setSubmitting(false);
                             this.setState({isFormSubmitted: true});
                             this.setState({active: this.state.active + 1})
@@ -109,8 +101,7 @@ class DonateMain extends Component {
                                         <span>Step 1/4</span>
                                         <h1> Choose products you want to donate:</h1>
                                         <div className='donate-items-choice'>
-                                            {errors.items && <span className={this.state.errorStatus}><ErrorMessage name='items'/></span>}
-
+                                            {errors.items && <span><ErrorMessage name='items'/></span>}
                                             <FieldArray
                                                 name="items"
                                                 render={arrayHelpers => (
@@ -118,15 +109,14 @@ class DonateMain extends Component {
                                                         <div className='donate-items-single'
                                                              key={`possessions[${index}].label`}>
                                                             <Field
-                                                                name={`possessions[${index}].label`}
+                                                                name={item.label}
                                                                 id={item.label}
                                                                 type='checkbox'
-                                                                value= {item.value}
+                                                                value={item.value}
                                                                 checked={item.value}
+                                                                onClick={() => arrayHelpers.insert(index, item.value = !item.value)}
                                                             />
-                                                            <label onClick={() => arrayHelpers.insert(index, item.value=!item.value)}
-                                                                   htmlFor={item.label}> {item.description}
-                                                            </label>
+                                                            <label For={item.label}>{item.description}</label>
                                                         </div>
                                                     )))}
                                             />
@@ -144,10 +134,10 @@ class DonateMain extends Component {
                                         <div className='donate-component-choice select'>
                                             <label htmlFor="bags">Amount of the 60l bags:</label>
                                             <Field as='select'
-                                                id='bags'
-                                                value={values.bags}
-                                                name='bags'
-                                                onChange={handleChange}>
+                                                   id='bags'
+                                                   value={values.bags}
+                                                   name='bags'
+                                                   onChange={handleChange}>
                                                 <option value={null}>--choose--</option>
                                                 {options.map(item => <option
                                                     key={item.value}
@@ -168,10 +158,10 @@ class DonateMain extends Component {
                                         <span className='form-error-message'><ErrorMessage name='location'/></span>
                                         <div className='donate-component-choice'>
                                             <Field as='select'
-                                                className='select'
-                                                value={values.location}
-                                                name='location'
-                                                onChange={handleChange}
+                                                   className='select'
+                                                   value={values.location}
+                                                   name='location'
+                                                   onChange={handleChange}
                                             >
                                                 <option>--choose--</option>
                                                 {locations.map(item => <option key={item.value} value={item.value}>
@@ -193,7 +183,8 @@ class DonateMain extends Component {
                                         <h1>Location and time of the pick-up</h1>
                                         <div className='donate-pick-up-form'>
                                             <div className='donate-pick-up-form-location'>
-                                                <span className='form-error-message'><ErrorMessage name='street'/></span>
+                                            <span className='form-error-message'><ErrorMessage
+                                                name='street'/></span>
                                                 <div className='form-location'>
                                                     <label htmlFor='street'>Street</label>
                                                     <Field
@@ -211,7 +202,8 @@ class DonateMain extends Component {
                                                     <span>City</span>
                                                     <span>{values.location}</span>
                                                 </div>
-                                                <span className='form-error-message'><ErrorMessage name='postcode'/></span>
+                                                <span className='form-error-message'><ErrorMessage
+                                                    name='postcode'/></span>
                                                 <div className='form-location'>
                                                     <label htmlFor='postcode'>Postcode</label>
                                                     <Field
@@ -288,7 +280,7 @@ class DonateMain extends Component {
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
                                         <table className='donate-sum-up-item'>
-                                            <tbody >
+                                            <tbody>
                                             <tr>
                                                 <th>
                                                     <img src={bag} alt=''/>
@@ -375,7 +367,6 @@ class DonateMain extends Component {
                         )}
                     </Formik>
                     {(active === 6
-                        // && this.state.isFormSubmitted
                     ) && <DonateEnd/>}
                     <div className='donate-button-container'>
                         <button
@@ -387,7 +378,8 @@ class DonateMain extends Component {
                         <button
                             type="button"
                             className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
-                            onClick={!this.errors && this.handleClickForwards}>
+                            // disabled={this.errors.location}
+                            onClick={this.handleClickForwards}>
                             {forward}
                         </button>
                     </div>
