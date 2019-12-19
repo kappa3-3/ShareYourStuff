@@ -22,12 +22,13 @@ class DonateMain extends Component {
         active: 1,
         forward: 'Next',
         backwards: 'Back',
-        isFormSubmitted: false
+        isFormSubmitted: false,
+        errorStatus:''
     };
 
     handleClickForwards = () => {
-        this.setState({active: this.state.active + 1});
-        console.log(this.state.active)
+            this.setState({active: this.state.active + 1});
+
     };
 
     handleClickBackwards = () => {
@@ -35,7 +36,13 @@ class DonateMain extends Component {
         console.log(this.state.active)
     };
 
+    handleSetValue = (index) => () => {
+
+        // this.props.values.possessions[index].value === !this.props.values.possessions[index].value
+    };
+
     render() {
+        console.log(this.props);
         const {active, backwards, forward} = this.state;
         return (
             <div id='donate-container'>
@@ -44,12 +51,13 @@ class DonateMain extends Component {
                     <Formik
                         initialValues={{
                             //step 1//
-                            items: ['clothing', 'used_clothing', 'toys', 'books', 'other'],
-                            clothing: false,
-                            used_clothing: false,
-                            toys: false,
-                            books: false,
-                            other: false,
+                            possessions: [
+                                { label: 'clothing', description:'clothing suitable for use', value: false },
+                                { label: 'used_clothing', description:'clothing to recycle', value: false },
+                                { label: 'toys', description:'toys', value: false },
+                                { label: 'books',description:'books', value: false },
+                                { label: 'other', description:'other', value: false }
+                            ],
                             //step 2//
                             bags: '',
                             //step 3
@@ -101,32 +109,24 @@ class DonateMain extends Component {
                                         <span>Step 1/4</span>
                                         <h1> Choose products you want to donate:</h1>
                                         <div className='donate-items-choice'>
-                                            {errors.items && touched.items && <span className='form-error-message'><ErrorMessage name='items'/></span>}
+                                            {errors.items && <span className={this.state.errorStatus}><ErrorMessage name='items'/></span>}
 
                                             <FieldArray
                                                 name="items"
                                                 render={arrayHelpers => (
-                                                    values.items.map((item, index) => (
+                                                    values.possessions.map((item, index) => (
                                                         <div className='donate-items-single'
-                                                             key={index}>
+                                                             key={`possessions[${index}].label`}>
                                                             <Field
-                                                                name={`item.${index}`}
-                                                                id={item}
+                                                                name={`possessions[${index}].label`}
+                                                                id={item.label}
                                                                 type='checkbox'
-                                                                value={item}
-                                                                onChange={handleChange}
+                                                                value= {item.value}
+                                                                checked={item.value}
                                                             />
-                                                            {index === 0 &&
-                                                            <label htmlFor='clothing'>clothing suitable for
-                                                                use</label>}
-                                                            {index === 1 &&
-                                                            <label htmlFor='used_clothing'>clothing to
-                                                                recycle</label>}
-                                                            {index === 2 && <label htmlFor='toys'>toys</label>}
-                                                            {index === 3 &&
-                                                            <label htmlFor='books'>books</label>}
-                                                            {index === 4 &&
-                                                            <label htmlFor='other'>other</label>}
+                                                            <label onClick={() => arrayHelpers.insert(index, item.value=!item.value)}
+                                                                   htmlFor={item.label}> {item.description}
+                                                            </label>
                                                         </div>
                                                     )))}
                                             />
@@ -287,23 +287,23 @@ class DonateMain extends Component {
                                     <div className='donate-component-choice-container'>
                                         <h1>Summary of your donation</h1>
                                         <h3>Items declared to donate:</h3>
-                                        <table>
-                                            <tbody className='donate-sum-up-item'>
+                                        <table className='donate-sum-up-item'>
+                                            <tbody >
                                             <tr>
                                                 <th>
                                                     <img src={bag} alt=''/>
                                                 </th>
                                                 <td>{values.bags} bags of:</td>
-                                                {values.clothing && <td> clothing suitable for use |</td>}
-                                                {values.used_clothing && <td> clothing to recycle |</td>}
-                                                {values.toys && <td> toys |</td>}
-                                                {values.books && <td> books |</td>}
-                                                {values.other && <td> not listed items |</td>}
+                                                {values.possessions[0].value && <td> clothing suitable for use |</td>}
+                                                {values.possessions[1].value && <td> clothing to recycle |</td>}
+                                                {values.possessions[2].value && <td> toys |</td>}
+                                                {values.possessions[3].value && <td> books |</td>}
+                                                {values.possessions[4].value && <td> not listed items |</td>}
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <table>
-                                            <tbody className='donate-sum-up-location'>
+                                        <table className='donate-sum-up-location'>
+                                            <tbody>
                                             <tr>
                                                 <th>
                                                     <img src={transport} alt=''/>
@@ -314,9 +314,12 @@ class DonateMain extends Component {
                                             </tbody>
                                         </table>
                                         <div className='donate-sum-up-details'>
-                                            <h3>Pick-up address:</h3>
-                                            <table>
+
+                                            <table className='donate-sum-up-details-address'>
                                                 <tbody>
+                                                <tr>
+                                                    <th>Pick-up address:</th>
+                                                </tr>
                                                 <tr>
                                                     <th>street:</th>
                                                     <td>{values.street}</td>
@@ -335,7 +338,7 @@ class DonateMain extends Component {
                                                 </tr>
                                                 </tbody>
                                             </table>
-                                            <table>
+                                            <table className='donate-sum-up-details-time'>
                                                 <tbody>
                                                 <tr>
                                                     <th>Pick-up time:</th>
@@ -384,7 +387,7 @@ class DonateMain extends Component {
                         <button
                             type="button"
                             className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
-                            onClick={this.handleClickForwards}>
+                            onClick={!this.errors && this.handleClickForwards}>
                             {forward}
                         </button>
                     </div>

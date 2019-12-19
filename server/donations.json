@@ -62,6 +62,55 @@
         ]
       ],
       "id": 2
+    },
+    {
+      "possessions": [
+        {
+          "label": "clothing",
+          "description": "clothing suitable for use",
+          "value": false
+        },
+        {
+          "label": false,
+          "description": "clothing to recycle",
+          "value": true
+        },
+        {
+          "label": "toys",
+          "description": "toys",
+          "value": false
+        },
+        {
+          "label": false,
+          "description": "books",
+          "value": true
+        },
+        {
+          "label": "other",
+          "description": "other",
+          "value": false
+        }
+      ],
+      "bags": "2",
+      "location": "Copenhagen",
+      "kids": false,
+      "mothers": false,
+      "homeless": false,
+      "disabled": false,
+      "elderly": false,
+      "organization": "",
+      "street": "ŁUBINOWA, 43",
+      "city": "",
+      "postcode": "94-239",
+      "phone": 691442759,
+      "date": "2019-12-26",
+      "hour": "07:36",
+      "remarks": "",
+      "items": [
+        true,
+        true
+      ],
+      "id": 3
     }
   ]
 }

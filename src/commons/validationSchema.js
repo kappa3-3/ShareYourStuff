@@ -1,10 +1,11 @@
 import * as Yup from "yup";
 
-let terms;
+
 const validationSchema = Yup.object().shape({
     // step 1 - type of items to donate //
-    items: Yup.boolean()
-        .oneOf([true], 'Must choose at least one'),
+    // possessions: Yup.boolean()
+    //     .oneOf([true], 'Must choose at least one'),
+        // .oneOf(["clothing","used_clothing","toys", "books", "other"]).required(),
         // step 3 - location //
     location: Yup
         .string

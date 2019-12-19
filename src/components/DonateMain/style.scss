@@ -63,9 +63,9 @@
   }
 }
 
-#clothing, #used_clothing, #toys, #books, #other {
-  @include input;
-}
+//#clothing, #used_clothing, #toys, #books, #other {
+//  @include input;
+//}
 
 ///////////// DONATE BAGS - STEP 2 /////////////
 
@@ -144,83 +144,132 @@ select {
 }
 
 ///////////// DONATE SUM-UP - STEP 5 /////////////
-
-.donate-sum-up-item {
+.donate-component-choice-container {
   img {
     height: 35px;
     width: 35px;
   }
-
+}
+.donate-sum-up-item, .donate-sum-up-location {
+  display: flex;
+  justify-content: flex-start;
   th {
+
     padding: 5px;
     width: 50px;
   }
-
   td:first-of-type {
-    width: 90px;
-    padding-right: 10px;
-  }
-
-  td {
-    font-weight: normal;
+    font-weight: bold;
     text-align: left;
-    padding: 5px 0 5px 0;
-
+    width: 90px;
+  }
+  td {
+    text-align: left;
+    width: border-box;
   }
 }
-
-
-.donate-sum-up-location, {
-  img {
-    height: 35px;
-    width: 35px;
-  }
-
-  th {
-    padding: 5px;
-    width: 50px;
-  }
-
-  td {
-    font-weight: normal;
-    width: 90px;
-    text-align: left;
-    padding: 5px 10px 5px 0;
-  }
-}
-
 .donate-sum-up-details {
   display: flex;
+
+}
+.donate-sum-up-details-address, .donate-sum-up-details-time {
+  display: flex;
   align-items: flex-start;
-
-  tbody {
-    h3 {
-      border-bottom: 1px solid $up-transparency;
-    }
-
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 20px;
-
-    th {
-      font-weight: normal;
-      width: 140px;
-      text-align: left;
-      padding: 5px 0 5px 0;
-    }
-
-    td {
-      font-weight: bold;
-    }
-
-
-    // {
-    //  margin: 0;
-    //  padding: 0;
-    //}
+  justify-content: flex-start;
+  margin: 5px 35px 5px 0;
+  width: 380px;
+tr:first-of-type {
+  th:first-of-type {
+    height: 50px;
+    font-size: 20px;
   }
 }
+  tr {
+    th {
+      height:25px;
+      text-align: left;
+      margin-bottom: 15px;
+      width: 200px;
+    }
+  }
+}
+//
+//.donate-sum-up-item {
+//  img {
+//    height: 35px;
+//    width: 35px;
+//  }
+//
+//  th {
+//    padding: 5px;
+//    width: 50px;
+//  }
+//
+//  td:first-of-type {
+//    width: 90px;
+//    padding-right: 10px;
+//  }
+//
+//  td {
+//    font-weight: normal;
+//    text-align: left;
+//    padding: 5px 0 5px 0;
+//
+//  }
+//}
+//
+//
+//.donate-sum-up-location, {
+//  img {
+//    height: 35px;
+//    width: 35px;
+//  }
+//
+//  th {
+//    padding: 5px;
+//    width: 50px;
+//  }
+//
+//  td {
+//    font-weight: normal;
+//    width: 90px;
+//    text-align: left;
+//    padding: 5px 10px 5px 0;
+//  }
+//}
+//
+//.donate-sum-up-details {
+//  display: flex;
+//  align-items: flex-start;
+//
+//  tbody {
+//    h3 {
+//      border-bottom: 1px solid $up-transparency;
+//    }
+//
+//    display: flex;
+//    flex-direction: column;
+//    width: 300px;
+//    margin: 20px;
+//
+//    th {
+//      font-weight: normal;
+//      width: 140px;
+//      text-align: left;
+//      padding: 5px 0 5px 0;
+//    }
+//
+//    td {
+//      font-weight: bold;
+//    }
+//
+//
+//    // {
+//    //  margin: 0;
+//    //  padding: 0;
+//    //}
+//  }
+//}
 
 ///////////// DONATE - BUTTONS /////////////
 
