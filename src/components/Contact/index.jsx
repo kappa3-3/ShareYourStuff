@@ -1,12 +1,10 @@
-import React, {Component} from "react";
-import './style.scss';
-import decoration from '../../assets/icons/Decoration.svg';
+import React from "react";
+
 import Form from '../HomeForm'
+import decoration from '../../assets/icons/Decoration.svg';
+import './style.scss';
 
-
-class HomeContact extends Component {
-
-    render() {
+export default function HomeContact() {
         return (
             <div id='contact-container'>
                 <div className='contact-img' />
@@ -17,7 +15,6 @@ class HomeContact extends Component {
                 </div>
             </div>
         );
-    }
 }
-export default HomeContact;
+
 

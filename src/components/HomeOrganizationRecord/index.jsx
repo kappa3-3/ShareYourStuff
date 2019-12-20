@@ -1,19 +1,16 @@
-import React, {Component} from "react";
+import React from "react";
 import './style.scss';
 
-class OrganizationRecord extends Component {
+export default function OrganizationRecord(props) {
 
-    render() {
-        const { name, description, status} = this.props;
-        return (
-            <div className='organization-list-item'>
-                <div className='organization-list-item-title'>
-                    <h1>{ name }</h1>
-                    <span>{ description }</span>
-                </div>
-                <h5>{ status}</h5>
+    const {name, description, status} = props;
+    return (
+        <div className='organization-list-item'>
+            <div className='organization-list-item-title'>
+                <h1>{name}</h1>
+                <span>{description}</span>
             </div>
-        );
-    }
-}
-export default OrganizationRecord;
+            <h5>{status}</h5>
+        </div>
+    );
+};

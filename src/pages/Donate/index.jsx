@@ -1,10 +1,11 @@
 import React, { Component }from "react";
+import {connect} from "react-redux";
+
 import DonateMain from "../../components/DonateMain";
 import DonateUp from "../../components/DonateUp";
-import {connect} from "react-redux";
-import {setUserStatus} from "../../actions";
 import NavBar from "../../components/NavBar";
 import SignInMain from "../../components/SignInMain";
+import {setUserStatus} from "../../actions";
 
 class Donate extends Component {
     render() {

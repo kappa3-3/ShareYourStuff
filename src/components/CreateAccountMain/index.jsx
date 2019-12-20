@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {NavLink, withRouter} from "react-router-dom";
+
 import decoration from "../../assets/icons/Decoration.svg"
-import './style.scss';
-import {NavLink} from "react-router-dom";
-import {withRouter} from "react-router-dom";
 import {setUserStatus} from "../../actions";
+import './style.scss';
 
 class CreateAccountMain extends Component {
     state = {
@@ -30,7 +30,7 @@ class CreateAccountMain extends Component {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({email: email, password: password})
             })
-                .then((data) => console.log(data))
+                .then((data) => (data))
                 .catch((err) => console.log(err));
             this.props.setUserStatus(this.state.email, this.state.password);
             setTimeout(() => this.props.history.push("/donate"), 2200);

@@ -1,8 +1,8 @@
 import React from "react";
-import './style.scss';
 
 import SignInMain from "../../components/SignInMain"
 import NavBar from "../../components/NavBar";
+import './style.scss';
 
 const SignIn = () => {
     return (

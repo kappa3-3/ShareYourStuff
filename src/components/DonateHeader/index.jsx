@@ -1,13 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
 import {Link} from "react-scroll";
-import './style.scss';
-import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
+
 import NavBar from "../../components/NavBar";
+import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
+import './style.scss';
 
+export default function Component() {
 
-class DonateHeader extends Component {
-
-    render() {
         return (
             <div id='donate-header-container'>
                 <div className='donate-header-img' />
@@ -39,7 +38,6 @@ class DonateHeader extends Component {
                 </div>
             </div>
         )
-    }
-}
-export default DonateHeader;
+};
+
 

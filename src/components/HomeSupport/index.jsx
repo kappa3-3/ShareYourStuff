@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import './style.scss';
-import decoration from '../../assets/icons/Decoration.svg';
+
 import OrganizationRecord from '../HomeOrganizationRecord'
 import { URL_NONPROFIT, URL_NON_GOV, URL_LOCAL_FUND } from '../../commons/URL';
+import decoration from '../../assets/icons/Decoration.svg';
+import './style.scss';
 
 class HomeSupport extends Component {
 

@@ -1,13 +1,14 @@
 import React, {Component} from "react";
-import './style.scss';
+import {NavLink} from "react-router-dom";
+import {connect} from "react-redux";
+
+import {setUserStatus} from "../../actions";
 import decoration from '../../assets/icons/Decoration.svg';
 import shirt from '../../assets/icons/Icon-1.svg';
 import bag from '../../assets/icons/Icon-2.svg';
 import search from '../../assets/icons/Icon-3.svg';
 import transport from '../../assets/icons/Icon-4.svg';
-import {connect} from "react-redux";
-import {NavLink} from "react-router-dom";
-import {setUserStatus} from "../../actions";
+import './style.scss';
 
 class HomeSimpleSteps extends Component {
     render() {

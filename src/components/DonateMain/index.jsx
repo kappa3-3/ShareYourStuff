@@ -1,10 +1,5 @@
 import React, {Component} from "react";
-import './style.scss';
-// import * as Yup from "yup";
-import {Formik, Form, Field, FieldArray, ErrorMessage, yupToFormErrors} from "formik";
-
-import transport from '../../assets/icons/Icon-4.svg';
-import bag from '../../assets/icons/Icon-2.svg';
+import {Formik, Form, Field, FieldArray, ErrorMessage} from "formik";
 
 import DonateHeader from "../DonateHeader";
 import DonateRemember from "../DonateRemember";
@@ -12,10 +7,12 @@ import Contact from "../Contact";
 import Footer from "../Footer";
 import DonateEnd from "../DonateEnd";
 
-import options from "../../commons/options"
-import locations from "../../commons/locations"
+import {options} from "../../commons/options"
+import {locations} from "../../commons/locations"
 import validationSchema from "../../commons/validationSchema"
-
+import transport from '../../assets/icons/Icon-4.svg';
+import bag from '../../assets/icons/Icon-2.svg';
+import './style.scss';
 
 class DonateMain extends Component {
     state = {
@@ -116,7 +113,7 @@ class DonateMain extends Component {
                                                                 checked={item.value}
                                                                 onClick={() => arrayHelpers.insert(index, item.value = !item.value)}
                                                             />
-                                                            <label For={item.label}>{item.description}</label>
+                                                            <label htmlFor={item.label}>{item.description}</label>
                                                         </div>
                                                     )))}
                                             />

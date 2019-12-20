@@ -1,10 +1,11 @@
-import React, { Component} from "react";
-import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
-import './style.scss';
+import React from "react";
 import {Link} from "react-router-dom";
 
-class DonateEnd extends Component {
-    render() {
+import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
+import './style.scss';
+
+export default function DonateEnd() {
+
         return (
             <div className='donate-component-container'>
                 <div className='donate-end'>
@@ -19,6 +20,4 @@ class DonateEnd extends Component {
                 </div>
             </div>
         );
-    }
 }
-export default DonateEnd;
