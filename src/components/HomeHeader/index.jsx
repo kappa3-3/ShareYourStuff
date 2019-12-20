@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import './style.scss';
 import {NavLink} from "react-router-dom";
-import {ReactComponent as Decoration} from '../../assets/icons/Decoration.svg';
-import NavBar from "../../components/NavBar";
 import {connect} from "react-redux";
+
+import NavBar from "../../components/NavBar";
 import {setUserStatus} from "../../actions";
+import {ReactComponent as Decoration} from '../../assets/icons/Decoration.svg';
+import './style.scss';
 
 class HomeHeader extends Component {
 

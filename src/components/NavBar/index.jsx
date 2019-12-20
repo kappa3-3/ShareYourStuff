@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import './style.scss';
 import {NavLink, withRouter} from "react-router-dom";
-import {navigationDataHome} from "../../commons/navigationDataHome";
 import {Link} from "react-scroll";
 import {connect} from "react-redux";
+
+import {navigationDataHome} from "../../commons/navigationDataHome";
 import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg";
+import './style.scss';
 
 class NavBar extends Component {
 
@@ -23,18 +24,10 @@ class NavBar extends Component {
 
     };
 
-    // handleHomeLink = e => {
-    //
-    //     // this.setState({redirectToHome: true})
-    //     // <Redirect to='/' component={HomeAbout}/>
-    //     // this.props.history.push('/');
-    // };
-
     render() {
 
         return (
             <>
-                {/*{this.state.redirectToHome && <Redirect to='/' />}*/}
                 {this.state.logOutPrompt &&
                 <div className='header-logout-container'>
                     <div className='header-logout-prompt'>
@@ -82,7 +75,6 @@ class NavBar extends Component {
                         }
                     </ul>
                 </div>
-
             </>
         )
     }

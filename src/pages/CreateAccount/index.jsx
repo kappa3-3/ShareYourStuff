@@ -1,9 +1,8 @@
 import React from "react";
-import './style.scss';
 
 import CreateAccountMain from "../../components/CreateAccountMain"
 import NavBar from "../../components/NavBar";
-
+import './style.scss';
 
 const CreateAccount = () => {
     return (

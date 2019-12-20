@@ -1,8 +1,8 @@
-import React, {Component} from "react";
+import React from "react";
 import './style.scss';
 
-export default class DonateRemember extends Component {
-    render() {
+export default function DonateRemember() {
+
         return (
             <>
                 <div className='donate-remember-warning'>
@@ -22,5 +22,4 @@ export default class DonateRemember extends Component {
                 </div>
             </>
         );
-    }
 }

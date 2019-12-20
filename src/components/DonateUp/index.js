@@ -1,7 +1,9 @@
 import React, {Component} from "react"
+import {Link} from "react-scroll";
+
 import {ReactComponent as Up} from '../../assets/icons/angle-double-up-solid.svg';
 import './style.scss';
-import {Link} from "react-scroll";
+
 
 class DonateUp extends Component {
     state= {
@@ -10,10 +12,10 @@ class DonateUp extends Component {
     render() {
         const yPosition = () => {
             if (window.scrollY >= 500) {
-                if (this.state.visible !== true)
+                if (!this.state.visible)
                 this.setState({visible: true})
             } else {
-                if (this.state.visible === true)
+                if (this.state.visible)
                     this.setState({visible: false})
             }
         };

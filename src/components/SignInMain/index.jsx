@@ -1,11 +1,10 @@
 import React, {Component} from "react";
+import {NavLink, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+
+import {setUserStatus} from "../../actions/index";
 import decoration from "../../assets/icons/Decoration.svg"
 import './style.scss';
-import {NavLink} from "react-router-dom";
-import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
-import {setUserStatus} from "../../actions/index";
-
 
 class SignInMain extends Component {
 
@@ -19,13 +18,9 @@ class SignInMain extends Component {
         toRoute: true
     };
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this.props.authentication && this.props.history.push('/donate')
-    }
+    componentDidUpdate = () => this.props.authentication && this.props.history.push('/donate');
 
-    onInputChange = e => {
-        this.setState({[e.target.name]: e.target.value})
-    };
+    onInputChange = e => this.setState({[e.target.name]: e.target.value});
 
     onFormSubmit = e => {
         e.preventDefault();

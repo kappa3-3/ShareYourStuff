@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import './style.scss';
+
 import decoration from '../../assets/icons/Decoration.svg';
 import signature from '../../assets/icons/Signature.svg';
+import './style.scss';
 
 class HomeAbout extends Component {
     HomeAboutRef = React.createRef();
