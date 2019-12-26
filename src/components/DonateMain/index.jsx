@@ -174,7 +174,7 @@ class DonateMain extends Component {
                                         <h1>Who do you want to help?</h1>
                                         <span> Type in specific organization</span>
                                         <textarea placeholder='organization name'
-                                        className='.donate-choice-textarea'/>
+                                        className='donate-choice-textarea'/>
                                     </div>
                                 </div>
                                 }

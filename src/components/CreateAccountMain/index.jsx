@@ -23,6 +23,7 @@ class CreateAccountMain extends Component {
         e.preventDefault();
 
         if (this.isFormValid()) {
+
             const {email, password} = this.state;
             fetch('http://localhost:3004/users', {
                 method: 'POST',
@@ -31,11 +32,6 @@ class CreateAccountMain extends Component {
             })
                 .then((data) => (data))
                 .catch((err) => console.log(err));
-            this.props.setUserStatus(this.state.email, this.state.password);
-            setTimeout(() => this.props.history.push("/donate"), 2200);
-        } else {
-            // Only for presentation purposes of Donate route
-            console.log('Only for presentation purposes of Donate route');
             this.props.setUserStatus(this.state.email, this.state.password);
             setTimeout(() => this.props.history.push("/donate"), 2200);
         }
