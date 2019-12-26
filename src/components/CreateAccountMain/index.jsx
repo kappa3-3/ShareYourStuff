@@ -13,8 +13,7 @@ class CreateAccountMain extends Component {
         password_copy: '',
         isEmailValid: true,
         isPasswordValid: true,
-        isPasswordCopyValid: true,
-        isFormClicked: false,
+        isPasswordCopyValid: true
     };
 
     onInputChange = e => {
@@ -34,9 +33,12 @@ class CreateAccountMain extends Component {
                 .catch((err) => console.log(err));
             this.props.setUserStatus(this.state.email, this.state.password);
             setTimeout(() => this.props.history.push("/donate"), 2200);
+        } else {
+            // Only for presentation purposes of Donate route
+            console.log('Only for presentation purposes of Donate route');
+            this.props.setUserStatus(this.state.email, this.state.password);
+            setTimeout(() => this.props.history.push("/donate"), 2200);
         }
-
-
     };
 
     isFormValid = () => {
