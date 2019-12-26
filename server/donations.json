@@ -130,6 +130,57 @@
       "used_clothing": true,
       "books": true,
       "id": 3
+    },
+    {
+      "possessions": [
+        {
+          "label": "clothing",
+          "description": "clothing suitable for use",
+          "value": false
+        },
+        {
+          "label": "used_clothing",
+          "description": "clothing to recycle",
+          "value": false
+        },
+        {
+          "label": "toys",
+          "description": "toys",
+          "value": false
+        },
+        {
+          "label": "books",
+          "description": "books",
+          "value": true
+        },
+        {
+          "label": "other",
+          "description": "other",
+          "value": true
+        }
+      ],
+      "bags": "132",
+      "location": "Copenhagen",
+      "kids": false,
+      "mothers": false,
+      "homeless": false,
+      "disabled": false,
+      "elderly": false,
+      "organization": "",
+      "street": "tthgfd",
+      "city": "",
+      "postcode": "trhrgf",
+      "phone": 6.555656556565656e+21,
+      "date": "0088-08-08",
+      "hour": "t",
+      "remarks": "grth",
+      "items": [
+        true,
+        true
+      ],
+      "other": true,
+      "books": true,
+      "id": 4
     }
   ]
 }

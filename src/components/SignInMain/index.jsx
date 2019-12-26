@@ -43,7 +43,7 @@ class SignInMain extends Component {
     render() {
         return (
             <form className='sign-in-container' onSubmit={this.onFormSubmit}>
-                <h1>Sign In</h1>
+                <h1 className='sign-in-headline'>Sign In</h1>
                 <img src={decoration} alt='/////////'/>
                 <div className='sign-in-credentials'>
                     <div className='sign-in-credentials-email'>

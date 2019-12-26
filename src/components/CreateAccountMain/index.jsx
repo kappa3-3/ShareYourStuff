@@ -13,8 +13,7 @@ class CreateAccountMain extends Component {
         password_copy: '',
         isEmailValid: true,
         isPasswordValid: true,
-        isPasswordCopyValid: true,
-        isFormClicked: false,
+        isPasswordCopyValid: true
     };
 
     onInputChange = e => {
@@ -24,6 +23,7 @@ class CreateAccountMain extends Component {
         e.preventDefault();
 
         if (this.isFormValid()) {
+
             const {email, password} = this.state;
             fetch('http://localhost:3004/users', {
                 method: 'POST',
@@ -35,8 +35,6 @@ class CreateAccountMain extends Component {
             this.props.setUserStatus(this.state.email, this.state.password);
             setTimeout(() => this.props.history.push("/donate"), 2200);
         }
-
-
     };
 
     isFormValid = () => {
@@ -62,7 +60,7 @@ class CreateAccountMain extends Component {
                     </div>
                 </div>}
                 <div className='sign-in-container'>
-                    <h1>Create Account</h1>
+                    <h1 className='sign-in-headline'>Create Account</h1>
                     <img src={decoration} alt=''/>
                     <div className='sign-in-credentials'>
                         <div className='sign-in-credentials-email'>
@@ -75,7 +73,10 @@ class CreateAccountMain extends Component {
                                 value={this.state.email}
                                 onChange={this.onInputChange}
                             />
-                            {!this.state.isEmailValid && <span>Incorrect e-mail address</span>}
+                            {!this.state.isEmailValid
+                            && <span className='sign-in-error-message'>
+                                Incorrect e-mail address
+                            </span>}
                         </div>
                         <div className='sign-in-credentials-password'>
                             <label htmlFor='credentials_password'>Password:</label>
@@ -87,7 +88,10 @@ class CreateAccountMain extends Component {
                                 value={this.state.password}
                                 onChange={this.onInputChange}
                             />
-                            {!this.state.isPasswordValid && <span>Password requires at least 6 characters</span>}
+                            {!this.state.isPasswordValid
+                            && <span className='sign-in-error-message'>
+                                Password requires at least 6 characters
+                            </span>}
                         </div>
                         <div className='sign-in-credentials-password'>
                             <label>Repeat password:</label>
@@ -96,10 +100,13 @@ class CreateAccountMain extends Component {
                                 id="credentials_password_copy"
                                 name="password_copy"
                                 placeholder="retype your password"
-                                value={this.state.passwordCopy}
+                                value={this.state.password_copy}
                                 onChange={this.onInputChange}
                             />
-                            {!this.state.isPasswordCopyValid && <span>Passwords are not the same</span>}
+                            {!this.state.isPasswordCopyValid
+                            && <span className='sign-in-error-message'>
+                                Passwords are not the same
+                            </span>}
                         </div>
                     </div>
                     <div className='sign-in-actions'>

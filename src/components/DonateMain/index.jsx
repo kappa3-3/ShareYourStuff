@@ -24,7 +24,9 @@ class DonateMain extends Component {
     };
 
     handleClickForwards = () => {
-            this.setState({active: this.state.active + 1});
+        // !this.FormikErrors &&
+        this.setState({active: this.state.active + 1})
+
     };
 
     handleClickBackwards = () => {
@@ -38,7 +40,7 @@ class DonateMain extends Component {
         return (
             <div id='donate-container'>
                 <DonateHeader/>
-                <div id='donate-steps-container'>
+                <div id='donate-steps-container' className='donate-steps-container'>
                     <Formik
                         initialValues={{
                             //step 1//
@@ -75,6 +77,7 @@ class DonateMain extends Component {
 
                             setSubmitting(true);
 
+
                             fetch('http://localhost:3005/donations', {
                                 method: 'POST',
                                 headers: {"Content-Type": "application/json"},
@@ -90,13 +93,14 @@ class DonateMain extends Component {
                     >
                         {({values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting}) => (
 
+
                             <Form onSubmit={handleSubmit}>
                                 {active === 1 &&
                                 <div className='donate-component-container'>
                                     <DonateRemember active={this.state.active}/>
                                     <div className='donate-component-choice-container'>
                                         <span>Step 1/4</span>
-                                        <h1> Choose products you want to donate:</h1>
+                                        <h1 className='donate-choice-headline'> Choose products you want to donate:</h1>
                                         <div className='donate-items-choice'>
                                             {errors.items && <span><ErrorMessage name='items'/></span>}
                                             <FieldArray
@@ -113,7 +117,7 @@ class DonateMain extends Component {
                                                                 checked={item.value}
                                                                 onClick={() => arrayHelpers.insert(index, item.value = !item.value)}
                                                             />
-                                                            <label htmlFor={item.label}>{item.description}</label>
+                                                            <label htmlFor={item.label} className='donate-items-single-label'>{item.description}</label>
                                                         </div>
                                                     )))}
                                             />
@@ -128,7 +132,7 @@ class DonateMain extends Component {
                                         <span>Step 2/4</span>
                                         <h1>How many bags do you want to donate?</h1>
                                         <span className='form-error-message'><ErrorMessage name='bags'/></span>
-                                        <div className='donate-component-choice select'>
+                                        <div className='donate-component-choice'>
                                             <label htmlFor="bags">Amount of the 60l bags:</label>
                                             <Field as='select'
                                                    id='bags'
@@ -138,7 +142,8 @@ class DonateMain extends Component {
                                                 <option value={null}>--choose--</option>
                                                 {options.map(item => <option
                                                     key={item.value}
-                                                    value={item.value}>
+                                                    value={item.value}
+                                                className='select'>
                                                     {item.label}
                                                 </option>)}
                                             </Field>
@@ -155,7 +160,7 @@ class DonateMain extends Component {
                                         <span className='form-error-message'><ErrorMessage name='location'/></span>
                                         <div className='donate-component-choice'>
                                             <Field as='select'
-                                                   className='select'
+                                                   className='donate-choice-select'
                                                    value={values.location}
                                                    name='location'
                                                    onChange={handleChange}
@@ -166,9 +171,10 @@ class DonateMain extends Component {
                                                 </option>)}
                                             </Field>
                                         </div>
-                                        <h3>Who do you want to help?</h3>
-                                        <h3> Type in specific organization</h3>
-                                        <textarea placeholder='organization name'/>
+                                        <h1>Who do you want to help?</h1>
+                                        <span> Type in specific organization</span>
+                                        <textarea placeholder='organization name'
+                                        className='donate-choice-textarea'/>
                                     </div>
                                 </div>
                                 }
@@ -279,7 +285,7 @@ class DonateMain extends Component {
                                         <table className='donate-sum-up-item'>
                                             <tbody>
                                             <tr>
-                                                <th>
+                                                <th className='donate-sump-up-th'>
                                                     <img src={bag} alt=''/>
                                                 </th>
                                                 <td>{values.bags} bags of:</td>
@@ -294,7 +300,7 @@ class DonateMain extends Component {
                                         <table className='donate-sum-up-location'>
                                             <tbody>
                                             <tr>
-                                                <th>
+                                                <th className='donate-sump-up-th'>
                                                     <img src={transport} alt=''/>
                                                 </th>
                                                 <td>location:</td>
@@ -307,42 +313,42 @@ class DonateMain extends Component {
                                             <table className='donate-sum-up-details-address'>
                                                 <tbody>
                                                 <tr>
-                                                    <th>Pick-up address:</th>
+                                                    <th className='donate-details-title'>Pick-up address:</th>
                                                 </tr>
                                                 <tr>
-                                                    <th>street:</th>
-                                                    <td>{values.street}</td>
+                                                    <th className='donate-details-th'>street:</th>
+                                                    <td className='donate-details-td'>{values.street}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>city:</th>
-                                                    <td>{values.location}</td>
+                                                    <th className='donate-details-th'>city:</th>
+                                                    <td className='donate-details-td'>{values.location}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>post-code:</th>
-                                                    <td>{values.postcode}</td>
+                                                    <th className='donate-details-th'>post-code:</th>
+                                                    <td className='donate-details-td'>{values.postcode}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>phone number:</th>
-                                                    <td>{values.phone}</td>
+                                                    <th className='donate-details-th'>phone number:</th>
+                                                    <td className='donate-details-td'>{values.phone}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
                                             <table className='donate-sum-up-details-time'>
                                                 <tbody>
                                                 <tr>
-                                                    <th>Pick-up time:</th>
+                                                    <th className='donate-details-title'>Pick-up time:</th>
                                                 </tr>
                                                 <tr>
-                                                    <th>date:</th>
-                                                    <td>{values.date}</td>
+                                                    <th className='donate-details-th'>date:</th>
+                                                    <td className='donate-details-td'>{values.date}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>time:</th>
-                                                    <td>{values.hour}</td>
+                                                    <th className='donate-details-th'>time:</th>
+                                                    <td className='donate-details-td'>{values.hour}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>remarks for the courier:</th>
-                                                    <td>{values.remarks}</td>
+                                                    <th className='donate-details-th'>remarks for the courier:</th>
+                                                    <td className='donate-details-td'>{values.remarks}</td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -357,11 +363,14 @@ class DonateMain extends Component {
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
                                     >Submit
+
                                     </button>
                                 </div>
                                 }
+                                {console.log(errors)}
                             </Form>
                         )}
+
                     </Formik>
                     {(active === 6
                     ) && <DonateEnd/>}

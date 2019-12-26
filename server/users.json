@@ -6,24 +6,9 @@
       "password": "haslo1"
     },
     {
-      "email": "jrenkjbn@kejbrlhb",
-      "password": "aaaaaa",
-      "id": 2
-    },
-    {
-      "email": "erg@grbt",
-      "password": "gggggg",
-      "id": 3
-    },
-    {
-      "email": "katarzyna.janiszewska@gmail.com",
-      "password": "kkkkkk",
-      "id": 4
-    },
-    {
-      "email": "kkkk@kkkk",
-      "password": "kkkkkk",
-      "id": 5
+      "id": 2,
+      "email": "admin@domain.com",
+      "password": "password1"
     }
   ]
 }

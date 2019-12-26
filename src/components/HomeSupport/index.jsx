@@ -63,7 +63,8 @@ class HomeSupport extends Component {
         const pages = () => {
             const { pageCount,page } = this.state;
             if ( pageCount !== 1 ) {
-                return [...Array(pageCount).fill(1)].map((item, i) => <a
+                return [...Array(pageCount).fill(1)].map((item, i) =>
+                    <a
                     key={i}
                     onClick={()=>this.handlePage(i)}
                     className={page === i ? 'active-page' : ''}

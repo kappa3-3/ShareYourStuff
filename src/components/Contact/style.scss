@@ -1,15 +1,16 @@
 @import "../../scss/settings/_reusable";
 
-#contact-container {
+.contact-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-
-  h1 {
-    @include text-above-decoration;
-  }
 }
+
+.contact-form-headline {
+  @include text-above-decoration;
+}
+
 .contact-img {
   display: flex;
   flex: 1;
@@ -22,18 +23,12 @@
   background-size: cover;
   opacity: 0.2;
 }
+
 .contact-form {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   flex: 0.65;
-  p {
-    display: flex;
-    width: 50%;
-    font-size: 22px;
-    line-height: 42px;
-    text-align: center;
-  }
   position: relative;
 }
