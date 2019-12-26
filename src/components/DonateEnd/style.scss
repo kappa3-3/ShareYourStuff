@@ -2,13 +2,11 @@
 
 .donate-component-container {
   @include donate-component-container;
-
 }
 
 .donate-end {
   display: flex;
   flex-grow: 1;
-
   padding: 60px;
   background-image: url("../../assets/images/Background-Form.jpg");
   background-position: right;

@@ -6,12 +6,13 @@
   align-items: center;
   flex-direction: column;
   margin-top: 100px;
-  h1 {
-    @include text-above-decoration
-  }
 }
-.sign-in-credentials {
 
+.sign-in-headline {
+  @include text-above-decoration
+}
+
+.sign-in-credentials {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,23 +20,21 @@
   background-color: $basic-grey;
   padding: 35px;
   margin-top: 35px;
-
 }
+
 .sign-in-credentials-email, .sign-in-credentials-password  {
   display: flex;
   flex-direction: column;
   width: 350px;
   height: 85px;
-  span {
-    color: darkred;
-    font-size: 12px;
-    padding-top: 3px;
-  }
   @include form-items;
-  input {
-    background-color: $basic-grey;
-  }
 }
+.sign-in-error-message {
+  color: darkred;
+  font-size: 12px;
+  padding-top: 3px;
+}
+
 .sign-in-actions {
   display: flex;
   justify-content: space-between;
@@ -45,7 +44,6 @@
 }
 .sign-in-button {
   @include nav-button;
-
   &:hover {
     @include active-sub-page;
   }
