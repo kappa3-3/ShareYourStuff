@@ -3,11 +3,10 @@
 A website to donate items which are no longer used but might appear useful to others. <br />
 This project is based on a graphic design received from CodersLab and developed independently with a supervision of CodersLab's tutor. <br />
 
+https://share-your-stuff.netlify.com/
 #### In order to login to 'Donate' use credentials:
-
 ##### Login: 
 admin@domain.com 
-
 ##### Password: 
 password1
 
