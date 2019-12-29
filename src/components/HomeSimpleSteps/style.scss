@@ -1,14 +1,15 @@
 @import "../../scss/settings/_reusable";
 
-#simple-steps-container {
+.simple-steps-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0;
-  h1 {
-    @include text-above-decoration;
-  }
+}
+
+.text-above-decoration {
+  @include text-above-decoration;
 }
 
 .simple-steps {
@@ -31,21 +32,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  h3 {
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-  h4 {
-    font-weight: 300;
-  }
-  hr {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid $dark-grey;
-    margin: 0;
-    width: 50px;
-  }
 }
+
+.single-step-header {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.single-step-line {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid $dark-grey;
+  margin: 0;
+  width: 50px;
+}
+
+.single-step-description {
+  padding-top: 10px;
+  font-weight: 300;
+}
+.single-step-icon {
+  width: 80px;
+}
+
 .give-away {
   @include give-away;
 }

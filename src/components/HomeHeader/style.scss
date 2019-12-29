@@ -1,6 +1,6 @@
 @import "../../scss/settings/_reusable";
 
-#header-container {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-content: space-between;
@@ -23,13 +23,7 @@
   justify-content: space-between;
   align-items: flex-end;
   flex-direction: column;
-
 }
-
-ul {
-  list-style: none;
-}
-
 
 .header-guide {
   display: flex;
@@ -38,10 +32,10 @@ ul {
   flex-direction: column;
   height: 60vh;
   margin-right: 50px;
+}
 
-  h1 {
-    @include text-above-decoration;
-  }
+.text-above-decoration {
+  @include text-above-decoration;
 }
 
 .header-guide-options {

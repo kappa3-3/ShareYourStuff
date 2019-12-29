@@ -30,7 +30,7 @@ class DonateMain extends Component {
     };
 
     handleClickBackwards = () => {
-            this.setState({active: this.state.active - 1});
+        this.setState({active: this.state.active - 1});
     };
 
 
@@ -38,7 +38,7 @@ class DonateMain extends Component {
 
         const {active, backwards, forward} = this.state;
         return (
-            <div id='donate-container'>
+            <div id='donate-container' className='donate-container'>
                 <DonateHeader/>
                 <div id='donate-steps-container' className='donate-steps-container'>
                     <Formik
@@ -112,12 +112,14 @@ class DonateMain extends Component {
                                                             <Field
                                                                 name={item.label}
                                                                 id={item.label}
+                                                                className={item.label}
                                                                 type='checkbox'
                                                                 value={item.value}
                                                                 checked={item.value}
                                                                 onClick={() => arrayHelpers.insert(index, item.value = !item.value)}
                                                             />
-                                                            <label htmlFor={item.label} className='donate-items-single-label'>{item.description}</label>
+                                                            <label htmlFor={item.label}
+                                                                   className='donate-items-single-label'>{item.description}</label>
                                                         </div>
                                                     )))}
                                             />
@@ -143,7 +145,7 @@ class DonateMain extends Component {
                                                 {options.map(item => <option
                                                     key={item.value}
                                                     value={item.value}
-                                                className='select'>
+                                                    className='select'>
                                                     {item.label}
                                                 </option>)}
                                             </Field>
@@ -174,7 +176,7 @@ class DonateMain extends Component {
                                         <h1>Who do you want to help?</h1>
                                         <span> Type in specific organization</span>
                                         <textarea placeholder='organization name'
-                                        className='donate-choice-textarea'/>
+                                                  className='donate-choice-textarea'/>
                                     </div>
                                 </div>
                                 }
@@ -286,7 +288,10 @@ class DonateMain extends Component {
                                             <tbody>
                                             <tr>
                                                 <th className='donate-sump-up-th'>
-                                                    <img src={bag} alt=''/>
+                                                    <img
+                                                        className='sum-up-icon'
+                                                        src={bag}
+                                                        alt=''/>
                                                 </th>
                                                 <td>{values.bags} bags of:</td>
                                                 {values.possessions[0].value && <td> clothing suitable for use |</td>}
@@ -301,7 +306,10 @@ class DonateMain extends Component {
                                             <tbody>
                                             <tr>
                                                 <th className='donate-sump-up-th'>
-                                                    <img src={transport} alt=''/>
+                                                    <img
+                                                        className='sum-up-icon'
+                                                        src={transport}
+                                                        alt=''/>
                                                 </th>
                                                 <td>location:</td>
                                                 <td>{values.location}</td>
@@ -363,11 +371,9 @@ class DonateMain extends Component {
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
                                     >Submit
-
                                     </button>
                                 </div>
                                 }
-                                {console.log(errors)}
                             </Form>
                         )}
 

@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 
-#clothing, #used_clothing, #toys, #books, #other {
+.clothing, .used_clothing, .toys, .books, .other {
   @include input;
 }
 
@@ -120,11 +120,10 @@
 }
 
 ///////////// DONATE SUM-UP - STEP 5 /////////////
-.donate-component-choice-container {
-  img {
-    height: 35px;
-    width: 35px;
-  }
+
+.sum-up-icon {
+  height: 35px;
+  width: 35px;
 }
 
 .donate-sum-up-item, .donate-sum-up-location {
@@ -135,10 +134,7 @@
 .donate-sump-up-th {
   padding: 5px;
   width: 50px;
-
 }
-
-
 
 .donate-sum-up-details {
   display: flex;
@@ -166,6 +162,7 @@
   margin-bottom: 15px;
   width: 190px;
 }
+
 .donate-details-td {
   text-align: left;
   font-weight: bold;
@@ -205,7 +202,7 @@
   bottom: 25px;
 }
 
-#donate-container {
+.donate-container {
   position: relative;
 }
 

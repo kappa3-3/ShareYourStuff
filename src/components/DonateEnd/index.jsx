@@ -13,6 +13,7 @@ export default function DonateEnd() {
                         <span>Thank you for filling in the form!</span>
                         <span>We have sent an e-mail to you</span>
                         <span>with all information about the pick-up.</span>
+                        <br />
                         <Decoration />
                         <Link to='/' className='donate-component-home-button'>Back to Home</Link>
                     </div>

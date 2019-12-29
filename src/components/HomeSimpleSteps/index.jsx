@@ -13,34 +13,34 @@ import './style.scss';
 class HomeSimpleSteps extends Component {
     render() {
         return (
-            <div id='simple-steps-container'>
-                <h1>Only 4 simple steps</h1>
+            <div id='simple-steps-container' className='simple-steps-container'>
+                <h1 className='text-above-decoration'>Only 4 simple steps</h1>
                 <img src={decoration} alt=''/>
                 <div className='simple-steps'>
 
                         <div className='single-step'>
-                            <img src={shirt} alt=''/>
-                            <h3>Choose items</h3>
-                            <hr />
-                            <h4>clothing, toys, tools, etc.</h4>
+                            <img className='single-step-icon' src={shirt} alt=''/>
+                            <h3 className='single-step-header'>Choose items</h3>
+                            <hr className='single-step-line' />
+                            <span className='single-step-description'>clothing, toys, tools, etc.</span>
                         </div>
                         <div className='single-step'>
-                            <img src={bag} alt=''/>
-                            <h3>Pack items</h3>
-                            <hr />
-                            <h4>use trash bags or paper boxes</h4>
+                            <img className='single-step-icon' src={bag} alt=''/>
+                            <h3 className='single-step-header'>Pack items</h3>
+                            <hr className='single-step-line' />
+                            <span className='single-step-description'>use trash bags or paper boxes</span>
                         </div>
                         <div className='single-step'>
-                            <img src={search} alt=''/>
-                            <h3>Decide who you want to help</h3>
-                            <hr />
-                            <h4>choose trusted place</h4>
+                            <img className='single-step-icon' src={search} alt=''/>
+                            <h3 className='single-step-header'>Decide who you want to help</h3>
+                            <hr className='single-step-line'/>
+                            <span className='single-step-description'>choose trusted place</span>
                         </div>
                         <div className='single-step'>
-                            <img src={transport} alt=''/>
-                            <h3>Order pick up</h3>
-                            <hr />
-                            <h4>courier comes whenever it suits you </h4>
+                            <img className='single-step-icon' src={transport} alt=''/>
+                            <h3 className='single-step-header'>Order pick up</h3>
+                            <hr className='single-step-line' />
+                            <span className='single-step-description'>courier comes whenever it suits you </span>
                         </div>
                 </div>
                 <div className='give-away'>

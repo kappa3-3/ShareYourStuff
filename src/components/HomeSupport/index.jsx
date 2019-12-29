@@ -64,42 +64,42 @@ class HomeSupport extends Component {
             const { pageCount,page } = this.state;
             if ( pageCount !== 1 ) {
                 return [...Array(pageCount).fill(1)].map((item, i) =>
-                    <a
+                    <button
                     key={i}
                     onClick={()=>this.handlePage(i)}
-                    className={page === i ? 'active-page' : ''}
-                >{i+1}</a>);
+                    className={page === i ? 'active-page' : 'home-support-page'}
+                >{i+1}</button>);
             }
 
         };
         return (
-            <div id='support-container'>
+            <div id='support-container' className='support-container'>
                 <span className='support-title'>Who are we supporting?</span>
                 <img src={ decoration } alt='decoration'/>
                 <div className='support-types-wrapper'>
                     <span
-                        className={type === 'nonprofit' ? 'active' : ''}
+                        className={type === 'nonprofit' ? 'support-active' : 'support-type'}
                         data-opt='nonprofit'
                         onClick={this.handleOrganizationType}
                     >
                         Nonprofit organizations
                     </span>
                     <span
-                        className={type === 'non-gov' ? 'active' : ''}
+                        className={type === 'non-gov' ? 'support-active' : 'support-type'}
                         data-opt='non-gov'
                         onClick={this.handleOrganizationType}
                     >
                         Non-governmental organization
                     </span>
                     <span
-                        className={type === 'local-fund' ? 'active' : ''}
+                        className={type === 'local-fund' ? 'support-active' : 'support-type'}
                         data-opt='local-fund'
                         onClick={this.handleOrganizationType}
                     >
                         Local fund-raiser
                     </span>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti earum error explicabo facilis illo
+                <p className='home-support-description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti earum error explicabo facilis illo
                     impedit libero magnam maiores praesentium, quaerat, quidem rem repellendus sunt totam vitae.
                     Maiores.</p>
                 <div className='organization-list-wrapper'>

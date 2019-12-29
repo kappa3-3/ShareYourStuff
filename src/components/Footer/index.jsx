@@ -6,10 +6,10 @@ import './style.scss';
 
 export default function HomeFooter() {
     return (
-        <div id='footer-container'>
-            <span>Copyright by Coders Lab</span>
-            <img src={facebook} alt='facebook'/>
-            <img src={instagram} alt='instagram'/>
+        <div id='footer-container' className='footer-container'>
+            <span className='footer-text'>Copyright by Coders Lab</span>
+            <img className='footer-icon-fb' src={facebook} alt='facebook'/>
+            <img className='footer-icon-inst' src={instagram} alt='instagram'/>
         </div>
     );
 }
