@@ -371,11 +371,9 @@ class DonateMain extends Component {
                                         disabled={isSubmitting}
                                         className='button-forward-visible'
                                     >Submit
-
                                     </button>
                                 </div>
                                 }
-                                {console.log(errors)}
                             </Form>
                         )}
 
