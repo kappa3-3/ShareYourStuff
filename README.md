@@ -3,12 +3,12 @@
 A website to donate items which are no longer used but might appear useful to others. <br />
 This project is based on a graphic design received from CodersLab and developed independently with a supervision of CodersLab's tutor. <br />
 
-####In order to login to 'Donate' use credentials:
+#### In order to login to 'Donate' use credentials:
 
 ##### Login: 
 admin@domain.com 
 
-#####Password: 
+##### Password: 
 password1
 
 ## Table of contents
@@ -17,17 +17,17 @@ password1
 * [Technologies](#technologies)
 * [Setup](#setup)
 
-##General
+## General
 
 * Used <b>React Routing</b> to navigate through sub-pages
 * Used <b>Redux</b> state to access login status globally
 * Created both class and functional components depending on the type needed
 * Complex form created in <b>Formik</b>
 * Server on <b>GitHub</b> created to <b>fetch</b> data
-#####Important!
+##### Important!
 * Fetch POST working only with [http://localhost:3000]
 
-##Technologies
+## Technologies
 
 * JavaScript
 * React
@@ -36,7 +36,7 @@ password1
 * JSON server / fetch
 * Formik
 
-##Setup
+## Setup
 
 To run this project, install it locally using npm:
 
