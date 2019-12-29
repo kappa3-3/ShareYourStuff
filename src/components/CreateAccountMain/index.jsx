@@ -66,6 +66,7 @@ class CreateAccountMain extends Component {
                         <div className='sign-in-credentials-email'>
                             <label htmlFor='credentials-email'>Email:</label>
                             <input
+                                className='credentials-input'
                                 type="email"
                                 id="credentials_email"
                                 name="email"
@@ -81,6 +82,7 @@ class CreateAccountMain extends Component {
                         <div className='sign-in-credentials-password'>
                             <label htmlFor='credentials_password'>Password:</label>
                             <input
+                                className='credentials-input'
                                 type="password"
                                 id="credentials_password"
                                 name="password"
@@ -96,6 +98,7 @@ class CreateAccountMain extends Component {
                         <div className='sign-in-credentials-password'>
                             <label>Repeat password:</label>
                             <input
+                                className='credentials-input'
                                 type="password"
                                 id="credentials_password_copy"
                                 name="password_copy"
