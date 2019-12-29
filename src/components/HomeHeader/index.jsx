@@ -11,12 +11,12 @@ class HomeHeader extends Component {
 
     render() {
         return (
-            <div id='header-container'>
+            <div id='header-container' className='header-container'>
                 <div className='header-img'/>
                 <div className='header-content'>
                     <NavBar page='home-page'/>
                     <div className='header-guide'>
-                        <h1>Start helping!
+                        <h1 className='text-above-decoration'>Start helping!
                             <br/>Give away your unneeded possessions in good hands
                         </h1>
                         <Decoration/>

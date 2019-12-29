@@ -10,7 +10,7 @@ export default function OrganizationRecord(props) {
                 <h1>{name}</h1>
                 <span>{description}</span>
             </div>
-            <h5>{status}</h5>
+            <h5 className='organization-list-item-status'>{status}</h5>
         </div>
     );
 };

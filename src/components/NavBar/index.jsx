@@ -19,26 +19,25 @@ class NavBar extends Component {
         e.preventDefault();
         this.setState({logOutPrompt: true});
         this.props.setUserStatus();
-        setTimeout(() => this.setState({logOutPrompt: false}), 2000);
+        setTimeout(() => this.setState({logOutPrompt: false}), 3000);
         this.props.history.push('/');
 
     };
 
     render() {
-
         return (
             <>
                 {this.state.logOutPrompt &&
                 <div className='header-logout-container'>
                     <div className='header-logout-prompt'>
                         <h1>You have been logged out successfully!</h1>
-                        <img src={decoration} alt='/////////'/>
-                        <h4>you are being redirected to HOME page</h4>
+                        <img src={decoration} alt='decoration'/>
+                        <span>you are being redirected to HOME page</span>
                     </div>
                 </div>}
                 <div className='header-nav'>
                     <div className='header-nav-account'>
-                        {this.props.authentication && <span>You are logged in</span>}
+                        {this.props.authentication && <span className='login-error-message'>You are logged in</span>}
                         {this.props.authentication
                             ? <NavLink to="/" className='header-nav-account-link' onClick={this.handleLogOut}>Sign
                                 Out</NavLink>

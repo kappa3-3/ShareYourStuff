@@ -37,14 +37,14 @@ class HomeForm extends Component {
 
     render() {
         return (
-            <div id='form-container'>
+            <div id='form-container' className='form-container'>
 
                 {this.state.isFormClicked ?
                     <div className='form-info-end'>
                         <h1>Thank you for your message</h1>
                         <span>We will contact you as soon as possible</span>
                     </div>
-                    : <form action="#">
+                    : <form className='contact-form-data' action="#">
                     <div className='form-info'>
                         <div className='form-info-details form-name'>
                             <label>First Name</label>
@@ -70,9 +70,10 @@ class HomeForm extends Component {
                        </div>
                     </div>
                     <div className='form-info-textarea'>
-                        <label>Your message</label>
+                        <label className='form-textarea-label' >Your message</label>
                         <textarea
                             id="form-text-area"
+                            className="form-text-area"
                             name="subject"
                             placeholder="Lorem ipsum..."
                             value={this.state.message}
@@ -80,6 +81,7 @@ class HomeForm extends Component {
                         />
                     </div>
                     <button
+                        className='contact-form-submit'
                         type="submit"
                         value="Submit"
                         onClick={this.onClickSubmit}

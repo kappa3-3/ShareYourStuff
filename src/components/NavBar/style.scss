@@ -5,12 +5,13 @@
   justify-content: flex-end;
   align-items: center;
   margin: 50px 40px 0 0;
-  span {
-    text-align: center;
-    color: $light-grey;
-    font-style: italic;
-    margin-right: 20px;
-  }
+}
+
+.login-error-message {
+  text-align: center;
+  color: $light-grey;
+  font-style: italic;
+  margin-right: 20px;
 }
 
 .header-nav-account-link {
@@ -23,6 +24,7 @@
 .header-nav-sub-pages {
   display: flex;
   margin: 30px 40px 0 0;
+  list-style: none;
 }
 
 .header-nav-sub-pages-link {
@@ -33,7 +35,6 @@
   margin-left: 25px;
   font-size: 17px;
   border: 1px solid transparent;
-
   &:hover {
     @include active-sub-page;
   }
@@ -51,9 +52,6 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  h4{
-    font-weight: lighter;
-  }
 }
 
 

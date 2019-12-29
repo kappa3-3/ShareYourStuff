@@ -1,22 +1,18 @@
 
-#footer-container {
+.footer-container {
   position: absolute;
   width: 100%;
 
-  span {
-    position: absolute;
-    left: 45%;
-  }
-
-  img {
-    position: absolute;
-  }
-
-  img:first-of-type {
-    right: 9%;
-  }
-
-  img:last-child {
-    right: 6%;
-  }
+}
+.footer-text {
+  position: absolute;
+  left: 45%;
+}
+.footer-icon-fb {
+  position: absolute;
+  right: 9%;
+}
+.footer-icon-inst {
+  position: absolute;
+  right: 6%;
 }

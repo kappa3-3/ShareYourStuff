@@ -26,7 +26,7 @@ class SignInMain extends Component {
         e.preventDefault();
         if (this.isFormValid()) {
             this.props.setUserStatus(this.state.email, this.state.password);
-            setTimeout(()=> this.setState({isUserTrue:false}),100 )
+            setTimeout(()=> this.setState({isUserTrue:false}),200 )
 
     }};
 
@@ -49,6 +49,7 @@ class SignInMain extends Component {
                     <div className='sign-in-credentials-email'>
                         <label htmlFor='sign_in_email'>Email:</label>
                         <input
+                            className='credentials-input'
                             type="email"
                             id="sign_in_email"
                             name="email"
@@ -56,11 +57,12 @@ class SignInMain extends Component {
                             value={this.state.email}
                             onChange={this.onInputChange}
                         />
-                        {!this.state.isEmailValid && <span>Incorrect e-mail address</span>}
+                        {!this.state.isEmailValid && <span className='credentials-error-message'>Incorrect e-mail address</span>}
                     </div>
                     <div className='sign-in-credentials-password'>
                         <label htmlFor='sign_in_password'>Password:</label>
                         <input
+                            className='credentials-input'
                             type="password"
                             id="sign_in_password"
                             name="password"
@@ -68,8 +70,8 @@ class SignInMain extends Component {
                             value={this.state.password}
                             onChange={this.onInputChange}
                         />
-                        {!this.state.isPasswordValid && <span>Password requires at least 6 characters</span>}
-                        {!this.state.isUserTrue && <span>Password or e-mail address is incorrect.</span>}
+                        {!this.state.isPasswordValid && <span className='credentials-error-message'>Password requires at least 6 characters</span>}
+                        {!this.state.isUserTrue && <span className='credentials-error-message'>Password or e-mail address is incorrect.</span>}
                     </div>
                 </div>
                 <div className='sign-in-actions'>

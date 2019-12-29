@@ -1,22 +1,23 @@
 @import "../../scss/settings/_reusable";
-@import "../../scss/settings/_reusable";
 
-#form-container {
+.form-container {
   display: flex;
   flex-direction: column;
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  button {
-    width: 150px;
-    height: 50px;
-    background-color: transparent;
-    border: 1px solid $dark-grey;
-    font-size: 18px;
-    margin: 35px 0 0 auto;
-    outline: none;
-  }
+}
+
+.contact-form-submit {
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid $dark-grey;
+  font-size: 18px;
+  margin: 35px 0 0 auto;
+  outline: none;
+}
+
+.contact-form-data {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-info {
@@ -29,38 +30,40 @@
   width: 45%;
   @include form-items;
 }
+
 .form-name {
   margin-right: auto;
 }
+
 .form-email {
   margin-left: auto;
 }
-#form-text-area {
+
+.form-text-area {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 250px;
   border: none;
   border-bottom: 1px solid $dark-grey;
+  font-size: 18px;
+  font-weight: 100;
+  outline: none;
+  box-shadow: none;
 }
+
 .form-info-textarea {
   display: flex;
   flex-direction: column;
-  label {
-    margin-top: 25px;
-    font-size: 16px;
-    font-weight: 500;
-    width: 100%
-  }
-  textarea {
-    border: none;
-    border-bottom: 1px solid $dark-grey;
-    font-size: 18px;
-    font-weight: 100;
-    outline: none;
-    box-shadow: none;
-  }
 }
+
+.form-textarea-label {
+  margin-top: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%
+}
+
 .form-info-end {
   text-align: center;
 }

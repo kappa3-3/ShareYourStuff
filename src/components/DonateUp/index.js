@@ -6,14 +6,15 @@ import './style.scss';
 
 
 class DonateUp extends Component {
-    state= {
+    state = {
         visible: false
     };
+
     render() {
         const yPosition = () => {
             if (window.scrollY >= 500) {
                 if (!this.state.visible)
-                this.setState({visible: true})
+                    this.setState({visible: true})
             } else {
                 if (this.state.visible)
                     this.setState({visible: false})
@@ -33,5 +34,6 @@ class DonateUp extends Component {
         )
     }
 }
+
 export default DonateUp;
 

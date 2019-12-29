@@ -1,18 +1,18 @@
 @import "../../scss/settings/_reusable";
 
-#support-container {
+.support-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 60px 0 50px 0;
+}
 
-  p {
-    width: 400px;
-    margin: 45px;
-    font-style: italic;
-    text-align: center;
-  }
+.home-support-description {
+  width: 400px;
+  margin: 45px;
+  font-style: italic;
+  text-align: center;
 }
 
 .support-title {
@@ -22,39 +22,52 @@
 .support-types-wrapper {
   display: flex;
   cursor: pointer;
+}
 
-  span {
-    @include organization-types;
-    border: 1px solid transparent;
-
-    &:hover {
-      box-shadow: 0 3px 3px -3px #3C3C3C;
-    }
+.support-type {
+  display: flex;
+  @include organization-types;
+  border: 1px solid transparent;
+  &:hover {
+    box-shadow: 0 3px 3px -3px #3C3C3C;
+  }
+  &:focus {
+    outline: none;
   }
 }
 
-.active {
-  @include active-sub-page
+.support-active {
+  @include active-sub-page;
+  @include organization-types;
+
 }
 
 .support-pages {
   margin-top: 35px;
-
-  a {
-    border: 1px solid transparent;
-    text-align: center;
-    padding: 5px 10px;
-    margin: 2px;
-
-    &:hover {
-      font-weight: bold;
-      cursor: pointer;
-    }
-  }
 }
 
 .active-page {
-  @include active-sub-page
+  @include active-sub-page;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 2px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.home-support-page {
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 2px;
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
 .organization-list-wrapper {
