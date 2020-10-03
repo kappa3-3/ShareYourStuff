@@ -1,0 +1,57 @@
+@import "../../scss/settings/_reusable";
+
+.header-nav-account {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 50px 40px 0 0;
+}
+
+.login-error-message {
+  text-align: center;
+  color: $light-grey;
+  font-style: italic;
+  margin-right: 20px;
+}
+
+.header-nav-account-link {
+  @include nav-button;
+  &:hover {
+    @include header-nav-border;
+  }
+}
+
+.header-nav-sub-pages {
+  display: flex;
+  margin: 30px 40px 0 0;
+  list-style: none;
+}
+
+.header-nav-sub-pages-link {
+  text-decoration: none;
+  color: $dark-grey;
+  height: 20px;
+  padding: 10px;
+  margin-left: 25px;
+  font-size: 17px;
+  border: 1px solid transparent;
+  &:hover {
+    @include active-sub-page;
+  }
+}
+
+.header-logout-container {
+  position: fixed;
+  top: 220px;
+  width: 100vw;
+  height: 350px;
+  background-color: $bright-yellow-opacity;
+  color: $dark-grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+

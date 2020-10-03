@@ -5,12 +5,12 @@ import facebook from '../../assets/icons/Facebook.svg'
 import './style.scss';
 
 export default function HomeFooter() {
-    return (
-        <div id='footer-container' className='footer-container'>
-            <span className='footer-text'>Copyright by Coders Lab</span>
-            <img className='footer-icon-fb' src={facebook} alt='facebook'/>
-            <img className='footer-icon-inst' src={instagram} alt='instagram'/>
-        </div>
-    );
+  return (
+    <div id='footer-container' className='footer-container'>
+      <span className='footer-text'>Copyright by Coders Lab</span>
+      <img className='footer-icon-fb' src={facebook} alt='facebook' />
+      <img className='footer-icon-inst' src={instagram} alt='instagram' />
+    </div>
+  );
 }
 
