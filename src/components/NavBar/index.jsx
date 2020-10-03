@@ -112,7 +112,7 @@ NavBar.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   page: PropTypes.string.isRequired,
   setUser: PropTypes.bool.isRequired,
-  history: PropTypes.objectOf(PropTypes.string),
+  history: PropTypes.objectOf(PropTypes.string, PropTypes.number),
 };
 
 export default withRouter(connect(mapStateToProps, { setUser: setUserStatus })(NavBar));
