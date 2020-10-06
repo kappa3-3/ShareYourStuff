@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, Redirect } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -12,7 +12,6 @@ function NavBar({
   isLoggedIn,
   page,
   setUser,
-  history,
 }) {
   const [logOutPrompt, setLogOutPrompt] = useState(false);
   const handleLogOut = e => {
@@ -20,10 +19,10 @@ function NavBar({
     setLogOutPrompt(true);
     setUser();
     setTimeout(() => setLogOutPrompt(false), 3000);
-    history.push('/');
   };
   return (
     <>
+      {logOutPrompt && <Redirect to="/" />}
       <LogOutPrompt active={logOutPrompt} />
       <div className="header-nav">
         <div className="header-nav-account">
@@ -111,8 +110,7 @@ function mapStateToProps(state) {
 NavBar.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   page: PropTypes.string.isRequired,
-  setUser: PropTypes.bool.isRequired,
-  history: PropTypes.objectOf(PropTypes.string, PropTypes.number),
+  setUser: PropTypes.func.isRequired,
 };
 
 export default withRouter(connect(mapStateToProps, { setUser: setUserStatus })(NavBar));

@@ -7,7 +7,7 @@ export default function SignIn() {
   return (
     <div>
       <div className="nav-bar-container">
-        <NavBar />
+        <NavBar page="sign-in" />
       </div>
       <SignInMain />
     </div>

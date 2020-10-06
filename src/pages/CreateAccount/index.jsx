@@ -6,7 +6,7 @@ import './style.scss';
 const CreateAccount = () => (
   <div>
     <div className="nav-bar-container">
-      <NavBar />
+      <NavBar page="create-account" />
     </div>
     <CreateAccountMain />
   </div>
