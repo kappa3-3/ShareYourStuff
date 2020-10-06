@@ -6,6 +6,8 @@
     "easy-peasy": "^3.2.3",
     "eslint-config-airbnb": "^18.2.0",
     "formik": "^2.0.6",
+    "mongodb": "^3.6.2",
+    "node-fetch": "^2.6.1",
     "node-sass": "^4.13.0",
     "node.normalize.scss": "^3.0.3",
     "prop-types": "^15.7.2",
