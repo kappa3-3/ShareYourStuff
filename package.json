@@ -5,7 +5,7 @@
   "dependencies": {
     "easy-peasy": "^3.2.3",
     "eslint-config-airbnb": "^18.2.0",
-    "formik": "^2.0.6",
+    "formik": "^2.1.7",
     "mongodb": "^3.6.2",
     "node-fetch": "^2.6.1",
     "node-sass": "^4.13.0",
@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/**/*.js*"
+    "lint": "eslint src/components/**/*.js* src/pages/**/*.js*"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +46,21 @@
             ".js",
             ".jsx"
           ]
+        }
+      ],
+      "jsx-a11y/label-has-associated-control": [
+        2,
+        {
+          "labelComponents": [
+            "CustomInputLabel"
+          ],
+          "labelAttributes": [
+            "label"
+          ],
+          "controlComponents": [
+            "CustomInput"
+          ],
+          "depth": 3
         }
       ],
       "no-underscore-dangle": [
