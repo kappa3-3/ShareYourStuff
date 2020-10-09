@@ -1,21 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-scroll';
 import { ReactComponent as Up } from '../../assets/icons/angle-double-up-solid.svg';
 import './style.scss';
 
-export default function HomeUp() {
-  const [visible, setVisible] = useState(false);
-  const yPosition = () => {
-    if (window.scrollY >= 500) {
-      if (!visible) setVisible({ visible: true });
-    } else {
-      setVisible({ visible: false });
-    }
-  };
-  window.addEventListener('scroll', yPosition);
+export default function HomeUp({ scrollY}) {
   return (
     <>
-      {visible
+      {scrollY > 350
         && (
           <Link
             to="header-container"

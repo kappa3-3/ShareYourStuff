@@ -4,20 +4,20 @@ import { Link } from 'react-scroll';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { navigationDataHome } from '../../commons/navigationDataHome';
-import { setUserStatus } from '../../actions/index';
+import { setUserLoggedOut } from '../../actions/index';
 import LogOutPrompt from '../LogOutPrompt';
 import './style.scss';
 
 function NavBar({
   isLoggedIn,
   page,
-  setUser,
+  setLoggedOut,
 }) {
   const [logOutPrompt, setLogOutPrompt] = useState(false);
   const handleLogOut = e => {
     e.preventDefault();
     setLogOutPrompt(true);
-    setUser();
+    setLoggedOut();
     setTimeout(() => setLogOutPrompt(false), 3000);
   };
   return (
@@ -110,7 +110,9 @@ function mapStateToProps(state) {
 NavBar.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   page: PropTypes.string.isRequired,
-  setUser: PropTypes.func.isRequired,
+  setLoggedOut: PropTypes.func.isRequired,
 };
 
-export default withRouter(connect(mapStateToProps, { setUser: setUserStatus })(NavBar));
+export default withRouter(connect(mapStateToProps, {
+  setLoggedOut: setUserLoggedOut,
+})(NavBar));

@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setUserStatus } from '../../actions';
 import decoration from '../../assets/icons/Decoration.svg';
 import shirt from '../../assets/icons/Icon-1.svg';
 import bag from '../../assets/icons/Icon-2.svg';
@@ -99,4 +98,4 @@ HomeSimpleSteps.propTypes = {
   authentication: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, { setUserStatus })(HomeSimpleSteps);
+export default connect(mapStateToProps)(HomeSimpleSteps);

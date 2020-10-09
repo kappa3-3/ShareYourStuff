@@ -18,7 +18,9 @@ function HomeForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message }),
       })
-        .catch(err => console.log(err));
+        .catch(err => {
+          throw (err);
+        });
       setIsFormClicked({ isFormClicked: true });
       setTimeout(() => {
         setIsFormClicked({ isFormClicked: false });
@@ -61,7 +63,7 @@ function HomeForm() {
               </div>
             </div>
             <div className="form-info-textarea">
-              <label className="form-textarea-label">
+              <label htmlFor="form-text-area" className="form-textarea-label">
                 Your message
               </label>
               <textarea

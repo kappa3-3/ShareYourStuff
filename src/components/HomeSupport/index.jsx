@@ -39,16 +39,19 @@ function HomeSupport() {
 
   const pages = () => {
     if (pageCount !== 1) {
-      return [...Array(pageCount).fill(type)].map((item, i) => (
-        <button
-          type="button"
-          key={`${item}-${i}`}
-          onClick={() => setPage(i)}
-          className={page === i ? 'active-page' : 'home-support-page'}
-        >
-          {i + 1}
-        </button>
-      ));
+      return [...Array(pageCount).fill(type)].map((item, i) => {
+        const name = `${item}-${i}`;
+        return (
+          <button
+            type="button"
+            key={name}
+            onClick={() => setPage(i)}
+            className={page === i ? 'active-page' : 'home-support-page'}
+          >
+            {i + 1}
+          </button>
+        );
+      });
     }
     return null;
   };

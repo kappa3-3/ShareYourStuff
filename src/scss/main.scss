@@ -1,8 +1,13 @@
 @import '~node.normalize.scss';
-@import "./settings/_colors";
-@import "./settings/_fonts";
+@import './settings/_colors';
+@import './settings/_fonts';
 
 body {
   font: $font-base;
   color: $dark-grey;
+}
+
+.ref-wrapper {
+  // height: 100vh;
+  // overflow-y: auto;
 }

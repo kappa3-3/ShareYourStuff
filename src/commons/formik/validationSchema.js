@@ -2,12 +2,19 @@ import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
   // step 1 - type of items to donate //
-  // possessions: Yup.boolean()
-  //  .oneOf([{value:true}], 'Must choose at least one'),
-  //  .oneOf([{value:true}]).required('Must choose at least one'),
+  // possessions: Yup.array()
+  //   // .oneOf([{ value: true }], 'Must choose at least one')
+  //   .of(
+  //   // Yup.object().shape({
+  //     // value: Yup.bool().required('Must choose at least one'),
+  //   // })),
+  //   Yup.object()
+  //   .oneOf({ value: true }).required('Must choose at least one'),
+  //   ),
   // step 2 - bags//
   bags: Yup
     .string()
+    .min(1, 'Must choose how many bags')
     .required('Must choose how many bags'),
   // step 3 - location //
   location: Yup

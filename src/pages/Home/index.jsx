@@ -6,7 +6,6 @@ import HomeAbout from '../../components/HomeAbout';
 import HomeSupport from '../../components/HomeSupport';
 import HomeContact from '../../components/Contact';
 import Footer from '../../components/Footer';
-import HomeUp from '../../components/HomeUp';
 import './style.scss';
 
 const Home = () => (
@@ -22,7 +21,6 @@ const Home = () => (
     <div className="footer-wrapper">
       <Footer />
     </div>
-    <HomeUp />
   </div>
 );
 

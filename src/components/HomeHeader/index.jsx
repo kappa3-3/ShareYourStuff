@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import NavBar from '../NavBar';
-import { setUserStatus } from '../../actions';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
 import './style.scss';
 
@@ -59,4 +58,4 @@ HomeHeader.propTypes = {
   authentication: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, { setUserStatus })(HomeHeader);
+export default connect(mapStateToProps)(HomeHeader);

@@ -5,26 +5,24 @@ import DonateMain from '../../components/DonateMain';
 import DonateUp from '../../components/DonateUp';
 import NavBar from '../../components/NavBar';
 import SignInMain from '../../components/SignInMain';
-import { setUserStatus } from '../../actions';
+import './style.scss';
 
-function Donate({ authentication }) {
-  return (
-    authentication
-      ? (
-        <div className="donate-wrapper">
-          <DonateMain />
-          <DonateUp />
+const Donate = ({ authentication }) => (
+  authentication
+    ? (
+      <div>
+        <DonateMain />
+        <DonateUp />
+      </div>
+    ) : (
+      <div>
+        <div className="nav-bar-container">
+          <NavBar page="donate" />
         </div>
-      ) : (
-        <div>
-          <div className="nav-bar-container">
-            <NavBar />
-          </div>
-          <SignInMain />
-        </div>
-      )
-  );
-}
+        <SignInMain />
+      </div>
+    )
+);
 
 function mapStateToProps(state) {
   return {
@@ -36,4 +34,4 @@ Donate.propTypes = {
   authentication: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, { setUserStatus })(Donate);
+export default connect(mapStateToProps)(Donate);

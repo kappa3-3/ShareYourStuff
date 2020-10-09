@@ -2,48 +2,49 @@ import React, { useState } from 'react';
 import { NavLink, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setUserStatus } from '../../actions/index';
-import decoration from '../../assets/icons/Decoration.svg';
+import { setUserLoggedIn } from '../../actions/index';
+import AccountActionHeader from '../AccountActionHeader';
+import serverConnection from '../../commons/fetch/serverConnection';
 import './style.scss';
 
-function SignInMain({ isLoggedIn, setUser }) {
+function SignInMain({ isLoggedIn, setLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
-  const [isUserTrue, setIsUserTrue] = useState(true);
-
-  const onInputChange = e => {
-    switch (e.target.name) {
-      case 'email':
-        return setEmail(e.target.value);
-      case 'password':
-        return setPassword(e.target.value);
-      default:
-        return false;
-    }
-  };
+  const [isUserInDb, setIsUserInDb] = useState(true);
+  const [isPassOkInDb, setIsPassOkInDb] = useState(true);
 
   const isFormValid = () => {
     setIsEmailValid(email.includes('@'));
     setIsPasswordValid(password.length >= 6);
   };
 
+  const handleDBResponse = res => {
+    setIsPassOkInDb(true);
+    if (res.isExisting) {
+      res.password ? setLoggedIn(true) : setIsPassOkInDb(false);
+    } else {
+      setIsUserInDb(false);
+    }
+  };
+
   const onFormSubmit = e => {
     e.preventDefault();
     isFormValid();
     if (isEmailValid && isPasswordValid) {
-      setUser(email, password);
+      serverConnection('signin', email, password)
+        .then(res => handleDBResponse(res))
+        .catch(err => { throw (err); });
     } else {
-      setTimeout(() => setIsUserTrue(false), 400);
+      setIsPasswordValid(false);
     }
   };
 
   return (
-    <form className="sign-in-container" onSubmit={onFormSubmit}>
+    <form className="sign-in-container">
       {isLoggedIn && <Redirect to="/donate" />}
-      <h1 className="sign-in-headline">Sign In</h1>
-      <img src={decoration} alt="/////////" />
+      <AccountActionHeader desc="Sign In" />
       <div className="sign-in-credentials">
         <div className="sign-in-credentials-email">
           <label htmlFor="sign_in_email">
@@ -56,7 +57,8 @@ function SignInMain({ isLoggedIn, setUser }) {
             name="email"
             placeholder="type your email address"
             value={email}
-            onChange={onInputChange}
+            onChange={e => setEmail(e.target.value)}
+            onBlur={() => setIsEmailValid(email.includes('@'))}
           />
           {!isEmailValid && <span className="credentials-error-message">Incorrect e-mail address</span>}
         </div>
@@ -71,15 +73,24 @@ function SignInMain({ isLoggedIn, setUser }) {
             name="password"
             placeholder="type your password"
             value={password}
-            onChange={onInputChange}
+            onChange={e => setPassword(e.target.value)}
+            onBlur={() => setIsPasswordValid(password.length >= 6)}
           />
           {!isPasswordValid && <span className="credentials-error-message">Password requires at least 6 characters</span>}
-          {!isUserTrue && <span className="credentials-error-message">Password or e-mail address is incorrect.</span>}
+          {!isPassOkInDb && <span className="credentials-error-message">Password doen&apos;t match e-mail address.</span>}
+          {!isUserInDb && <span className="credentials-error-message">User with given email address is not in database.</span>}
         </div>
       </div>
       <div className="sign-in-actions">
         <NavLink to="/register" className="create-account-button">Create Account</NavLink>
-        <button type="submit" className="sign-in-button">Sign in</button>
+        <button
+          type="button"
+          className="sign-in-button"
+          disabled={!(email.length > 2 && password.length > 5)}
+          onClick={onFormSubmit}
+        >
+          Sign in
+        </button>
       </div>
     </form>
   );
@@ -93,7 +104,7 @@ function mapStateToProps(state) {
 
 SignInMain.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  setUser: PropTypes.func.isRequired,
+  setLoggedIn: PropTypes.func.isRequired,
 };
 
-export default withRouter(connect(mapStateToProps, { setUser: setUserStatus })(SignInMain));
+export default withRouter(connect(mapStateToProps, { setLoggedIn: setUserLoggedIn })(SignInMain));
