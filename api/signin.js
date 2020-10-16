@@ -44,9 +44,7 @@ async function getData(user) {
 
 exports.handler = async function (event, context) {
   try {
-    console.log(JSON.parse(event.body));
     const data = await getData(JSON.parse(event.body));
-    console.log(data);
     return {
       statusCode: 200,
       body: JSON.stringify(data)
