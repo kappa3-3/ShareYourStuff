@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { setUserLoggedIn } from '../../actions';
-import SignedInPrompt from '../SignedInPrompt';
 import ExistUserPrompt from '../ExistUserPrompt';
 import AccountActionHeader from '../AccountActionHeader';
 import InputErrorMsg from '../InputErrorMsg';
@@ -23,7 +22,10 @@ function CreateAccountMain({ authentication, setLoggedIn }) {
     e.preventDefault();
     if (isEmailValid && isPasswordValid && isPasswordCopyValid) {
       serverConnection('signup', email, password)
-        .then(res => !res.isExisting ? setLoggedIn : setIsUserInDb(true))
+        .then(res => {
+          if (!res.isExisting) return setLoggedIn();
+          return setIsUserInDb(true);
+        })
         .catch(err => { throw (err); });
     }
   };
@@ -32,7 +34,7 @@ function CreateAccountMain({ authentication, setLoggedIn }) {
   };
   return (
     <>
-      {authentication && <SignedInPrompt />}
+      {authentication && <Redirect to="/donate" />}
       {isUserInDb && <ExistUserPrompt visibility={promptHandler} />}
       <form className="sign-in-container">
         <AccountActionHeader desc="Create Account" />

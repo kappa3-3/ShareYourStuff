@@ -23,10 +23,13 @@ function SignInMain({ isLoggedIn, setLoggedIn }) {
   const handleDBResponse = res => {
     setIsPassOkInDb(true);
     if (res.isExisting) {
-      res.password ? setLoggedIn(true) : setIsPassOkInDb(false);
-    } else {
-      setIsUserInDb(false);
+      if (res.password) {
+        setLoggedIn(true);
+        return window.localStorage.setItem('user', true);
+      }
+      return setIsPassOkInDb(false);
     }
+    return setIsUserInDb(false);
   };
 
   const onFormSubmit = e => {

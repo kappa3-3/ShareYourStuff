@@ -42,12 +42,7 @@
   width: 450px;
   margin-top: 15px;
 }
-.sign-in-button {
-  @include nav-button;
-  &:hover {
-    @include active-sub-page;
-  }
-}
+
 .create-account-button {
   @include nav-button;
   &:hover {

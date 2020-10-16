@@ -17,22 +17,16 @@ import './style.scss';
 function DonateMain() {
   const [active, setActive] = useState(1);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  // const [errorStatus, setErrorStatus] = useState(false);
   const handleNextPage = (errors, touched) => {
     switch (active) {
       case 1:
-        return !touched.possessions_array || !!errors.possessions_array;
+        return errors.items_checked;
       case 2:
         return !touched.bags || !!errors.bags;
       case 3:
         return !touched.location || !!errors.location;
       case 4:
-        return !touched.street
-          || !touched.postcode
-          || !touched.hour
-          || !touched.phone
-          || !touched.date
-          || !!errors.location;
+        return Object.keys(errors).length > 0;
       default:
         return true;
     }
@@ -47,86 +41,79 @@ function DonateMain() {
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(true);
-            formikSubmit();
+            formikSubmit(values);
             setSubmitting(false);
             setIsFormSubmitted(true);
             setActive(active + 1);
           }}
+          validateOnMount
         >
           {({
             values,
             errors,
             touched,
-            handleChange,
-            handleBlur,
             handleSubmit,
-            isSubmitting,
           }) => (
-            <Form onSubmit={handleSubmit}>
-              {active === 1
-                && (
-                  <FormikItems
-                    values={values}
-                    errors={errors}
-                  />
-                )}
-              {active === 2
-                && (
-                  <FormikBags
-                    values={values}
-                    errors={errors}
-                    handleChange={() => handleChange}
-                  />
-                )}
-              {active === 3
-                && (
-                  <FormikLocation
-                    values={values}
-                    errors={errors}
-                    handleChange={() => handleChange}
-                  />
-                )}
-              {active === 4
-                && (
-                  <FormikPickUp
-                    values={values}
-                    errors={errors}
-                    handleChange={handleChange}
-                    handleBlur={() => handleBlur}
-                  />
-                )}
-              {active === 5 && <FormikSumUp values={values} />}
-              {active === 5
-                && (
-                  <div className="donate-button-container">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="button-forward-visible"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                )}
-              {(active === 6 && isFormSubmitted) && <DonateEnd />}
-              <div className="donate-button-container">
-                <button
-                  type="button"
-                  className={(active === 1 || active === 6) ? 'button-display-none' : 'button-backward-visible'}
-                  onClick={() => setActive(active - 1)}
-                >
-                  Back
-                </button>
-                <button
-                  type="button"
-                  className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
-                  disabled={handleNextPage(errors, touched)}
-                  onClick={() => setActive(active + 1)}
-                >
-                  Next
-                </button>
-              </div>
-            </Form>
+            <>
+              <Form onSubmit={handleSubmit}>
+                {active === 1
+                  && (
+                    <FormikItems
+                      checked={values.items_checked}
+                      errors={errors.items_checked}
+                    />
+                  )}
+                {active === 2
+                  && (
+                    <FormikBags
+                      values={values.bags}
+                    />
+                  )}
+                {active === 3
+                  && (
+                    <FormikLocation
+                      location={values.location}
+                      organization={values.organization}
+                    />
+                  )}
+                {active === 4
+                  && (
+                    <FormikPickUp
+                      location={values.location}
+                    />
+                  )}
+                {active === 5 && <FormikSumUp values={values} />}
+                {active === 5
+                  && (
+                    <div className="donate-button-container">
+                      <button
+                        type="submit"
+                        className="button-forward-visible"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  )}
+                {(active === 6 && isFormSubmitted) && <DonateEnd />}
+                <div className="donate-button-container">
+                  <button
+                    type="button"
+                    className={(active === 1 || active === 6) ? 'button-display-none' : 'button-backward-visible'}
+                    onClick={() => setActive(active - 1)}
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    className={active === 5 || active === 6 ? 'button-display-none' : 'button-forward-visible'}
+                    disabled={handleNextPage(errors, touched)}
+                    onClick={() => setActive(active + 1)}
+                  >
+                    Next
+                  </button>
+                </div>
+              </Form>
+            </>
           )}
         </Formik>
       </div>

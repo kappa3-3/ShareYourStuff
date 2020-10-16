@@ -4,7 +4,7 @@ import { Field, ErrorMessage } from 'formik';
 import DonateRemember from '../DonateRemember';
 import options from '../../commons/formik/options';
 
-const FormikBags = ({ values, handleChange }) => (
+const FormikBags = ({ values }) => (
   <div className="donate-component-container">
     <DonateRemember active={2} />
     <div className="donate-bags-choice-container">
@@ -18,16 +18,17 @@ const FormikBags = ({ values, handleChange }) => (
         <Field
           as="select"
           id="bags"
-          value={values.bags}
+          value={values}
           name="bags"
         >
-          <option value={null}>--choose--</option>
+          <option value={null}>
+            --choose--
+          </option>
           {options.map(item => (
             <option
               key={item.value}
               value={item.value}
               className="select"
-              onChange={() => handleChange}
             >
               {item.label}
             </option>
@@ -39,12 +40,7 @@ const FormikBags = ({ values, handleChange }) => (
 );
 
 FormikBags.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-  values: PropTypes.objectOf(PropTypes.string.isRequired),
-};
-
-FormikBags.defaultProps = {
-  values: {},
+  values: PropTypes.string.isRequired,
 };
 
 export default FormikBags;

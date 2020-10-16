@@ -1,7 +1,7 @@
-const formikSubmit = (values, { setSubmitting }) => {
+const formikSubmit = (values) => {
 
   // setSubmitting(true);
-  fetch('http://localhost:3005/donations', {
+  fetch(`/.netlify/functions/donations`, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(values)

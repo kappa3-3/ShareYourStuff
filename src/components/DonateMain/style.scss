@@ -109,9 +109,10 @@
 }
 
 .form-error-message {
-  padding-bottom: 3px;
+  padding-bottom: 10px;
   color: darkred;
-  font-size: 10px;
+  font-size: 14px;
+  height: 22px;
 }
 
 .donate-location {
@@ -125,7 +126,7 @@
   width: 35px;
 }
 
-.donate-sum-up-item, .donate-sum-up-location {
+.donate-sum-up-main {
   display: flex;
   justify-content: flex-start;
 }

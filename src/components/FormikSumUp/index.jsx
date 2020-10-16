@@ -1,46 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SumUpDetail from '../SumUpDetail';
 import bag from '../../assets/icons/Icon-2.svg';
 import transport from '../../assets/icons/Icon-4.svg';
+import SumUpIcon from '../SumUpIcon';
 
 const FormikSumUp = ({ values }) => (
   <div className="donate-component-container">
     <div className="donate-component-choice-container">
       <h1>Summary of your donation</h1>
-      <h3>Items declared to donate:</h3>
-      <table className="donate-sum-up-item">
+      <table className="donate-sum-up-main">
         <tbody>
           <tr>
-            <th className="donate-sump-up-th">
-              <img
-                className="sum-up-icon"
-                src={bag}
-                alt=""
-              />
+            <th colSpan="3" className="donate-details-title">
+              Items declared to donate:
             </th>
-            <td>
-              {`${values.bags} bags of:`}
-            </td>
-            {values.possessions[0].value && <td> clothing suitable for use |</td>}
-            {values.possessions[1].value && <td> clothing to recycle |</td>}
-            {values.possessions[2].value && <td> toys |</td>}
-            {values.possessions[3].value && <td> books |</td>}
-            {values.possessions[4].value && <td> not listed items |</td>}
           </tr>
-        </tbody>
-      </table>
-      <table className="donate-sum-up-location">
-        <tbody>
           <tr>
-            <th className="donate-sump-up-th">
-              <img
-                className="sum-up-icon"
-                src={transport}
-                alt=""
-              />
-            </th>
-            <td>location:</td>
-            <td>{values.location}</td>
+            <SumUpIcon src={bag} />
+            <td>
+              {`${values.bags} bags of: `}
+            </td>
+            {values.possessions.map(({ description, value }) => value
+              && (
+                <td key={description}>
+                  {`${description} | `}
+                </td>
+              ))}
+          </tr>
+          <tr>
+            <SumUpIcon src={transport} />
+            <td>location:&nbsp;</td>
+            <td>
+              {values.location}
+              {values.organization.length > 1
+                && ` , ${values.organization}`}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -50,22 +45,10 @@ const FormikSumUp = ({ values }) => (
             <tr>
               <th className="donate-details-title">Pick-up address:</th>
             </tr>
-            <tr>
-              <th className="donate-details-th">street:</th>
-              <td className="donate-details-td">{values.street}</td>
-            </tr>
-            <tr>
-              <th className="donate-details-th">city:</th>
-              <td className="donate-details-td">{values.location}</td>
-            </tr>
-            <tr>
-              <th className="donate-details-th">post-code:</th>
-              <td className="donate-details-td">{values.postcode}</td>
-            </tr>
-            <tr>
-              <th className="donate-details-th">phone number:</th>
-              <td className="donate-details-td">{values.phone}</td>
-            </tr>
+            <SumUpDetail item={{ label: 'street', value: values.street }} />
+            <SumUpDetail item={{ label: 'city', value: values.location }} />
+            <SumUpDetail item={{ label: 'postcode', value: values.postcode }} />
+            <SumUpDetail item={{ label: 'phone', value: values.phone }} />
           </tbody>
         </table>
         <table className="donate-sum-up-details-time">
@@ -73,18 +56,9 @@ const FormikSumUp = ({ values }) => (
             <tr>
               <th className="donate-details-title">Pick-up time:</th>
             </tr>
-            <tr>
-              <th className="donate-details-th">date:</th>
-              <td className="donate-details-td">{values.date}</td>
-            </tr>
-            <tr>
-              <th className="donate-details-th">time:</th>
-              <td className="donate-details-td">{values.hour}</td>
-            </tr>
-            <tr>
-              <th className="donate-details-th">remarks for the courier:</th>
-              <td className="donate-details-td">{values.remarks}</td>
-            </tr>
+            <SumUpDetail item={{ label: 'date', value: values.date }} />
+            <SumUpDetail item={{ label: 'time', value: values.time }} />
+            <SumUpDetail item={{ label: 'remarks', value: values.remarks }} />
           </tbody>
         </table>
       </div>
@@ -93,7 +67,14 @@ const FormikSumUp = ({ values }) => (
 );
 
 FormikSumUp.propTypes = {
-  values: PropTypes.objectOf(PropTypes.string.isRequired),
+  values: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+      PropTypes.array,
+    ]),
+  ),
 };
 
 FormikSumUp.defaultProps = {

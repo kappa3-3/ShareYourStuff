@@ -16,8 +16,9 @@ function NavBar({
   const [logOutPrompt, setLogOutPrompt] = useState(false);
   const handleLogOut = e => {
     e.preventDefault();
-    setLogOutPrompt(true);
     setLoggedOut();
+    window.localStorage.setItem('user', false);
+    setLogOutPrompt(true);
     setTimeout(() => setLogOutPrompt(false), 3000);
   };
   return (

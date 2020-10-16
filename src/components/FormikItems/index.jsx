@@ -1,22 +1,25 @@
 import React from 'react';
+import { Field, FieldArray } from 'formik';
 import PropTypes from 'prop-types';
-import { Field, FieldArray, ErrorMessage } from 'formik';
 import DonateRemember from '../DonateRemember';
+import possessions from '../../commons/formik/possessions';
 
-const FormikItems = ({ values }) => (
+const FormikItems = ({ checked, errors }) => (
   <div className="donate-component-container">
     <DonateRemember active={1} />
     <div className="donate-component-choice-container">
       <span>Step 1/4</span>
-      <h1 className="donate-choice-headline"> Choose products you want to donate:</h1>
+      <h1 className="donate-choice-headline">
+        Choose products you want to donate:
+      </h1>
       <div className="donate-items-choice">
-        <span>
-          <ErrorMessage name="possessions" />
+        <span className="form-error-message">
+          {!!errors && errors}
         </span>
         <FieldArray
-          name="possessions_array"
+          name="items_checked"
           render={arrayHelpers => (
-            values.possessions.map((item, index) => (
+            possessions.map(item => (
               <div
                 className="donate-items-single"
                 key={item.label}
@@ -26,9 +29,10 @@ const FormikItems = ({ values }) => (
                   id={item.label}
                   className={item.label}
                   type="checkbox"
-                  value={item.value}
-                  checked={item.value}
-                  onClick={() => arrayHelpers.insert(index, values.possessions[index].value = !item.value)}
+                  defaultValue="false"
+                  onClick={e => (e.target.value === 'false'
+                    ? arrayHelpers.push(item.label)
+                    : arrayHelpers.remove(checked.indexOf(e.target.id)))}
                 />
                 <label
                   htmlFor={item.label}
@@ -45,11 +49,16 @@ const FormikItems = ({ values }) => (
 );
 
 FormikItems.propTypes = {
-  values: PropTypes.objectOf(PropTypes.string.isRequired),
+  checked: PropTypes.arrayOf(PropTypes.string),
+  errors: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]),
 };
 
 FormikItems.defaultProps = {
-  values: {},
+  checked: [],
+  errors: '',
 };
 
 export default FormikItems;

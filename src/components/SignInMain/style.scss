@@ -53,6 +53,9 @@
   &:hover {
     @include active-sub-page;
   }
+  &:disabled {
+    border: none;
+  }
 }
 .create-account-button {
   @include nav-button;
