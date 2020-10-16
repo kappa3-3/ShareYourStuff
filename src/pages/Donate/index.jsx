@@ -1,27 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
+import DonateHeader from '../../components/DonateHeader';
 import DonateMain from '../../components/DonateMain';
-import DonateUp from '../../components/DonateUp';
-import NavBar from '../../components/NavBar';
-import SignInMain from '../../components/SignInMain';
+import Contact from '../../components/Contact';
+import Footer from '../../components/Footer';
+import GoUp from '../../components/GoUp';
 import './style.scss';
 
 const Donate = ({ authentication }) => (
   authentication
     ? (
-      <div>
+      <div id="donate-container" className="donate-container">
+        <DonateHeader />
         <DonateMain />
-        <DonateUp />
+        <Contact />
+        <Footer />
+        <GoUp
+          to="donate-container"
+          name="donate-up-container"
+        />
       </div>
-    ) : (
-      <div>
-        <div className="nav-bar-container">
-          <NavBar page="donate" />
-        </div>
-        <SignInMain />
-      </div>
-    )
+    ) : <Redirect to="login" />
 );
 
 function mapStateToProps(state) {

@@ -36,7 +36,7 @@ function SignInMain({ isLoggedIn, setLoggedIn }) {
     e.preventDefault();
     isFormValid();
     if (isEmailValid && isPasswordValid) {
-      serverConnection('signin', email, password)
+      serverConnection('signin', { email, password })
         .then(res => handleDBResponse(res))
         .catch(err => { throw (err); });
     } else {

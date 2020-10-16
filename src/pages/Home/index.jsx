@@ -5,6 +5,7 @@ import HomeSimpleSteps from '../../components/HomeSimpleSteps';
 import HomeAbout from '../../components/HomeAbout';
 import HomeSupport from '../../components/HomeSupport';
 import HomeContact from '../../components/Contact';
+import GoUp from '../../components/GoUp';
 import Footer from '../../components/Footer';
 import './style.scss';
 
@@ -18,9 +19,11 @@ const Home = () => (
     <HomeAbout />
     <HomeSupport />
     <HomeContact />
-    <div className="footer-wrapper">
-      <Footer />
-    </div>
+    <Footer />
+    <GoUp
+      to="header-container"
+      name="home-up-container"
+    />
   </div>
 );
 

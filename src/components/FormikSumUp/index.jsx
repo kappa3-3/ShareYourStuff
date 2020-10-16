@@ -4,6 +4,7 @@ import SumUpDetail from '../SumUpDetail';
 import bag from '../../assets/icons/Icon-2.svg';
 import transport from '../../assets/icons/Icon-4.svg';
 import SumUpIcon from '../SumUpIcon';
+import possessions from '../../commons/formik/possessions';
 
 const FormikSumUp = ({ values }) => (
   <div className="donate-component-container">
@@ -21,12 +22,12 @@ const FormikSumUp = ({ values }) => (
             <td>
               {`${values.bags} bags of: `}
             </td>
-            {values.possessions.map(({ description, value }) => value
-              && (
-                <td key={description}>
-                  {`${description} | `}
-                </td>
-              ))}
+            <td>
+              {values.items_checked.map(item => {
+                const desc = possessions.filter(({ label }) => label === item);
+                return ` ${desc[0].description} |`
+              })}
+            </td>
           </tr>
           <tr>
             <SumUpIcon src={transport} />

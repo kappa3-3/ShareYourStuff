@@ -21,7 +21,7 @@ function CreateAccountMain({ authentication, setLoggedIn }) {
   const onClickSubmit = e => {
     e.preventDefault();
     if (isEmailValid && isPasswordValid && isPasswordCopyValid) {
-      serverConnection('signup', email, password)
+      serverConnection('signup', { email, password })
         .then(res => {
           if (!res.isExisting) return setLoggedIn();
           return setIsUserInDb(true);
