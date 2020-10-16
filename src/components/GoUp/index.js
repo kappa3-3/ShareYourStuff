@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { ReactComponent as IconUp } from '../../assets/icons/angle-double-up-solid.svg';
-import './style.scss';
 
 const GoUp = ({ to, name }) => {
   const [scrollY, setScrollY] = useState(0);
@@ -35,4 +34,5 @@ const GoUp = ({ to, name }) => {
     </>
   );
 }
+
 export default GoUp;
