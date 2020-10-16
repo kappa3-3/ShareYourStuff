@@ -1,9 +1,13 @@
-export const setUserStatus = async (login, password) => {
-  const result = await fetch('https://raw.githubusercontent.com/kappa3-3/server/master/users')
-    .then((data) => data.json());
-  const isUserLoggedIn = result.find((user) => user.email === login && user.password === password);
+export const setUserLoggedIn = async () => {
   return {
     type: 'SIGN_IN',
-    payload: !!isUserLoggedIn,
+    payload: true,
+  };
+};
+
+export const setUserLoggedOut = async () => {
+  return {
+    type: 'SIGN_OUT',
+    payload: false,
   };
 };

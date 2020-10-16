@@ -1,4 +1,4 @@
-export const locations = [
+const locations = [
   { value: 'Amsterdam', label: 'Amsterdam' },
   { value: 'Brussels', label: 'Brussels' },
   { value: 'Madrid', label: 'Madrid' },
@@ -7,3 +7,5 @@ export const locations = [
   { value: 'Warsaw', label: 'Warsaw' },
   { value: 'Paris', label: 'Paris' },
 ];
+
+export default locations;

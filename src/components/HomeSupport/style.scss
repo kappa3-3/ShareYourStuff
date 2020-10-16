@@ -30,6 +30,7 @@
   border: 1px solid transparent;
   &:hover {
     box-shadow: 0 3px 3px -3px #3C3C3C;
+    text-shadow: 1px 0 $up-transparency;
   }
   &:focus {
     outline: none;
@@ -39,7 +40,6 @@
 .support-active {
   @include active-sub-page;
   @include organization-types;
-
 }
 
 .support-pages {

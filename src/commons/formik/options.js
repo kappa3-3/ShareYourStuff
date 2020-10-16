@@ -1,4 +1,4 @@
-export const options = [
+const options = [
   { value: '1', label: '1' },
   { value: '2', label: '2' },
   { value: '3', label: '3' },
@@ -6,3 +6,5 @@ export const options = [
   { value: '5', label: '5' },
   { value: 'more than 5', label: 'more than 5' },
 ];
+
+export  default options;

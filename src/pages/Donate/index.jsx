@@ -1,38 +1,38 @@
-import React, { Component }from "react";
-import {connect} from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
+import PropTypes from 'prop-types';
+import DonateHeader from '../../components/DonateHeader';
+import DonateMain from '../../components/DonateMain';
+import Contact from '../../components/Contact';
+import Footer from '../../components/Footer';
+import GoUp from '../../components/GoUp';
+import './style.scss';
 
-import DonateMain from "../../components/DonateMain";
-import DonateUp from "../../components/DonateUp";
-import NavBar from "../../components/NavBar";
-import SignInMain from "../../components/SignInMain";
-import {setUserStatus} from "../../actions";
-
-class Donate extends Component {
-    render() {
-        return (
-            this.props.authentication
-                ?
-                <div className='donate-wrapper'>
-                    <DonateMain/>
-                    <DonateUp/>
-                </div>
-                :
-                <div>
-                    <div className='nav-bar-container'>
-                        <NavBar />
-                    </div>
-                    <SignInMain />
-                </div>
-
-        )
-    }
-}
+const Donate = ({ authentication }) => (
+  authentication
+    ? (
+      <div id="donate-container" className="donate-container">
+        <DonateHeader />
+        <DonateMain />
+        <Contact />
+        <Footer />
+        <GoUp
+          to="donate-container"
+          name="donate-up-container"
+        />
+      </div>
+    ) : <Redirect to="login" />
+);
 
 function mapStateToProps(state) {
-    return {
-        authentication: state.authentication
-    }
+  return {
+    authentication: state.authentication,
+  };
 }
 
-export default connect(mapStateToProps, {setUserStatus})(Donate);
+Donate.propTypes = {
+  authentication: PropTypes.bool.isRequired,
+};
 
+export default connect(mapStateToProps)(Donate);
