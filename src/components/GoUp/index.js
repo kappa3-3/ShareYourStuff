@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import PropTypes from 'prop-types';
 import { ReactComponent as IconUp } from '../../assets/icons/angle-double-up-solid.svg';
 
 const GoUp = ({ to, name }) => {
@@ -11,11 +12,11 @@ const GoUp = ({ to, name }) => {
 
   useEffect(() => {
     function watchScroll() {
-      window.addEventListener("scroll", logit);
+      window.addEventListener('scroll', logit);
     }
     watchScroll();
     return () => {
-      window.removeEventListener("scroll", logit);
+      window.removeEventListener('scroll', logit);
     };
   });
 
@@ -33,6 +34,11 @@ const GoUp = ({ to, name }) => {
         )}
     </>
   );
-}
+};
+
+GoUp.propTypes = {
+  to: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
 
 export default GoUp;

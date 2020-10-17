@@ -3,7 +3,7 @@ import instagram from '../../assets/icons/Instagram.svg';
 import facebook from '../../assets/icons/Facebook.svg';
 import './style.scss';
 
-const HomeFooter = () => (
+const Footer = () => (
   <div className="footer-wrapper">
     <div
       id="footer-container"
@@ -11,7 +11,7 @@ const HomeFooter = () => (
     >
       <span className="footer-text">
         Copyright by Coders Lab
-    </span>
+      </span>
       <img
         className="footer-icon-fb"
         src={facebook}
@@ -26,4 +26,4 @@ const HomeFooter = () => (
   </div>
 );
 
-export default HomeFooter;
+export default Footer;
