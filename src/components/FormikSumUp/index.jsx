@@ -25,7 +25,7 @@ const FormikSumUp = ({ values }) => (
             <td>
               {values.items_checked.map(item => {
                 const desc = possessions.filter(({ label }) => label === item);
-                return ` ${desc[0].description} |`
+                return ` ${desc[0].description} |`;
               })}
             </td>
           </tr>

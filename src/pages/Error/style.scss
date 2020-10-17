@@ -1,0 +1,55 @@
+@import "../../scss/settings/_mixins";
+@import "../../scss/settings/_reusable";
+
+.error-wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.home-explanation-wrapper {
+  height: 100vh;
+}
+
+.home-up-container {
+ @include up;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.error-guide {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  margin-top: 15vh;
+}
+
+.text-above-decoration {
+  @include text-above-decoration;
+}
+
+.error-guide-options {
+  display: flex;
+  @include give-away;
+}
+
+.donate-component-home-button {
+  bottom: -95px;
+  outline: none;
+  text-decoration: none;
+  color: $dark-grey;
+  @include donate-button-page;
+}
+
+.footer-wrapper {
+  height: 25px;
+  width: 100%;
+  position: absolute;
+  bottom: 25px;
+}
