@@ -1,13 +1,15 @@
 # Share your stuff
+![alt text](https://raw.githubusercontent.com/kappa3-3/ShareYourStuff/master/src/assets/images/Donate_page_view.jpg)
 
-A website to donate items which are no longer used but might appear useful to others. <br />
-This project is based on a graphic design received from CodersLab and developed independently with a supervision of CodersLab's tutor. <br />
+A website to donate items which are no longer used but might appear useful to others. This project is based on a graphic design received from CodersLab and developed independently with a supervision of CodersLab's tutor.
 
-https://share-your-stuff.netlify.com/
-#### In order to login to 'Donate' use credentials:
-##### Login: 
+## Visit the site on Netlify: 
+[share-your-stuff.netlify.app](https://share-your-stuff.netlify.app/ )
+
+In order to login to 'Donate' use credentials:
+* Login: 
 admin@domain.com 
-##### Password: 
+* Password: 
 password1
 
 ## Table of contents
@@ -20,39 +22,17 @@ password1
 
 * Used <b>React Routing</b> to navigate through sub-pages
 * Used <b>Redux</b> state to access login status globally
-* Created both class and functional components depending on the type needed
+* Created only with functional components
 * Complex form created in <b>Formik</b>
-* Server on <b>GitHub</b> created to <b>fetch</b> data
-##### Important!
-* Fetch POST working only with [http://localhost:3000]
+* Server created with <b>Lambda functions</b> provided by <b>Netlify</b> to <b>fetch</b> information from database.
 
 ## Technologies
 
 * JavaScript
 * React
-* Redux
-* Node.js
-* JSON server / fetch
 * Formik
-
-## Setup
-
-To run this project, install it locally using npm:
-
-```
-$ npm install
-$ npm start
-```
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### `create-react-app`
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-```
-npm init react-app my-app
-```
+* Redux
+* MongoDB Atlas (AWS)
+* Netlify (server with lambda functions)
+* JSON server / fetch
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
