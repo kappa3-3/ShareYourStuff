@@ -5,10 +5,10 @@ import {
   Route
 } from "react-router-dom";
 import Home from './pages/Home'
-import CreateAccount from "./pages/CreateAccount";
-import SignIn from "./pages/SignIn";
-import Donate from "./pages/Donate";
-import Error from "./pages/Error";
+import CreateAccount from './pages/CreateAccount';
+import SignIn from './pages/SignIn';
+import Donate from './pages/Donate';
+import ErrorPage from './pages/ErrorPage';
 
 const Routing = () => (
   <Router>
@@ -17,7 +17,7 @@ const Routing = () => (
       <Route path="/login" component={SignIn} />
       <Route path="/register" component={CreateAccount} />
       <Route path="/donate" component={Donate} />
-      <Route path="/error" component={Error} />
+      <Route path="/error" component={ErrorPage} />
     </Switch>
   </Router>
 );

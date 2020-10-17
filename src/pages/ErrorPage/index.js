@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import { ReactComponent as Decoration } from '../../assets/icons/Decoration.svg';
 import './style.scss';
 
-const Error = ({ authentication }) => (
+const ErrorPage = ({ authentication }) => (
   <div className="error-wrapper">
     <div id="error-container" className="error-container">
       <div className="header-content">
@@ -49,8 +49,8 @@ function mapStateToProps(state) {
   };
 }
 
-Error.propTypes = {
+ErrorPage.propTypes = {
   authentication: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps)(Error);
+export default connect(mapStateToProps)(ErrorPage);
